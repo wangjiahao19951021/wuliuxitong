@@ -2,7 +2,8 @@
 /* 头部 */
 .wrap-head-box{
     width: 100%;
-    height: 4.75rem;
+	height: 4.75rem;
+	line-height: 4.75rem;
 	color: #FFFFFF;
 	background: -webkit-linear-gradient(left, #4779fe , #57a3f9); 
     background: -o-linear-gradient(right, #4779fe, #57a3f9);

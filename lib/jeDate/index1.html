@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="test/jeDate-test.css">
+    <link type="text/css" rel="stylesheet" href="skin/jedate.css">
+    <script type="text/javascript" src="src/jedate.js"></script>
+</head>
+<body>
+        <div class="jewarp">
+                <h3 class="gray">英文语言</h3>
+                <div class="content">
+                    <div class="jeitem">
+                        <label class="jelabel">年月日时分秒</label>
+                        <div class="jeinpbox"><input type="text" class="jeinput" id="enYMDhms" placeholder="YYYY-MM-DD hh:mm:ss">1</div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div id="a">111111111</div>
+            <script>
+                    var enLang = {                            
+                        name  : "en",
+                        month : ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
+                        weeks : [ "SUN","MON","TUR","WED","THU","FRI","SAT" ],
+                        times : ["Hour","Minute","Second"],
+                        timetxt: ["Time","Start Time","End Time"],
+                        backtxt:"Back",
+                        clear : "Clear",
+                        today : "Now",
+                        yes   : "Confirm",
+                        close : "Close"
+                    }
+                    jeDate("#a",{
+                    // language:enLang,
+                    format: "YYYY-MM-DD hh:mm:ss"
+                });
+                </script>
+</body>
+</html>

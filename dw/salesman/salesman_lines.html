@@ -230,6 +230,42 @@
 					</div>
 				</div>
 			</div>
+			<div class="main-cont-box">
+				<div class="region-cont-box">
+					<div class="row">
+						<div class="col-md-5 col-xs-5 start-cont-box tc">
+							<p>山东</p>
+							<span>临沂</span>
+						</div>
+						<div class="col-md-2 col-xs-2 arrows-cont-box">
+							<span class="arrows-one"></span>
+							<span class="arrows-two"></span>
+						</div>
+						<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+							<p>江苏</p>
+							<span>南京</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-cont-box">
+				<div class="region-cont-box">
+					<div class="row">
+						<div class="col-md-5 col-xs-5 start-cont-box tc">
+							<p>山东</p>
+							<span>临沂</span>
+						</div>
+						<div class="col-md-2 col-xs-2 arrows-cont-box">
+							<span class="arrows-one"></span>
+							<span class="arrows-two"></span>
+						</div>
+						<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+							<p>江苏</p>
+							<span>南京</span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -251,7 +287,7 @@
 		</div>
 		<div class="list-nav-box">
 			<i class="personnel-nav"></i>
-			<span>人员</span>
+			<span>录入信息</span>
 		</div>
 		<div class="list-nav-box">
 			<i class="my-nav"></i>
@@ -263,16 +299,22 @@
 		$(".paixu p:eq(2)").click(function () {								
 			$(".paixu").hide();
 			$(".paixu_zhezhao").hide();
+			$("body").css({"position":"static"});                
 		})
 		// 点击排序弹出
 		$(".sl_tc").click(function () {
 			$(".paixu").show();
 			$(".paixu_zhezhao").show();
+			//这是当前滚动的页面滚动条位置
+			var top=$(window).scrollTop();
+			//此处为当前需要定住的位置 
+			$("body").css({"position":"fixed", "width":"100%","top": top*-1});
 		})
 		// 点击遮罩
 		$(".paixu_zhezhao").click(function () {								
 			$(".paixu").hide();
 			$(".paixu_zhezhao").hide();
+			$("body").css({"position":"static"});
 		})
 	</script>
 </body>

@@ -27,3 +27,8 @@ button{outline: none;}
 .tc{
 	text-align: center;
 }
+ /*插件自定义样式*/
+ .ansel_input {padding:0 10px;background:#fff;border-radius: 4px; color:#999999;}
+ .ansel_input .ansel_inputval {height:40px;line-height: 40px;width:100%;}
+ .ansel_search .ansel_search_input{text-align: left;}
+ .ansel_btns .ansel_btnss .ansel_ok, .ansel_btns .ansel_btnss .ansel_no{border-radius: 15px;}
