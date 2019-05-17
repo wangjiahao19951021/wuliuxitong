@@ -15,6 +15,48 @@
 		<script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
 		<script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<title>个人中心</title>
+		<style>
+			.home-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-wd-q_3.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.path-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-xl-q.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.add-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-fb.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.personnel-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-lr-q.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.my-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-wd-q_1.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		</style>
 	</head>
 	<body>
 
@@ -85,7 +127,7 @@
 				<i class="path-nav"></i>
 				<span>线路</span>
 			</div>
-			<div class="add-nav-box">
+			<div class="list-nav-box add-nav-box">
 				<div class="add-cont-box">
 					<i class="add-nav"></i>
 				</div>
@@ -100,6 +142,23 @@
 				<span>我的</span>
 			</div>
 		</div>
-
+		<script>
+			// 点击线路
+			$(".wrap-nav-box").on("click", ".list-nav-box", function () {
+				var sale_index = $(this).index();
+				switch (sale_index) {
+					case 0 : location.href = "salesman_index.html"
+					break;
+					case 1 : location.href = "salesman_lines.html"
+					break;
+					case 2 : location.href = "salesman_edit.html"
+					break;
+					case 3 : location.href = "salesman_entering.html"
+					break;
+					case 4 : location.href = "salesman_user.html"
+					break;
+				}
+			})
+		</script>
 	</body>
 </html>

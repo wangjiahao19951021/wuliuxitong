@@ -23,7 +23,7 @@
 }
 .message-cont-box{
 	width: 100%;
-	height: 11.75rem;
+	height: 15rem;
 	margin-top: 1.25rem;
 	border-radius: 15px;
 	background:rgba(255,255,255,1);
@@ -145,4 +145,7 @@
 	background: -o-linear-gradient(right, #4779fe, #57a3f9);
 	background: -moz-linear-gradient(right, #4779fe, #57a3f9);
 	background: linear-gradient(to right, #4779fe , #57a3f9);
+}
+.btn-cont-box .btn{
+	outline: none !important;
 }

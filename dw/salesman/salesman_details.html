@@ -349,10 +349,11 @@
         // 点击编辑解除禁用
         $(".edit_right p").click(function () {
             for (var i = 0; i < $("input").length; i++) {
-                $("input").eq(i).removeAttr("readonly")
+                $("input").eq(i).removeAttr("readonly");
             }
-            $("#lurushijian").attr("readonly", "readonly")
-            $("#weihushijian").attr("readonly", "readonly")
+            $("textarea").removeAttr("readonly");
+            $("#lurushijian").attr("readonly", "readonly");
+            $("#weihushijian").attr("readonly", "readonly");
              // 日期插件
             jeDate("#lurushijian", {
                 format: "YYYY-MM-DD hh:mm:ss"

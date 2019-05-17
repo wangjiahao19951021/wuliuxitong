@@ -79,6 +79,46 @@
 		body{
 			padding-bottom: 80px;
 		}
+		.home-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-wd-q_3.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.path-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-wd-q_4.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.add-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-fb.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.personnel-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-lr-q.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.my-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-wd-q.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
 	</style>
 </head>
 <body>
@@ -95,7 +135,7 @@
         				<div class="col-md-6 col-xs-6">
         					<h2>维护路线：<span>山东-江苏</span></h2>
         				</div>
-        				<div class="col-md-3 col-xs-3">
+        				<div class="col-md-3 col-xs-3 sal_lines_chaxun">
         					<p>查询</p>
         				</div>
         			</div>
@@ -269,6 +309,96 @@
 					</div>
 				</div>
 			</div>
+			<div class="main-cont-box">
+				<div class="region-cont-box">
+					<div class="row">
+						<div class="col-md-5 col-xs-5 start-cont-box tc">
+							<p>山东</p>
+							<span>临沂</span>
+						</div>
+						<div class="col-md-2 col-xs-2 arrows-cont-box">
+							<span class="arrows-one"></span>
+							<span class="arrows-two"></span>
+						</div>
+						<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+							<p>江苏</p>
+							<span>南京</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-cont-box">
+				<div class="region-cont-box">
+					<div class="row">
+						<div class="col-md-5 col-xs-5 start-cont-box tc">
+							<p>山东</p>
+							<span>临沂</span>
+						</div>
+						<div class="col-md-2 col-xs-2 arrows-cont-box">
+							<span class="arrows-one"></span>
+							<span class="arrows-two"></span>
+						</div>
+						<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+							<p>江苏</p>
+							<span>南京</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-cont-box">
+				<div class="region-cont-box">
+					<div class="row">
+						<div class="col-md-5 col-xs-5 start-cont-box tc">
+							<p>山东</p>
+							<span>临沂</span>
+						</div>
+						<div class="col-md-2 col-xs-2 arrows-cont-box">
+							<span class="arrows-one"></span>
+							<span class="arrows-two"></span>
+						</div>
+						<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+							<p>江苏</p>
+							<span>南京</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-cont-box">
+				<div class="region-cont-box">
+					<div class="row">
+						<div class="col-md-5 col-xs-5 start-cont-box tc">
+							<p>山东</p>
+							<span>临沂</span>
+						</div>
+						<div class="col-md-2 col-xs-2 arrows-cont-box">
+							<span class="arrows-one"></span>
+							<span class="arrows-two"></span>
+						</div>
+						<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+							<p>江苏</p>
+							<span>南京</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-cont-box">
+				<div class="region-cont-box">
+					<div class="row">
+						<div class="col-md-5 col-xs-5 start-cont-box tc">
+							<p>山东</p>
+							<span>临沂</span>
+						</div>
+						<div class="col-md-2 col-xs-2 arrows-cont-box">
+							<span class="arrows-one"></span>
+							<span class="arrows-two"></span>
+						</div>
+						<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+							<p>江苏</p>
+							<span>南京</span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -282,7 +412,7 @@
 			<i class="path-nav"></i>
 			<span>线路</span>
 		</div>
-		<div class="add-nav-box">
+		<div class="list-nav-box add-nav-box">
 			<div class="add-cont-box">
 				<i class="add-nav"></i>
 			</div>
@@ -318,6 +448,26 @@
 			$(".paixu").hide();
 			$(".paixu_zhezhao").hide();
 			$("body").css({"position":"static"});
+		})
+		// 点击查询
+		$(".sal_lines_chaxun p").click(function () {
+                location.href = "salesman_inquire.html"
+            })
+		// 点击线路
+		$(".wrap-nav-box").on("click", ".list-nav-box", function () {
+			var sale_index = $(this).index();
+			switch (sale_index) {
+				case 0 : location.href = "salesman_index.html"
+				break;
+				case 1 : location.href = "salesman_lines.html"
+				break;
+				case 2 : location.href = "salesman_edit.html"
+				break;
+				case 3 : location.href = "salesman_entering.html"
+				break;
+				case 4 : location.href = "salesman_user.html"
+				break;
+			}
 		})
 	</script>
 </body>
