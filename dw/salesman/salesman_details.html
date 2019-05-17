@@ -186,6 +186,14 @@
         .sdh_bottom{
             width: 90%;
         }
+        .paixu_zhezhao{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 8;			
+            display: none;	
+        }
     </style>
 </head>
 <body>
@@ -345,9 +353,20 @@
             </div>
         </div>
     </div>
+     <!-- 排序遮罩 -->
+     <div class="paixu_zhezhao"></div>
     <script>
         // 点击编辑解除禁用
         $(".edit_right p").click(function () {
+             // 加载loading等操作
+             $(".paixu_zhezhao").show();
+                $(".paixu_zhezhao").css("top", 0)
+                $.DialogByZ.Loading('../../lib/jQueryZdialog/image/loading.png');
+                setTimeout(function () {
+                    $.DialogByZ.Close();
+                    $(".paixu_zhezhao").hide();
+                    $(".paixu_zhezhao").css("top", "auto")
+                }, 500)
             for (var i = 0; i < $("input").length; i++) {
                 $("input").eq(i).removeAttr("readonly");
             }
