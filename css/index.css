@@ -1,0 +1,128 @@
+/*主页样式  维护员和经理公用*/
+/* 选择操作按钮 */
+.warp-btn-box{
+	width: 100%;
+	height: 5.625rem;
+	margin: 0 auto;
+}
+.btn-box{
+	width: 85%;
+	height: auto;
+	margin: 0 auto;
+}
+.btn-box button{
+	width: 20%;
+	height: 2.2rem;
+	border-radius: 20px;
+	float: left;
+	margin: 1.2rem 0.5rem;
+	background-color: #7399fe;
+	border: none;
+	font-size: 1.2rem;
+}
+
+.change-active{
+	border-left: 1.3125rem solid #ff5310;
+}
+/* 内容 */
+.wrap-cont-box{
+	width: 100%;
+	height: auto;
+}
+.main-cont-box{
+	width: 100%;
+	height: 11.75rem;
+	margin-top: 1.25rem;
+	border-radius: 15px;
+	background:rgba(255,255,255,1);
+	box-shadow: 0px 6px 10px 1px rgba(59,159,218,0.24);
+	background-color: #FFFFFF;
+	position: relative;
+}
+.btn-cont-box{
+	position: absolute;
+	right: 6%;
+	bottom: 6%;
+}
+.more-cont-btn{
+	font-size: 1.5rem;
+	color: #4779FE;
+	margin: 0 auto;
+}
+.region-cont-box{
+	width: 100%;
+	padding-top: 1rem;
+}
+.region-cont-box > .row{
+	width: 100%;
+	margin: 0 auto;
+}
+.start-cont-box > p{
+	font-size: 2rem;
+	color: #4779fe;
+	margin-bottom: 0;
+}
+.start-cont-box > span{
+	font-size: 1.5rem;
+}
+.getTo-cont-box > p{
+	font-size: 2rem;
+	color: #4779fe;
+	margin-bottom: 0;
+}
+.getTo-cont-box > span{
+	font-size: 1.5rem;
+}
+.arrows-cont-box{
+	position: relative;
+}
+.arrows-one{
+	width: 100%;
+	height: 0.125rem;
+	border-bottom: 2px solid #000000;
+	display: inline-block;
+}
+.arrows-two{
+	width: 0;
+    height: 0;
+    border-bottom: 8px solid #000000;
+    border-right: 15px solid transparent;
+	display: inline-block;
+	position: absolute;
+	top: 7px;
+    right: 0;
+}
+
+.details-cont-box{
+	width: 100%;
+	height: 1.25rem;
+	font-size: 1.25rem;
+	margin-top: 1.5rem;
+	padding-left: 1rem;
+}
+
+.details-cont-box p{
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0 auto;
+	float: left;
+}
+.details-cont-box p span{
+	margin: 0 0.4rem;
+}
+.date-cont-box{
+	width: 100%;
+	height: 2rem;
+	font-size: 1rem;
+	color: #FFA810;
+	margin-top: 0.8rem;
+	padding-left: 1rem;
+
+}
+.date-cont-box  p{
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0 auto;
+	float: left;
+}
+

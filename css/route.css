@@ -1,0 +1,58 @@
+/* 经理业务员 路线公用样式 */
+/* 内容 */
+.wrap-cont-box{
+	width: 100%;
+	height: auto;
+}
+.main-cont-box{
+	width: 100%;
+	height: 6.75rem;
+	margin-top: 1.25rem;
+	border-radius: 15px;
+	background:rgba(255,255,255,1);
+	box-shadow: 0px 6px 10px 1px rgba(59,159,218,0.24);
+	background-color: #FFFFFF;
+}
+.region-cont-box{
+	width: 100%;
+	padding-top: 1.3rem;
+}
+.region-cont-box > .row{
+	width: 100%;
+	margin: 0 auto;
+}
+.start-cont-box > p{
+	font-size: 2rem;
+	color: #4779fe;
+	margin-bottom: 0;
+}
+.start-cont-box > span{
+	font-size: 1.5rem;
+}
+.getTo-cont-box > p{
+	font-size: 2rem;
+	color: #4779fe;
+	margin-bottom: 0;
+}
+.getTo-cont-box > span{
+	font-size: 1.5rem;
+}
+.arrows-cont-box{
+	margin-top: 1rem;
+}
+.arrows-one{
+	width: 100%;
+	height: 0.125rem;
+	border-bottom: 2px solid #000000;
+	display: inline-block;
+}
+.arrows-two{
+	width: 0;
+    height: 0;
+    border-bottom: 8px solid #000000;
+    border-right: 15px solid transparent;
+	display: inline-block;
+	position: absolute;
+	top: 7px;
+    right: 0;
+}

@@ -62,9 +62,9 @@
             border-radius: 15px;
             box-shadow: 0px 6px 10px 1px rgba(59,159,218,0.24);
             clear: both;
+            margin-top: 50px;
             padding-top: 10px;
             padding-bottom: 10px;
-            margin-top: 145px;
         }
         .edit_top .row{
             margin: 16px 0 0 0;
@@ -101,6 +101,7 @@
         }
         .edit_top_bottom{
             width: 95%;
+            display: none;
             background: white;
             margin-top: 20px;
             border-radius: 15px;
@@ -117,55 +118,12 @@
         }
         .salesman_details_lines{
             width: 100%;
-            margin-top: 58px;
-            margin-bottom: 10px;
         }
         .salesman_details_lines>div{
             float: left;
             color: #FFFFFF;
+            width: 33%;
             text-align: center;
-        }
-        .salesman_details_lines>div p:nth-of-type(1){
-            font-size: 20px;
-            margin: 0 0 0 0;
-        }
-        .salesman_detailsl_l{
-            width: 40%;
-        }
-        .salesman_detailsl_c{
-            width: 20%;
-        }
-        .salesman_detailsl_r{
-            width: 40%;
-        }
-        .arrows-cont-box{
-            position: relative;
-            top: 10px;
-        }
-        .arrows-one{
-            width: 100%;
-            height: 0.125rem;
-            border-bottom: 2px solid #FFFFFF;
-            display: inline-block;
-        }
-        .arrows-two{
-            width: 0;
-            height: 0;
-            border-bottom: 8px solid #FFFFFF;
-            border-right: 15px solid transparent;
-            display: inline-block;
-            position: absolute;
-            top: 7px;
-            right: 0;
-        }
-        .salesman_details_bottom{
-            clear: both;
-            margin-top: 370px;
-            padding-top: 15px;
-        }
-        .salesman_details_bottom p{
-            font-size: 16px;
-            color: #161616;
         }
         .sdh_btns1{
             margin-top: 20px;
@@ -183,7 +141,10 @@
         }
         .sdh_bottom{
             width: 90%;
+            clear: both;
+            margin-top: 200px;
         }
+
     </style>
 </head>
 <body>
@@ -196,7 +157,7 @@
                 <p>XX-XX运输</p>
             </div>
             <div class="edit_right">
-                <p>编辑</p>
+                <p></p>
             </div>
         </div>
         <div class="salesman_details_lines">
@@ -205,28 +166,25 @@
                 <p>临沂</p>
             </div>
             <div class="salesman_detailsl_c">
-                <div class="arrows-cont-box">
-                    <div class="arrows-one"></div>
-                    <div class="arrows-two"></div>
-                </div>
+                <p style="font-size:40px; "> ⇀</p>
             </div>
             <div class="salesman_detailsl_r">
-                <p>江苏</p>
-                <p>南京</p>
+                <p>山东</p>
+                <p>临沂</p>
             </div>
         </div>
         <div class="container-fluid edit_top">
             <div class="row">
             <div class="col-xs-5 edit_top_top1">
                 <p>
-                    <img src="../../images/salesman_edit_top6.png">
+                    <img src="../../images/renyuan.jpg">
                 </p>
-                <p class="edit_top_left">车辆牌照</p>
+                <p class="edit_top_left">录入人员</p>
             </div>
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入车牌号" readonly>
+                        <input type="text" readonly="readonly" class= "form-control" placeholder="" value = "张三" readonly>
                     </div>
                 </form>
             </div>
@@ -236,98 +194,34 @@
                 <p>
                     <img src="../../images/salesman_edit_top7.png">
                 </p>
-                <p class="edit_top_left">车型</p>
+                <p class="edit_top_left">业务员</p>
             </div>
             <div class="col-xs-7 edit_top_top2">
                 <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入车型" readonly> 
+                    <div class="form-group">                       
+                        <input type="text" readonly="readonly" class= "form-control" placeholder="" value = "李四" readonly>
+
                     </div>
                 </form>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top8.png">
-                </p>
-                <p class="edit_top_left">货品信息</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入货物重量、名称" readonly>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top9.png">
-                </p>
-                <p class="edit_top_left">录入日期</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="点击输入日期" readonly>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top10.png">
-                </p>
-                <p class="edit_top_left">维护日期</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="点击输入日期" readonly>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top11.png">
-                </p>
-                <p class="edit_top_left">司机姓名</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入姓名" readonly> 
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top12.png">
-                </p>
-                <p class="edit_top_left">联系电话</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入联系电话" readonly>
-                    </div>
-                </form>
-            </div>
-        </div>
+        
         </div>
     </div>
-    <!-- 备注 -->
-    <div class="container-fluid edit_top_bottom salesman_details_bottom">
-        <p>备注信息</p>
-        <textarea class="form-control" rows="2" readonly>啦啦啦</textarea>
-    </div>
+
+    <!-- <div style="width: 100%;height: 50px;margin-top:200px;">
+            <div style = "float:left; width: 100px; height: 50px; margin:0 10% 0 0;">
+                    <button class="login_btn btns  col-md-6 col-md-6 col-sm-6  col-md-offset-3 col-sm-offset-3"  style = "float:left; width: 140px; height: 50px; margin:0 0 0 20px; background: linear-gradient(to right, #f9b501fc, #f8e33a);">
+                        删除
+                    </button>
+                </div>
+            
+            <div style = "float:left; width: 100px; height: 50px; margin:0 10% 0 0;">
+                    <button class="login_btn btns  col-md-6 col-md-6 col-sm-6  col-md-offset-3 col-sm-offset-3"  style = "float:left; width: 140px; height: 50px; margin:0 0 0 80px;">
+                            返回
+                    </button>
+                 </div>
+    </div> -->
     <div class="container-fluid sdh_bottom">
         <div class="row text-center login_btns text-center">
             <div class="col-xs-5 text-center">
@@ -343,5 +237,8 @@
             </div>
         </div>
     </div>
+    
+        
+   
 </body>
 </html>

@@ -1,0 +1,49 @@
+/* 个人中心样式 */
+.wrap-headimg-box{
+	width: 100%;
+	height: 18rem;
+	background: url(../images/user-head.png) no-repeat center;
+	background-size: 100%;
+	position: relative;
+}
+.main-headimg-box{
+	
+}
+.main-headimg-box > h2{
+	margin-top: 1rem;
+	font-size: 2rem;
+	color: #FFFFFF;
+}
+
+.wrap-cont-box{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 14%;
+}
+.message-cont-box{
+	width: 100%;
+	height: 11.75rem;
+	margin-top: 1.25rem;
+	border-radius: 15px;
+	background:rgba(255,255,255,1);
+	box-shadow: 0px 6px 10px 1px rgba(59,159,218,0.24);
+	background-color: #FFFFFF;
+}
+.btn-cont-box{
+	width: 100%;
+	height: auto;
+	margin-top: 2rem;
+}
+.btn-cont-box > button{
+	width: 80%;
+	height: auto;
+	border-radius: 15px;
+	border: none;
+	display: block;
+	margin: 1.2rem auto;
+	background: -webkit-linear-gradient(left, #4779fe , #57a3f9); 
+	background: -o-linear-gradient(right, #4779fe, #57a3f9);
+	background: -moz-linear-gradient(right, #4779fe, #57a3f9);
+	background: linear-gradient(to right, #4779fe , #57a3f9);
+}
