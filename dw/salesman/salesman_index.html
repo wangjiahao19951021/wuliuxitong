@@ -63,10 +63,10 @@
 		<div class="warp-btn-box">
 			<div class="container-fluid">
 				<div class="btn-box">
-					<button type="button" class="btn btn-primary">删除</button>
-					<button type="button" class="btn btn-primary">更改</button>
-					<button type="button" class="btn btn-primary">导入</button>
-					<button type="button" class="btn btn-primary">导出</button>
+					<button type="button" style="color: #fff;">删除</button>
+					<button type="button" style="color: #fff;">更改</button>
+					<button type="button" style="color: #fff;">导入</button>
+					<button type="button" style="color: #fff;">导出</button>
 					<div class="clear"></div>
 				</div>
 			</div>
@@ -417,6 +417,7 @@
                 $(".paixu_zhezhao").hide();
                 $("body").css({"position":"static"});
             })
+            
             var flag = false;
             // 点击选择操作
             $("#choice p").click(function () {
@@ -425,9 +426,14 @@
                 $(".paixu_zhezhao").css("top", 0)
                 $.DialogByZ.Loading('../../lib/jQueryZdialog/image/loading.png');
                 setTimeout(function () {
-                    $.DialogByZ.Close();
-                    $(".paixu_zhezhao").hide();
-                    $(".paixu_zhezhao").css("top", "auto")
+                    if (document.querySelectorAll(".paixu")[0].style.display == "block") {
+                        $.DialogByZ.Close();
+                        $(".paixu_zhezhao").css("top", "auto")
+                    } else {
+                        $.DialogByZ.Close();
+                        $(".paixu_zhezhao").hide();
+                        $(".paixu_zhezhao").css("top", "auto")
+                    }
                 }, 500)
                 flag = true;
                 $(".warp-btn-box").show();                
