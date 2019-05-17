@@ -1,4 +1,91 @@
 /* 经理业务员 路线公用样式 */
+body{
+	padding-bottom: 80px;
+}
+/* 选择操作按钮 */
+.warp-btn-box{
+	width: 100%;
+	height: 5.625rem;
+	margin: 0 auto;
+}
+.btn-box{
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+.btn-box button{
+	width: 70px;
+	height: 2.2rem;
+	border-radius: 20px;
+	margin: 1.2rem 0.5rem;
+	background-color: #7399fe;
+	border: none;
+	font-size: 1.2rem;
+	display: inline-block;
+	text-align: center;
+}
+
+/* 点击指派按钮后遮罩-经理页面 */
+.wrap-designate-box{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #FFFFFF;
+	background: rgba(255,255,255,0.8);
+}
+.main-designate-box{
+	width: 90%;
+	height: 22rem;
+	margin: 10rem auto;
+	border-radius: 15px;
+	background:rgba(255,255,255,1);
+	box-shadow: 0px 6px 10px 1px rgba(59,159,218,0.24);
+	background-color: #FFFFFF;
+}
+.cont-designate{
+	height: 85%;
+	padding: 1.5rem;
+}
+.cont-designate > h3{
+	margin-top: 0;
+	margin-bottom: 0.2rem;
+	font-size: 2rem;
+	font-weight: 500;
+}
+.wrap-designate-box button{
+	background-color: #FFFFFF;
+	color: #4779fe;
+	border: none;
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+}
+.ul-desingnate{
+	width: 100%;
+	height: auto;
+	margin-top: 1rem;
+}
+.ul-desingnate > li{
+	width: 25%;
+	height: 28px;
+	line-height: 28px;
+	float: left;
+	margin-bottom: 5px;
+}
+.list-active{
+	color: #FFFFFF;
+	border-radius: 15px;
+	background: -webkit-linear-gradient(left, #4779fe , #57a3f9); 
+	background: -o-linear-gradient(right, #4779fe, #57a3f9);
+	background: -moz-linear-gradient(right, #4779fe, #57a3f9);
+	background: linear-gradient(to right, #4779fe , #57a3f9);
+}
+
 /* 内容 */
 .wrap-cont-box{
 	width: 100%;
@@ -21,6 +108,10 @@
 	width: 100%;
 	margin: 0 auto;
 }
+.region-cont-box > .row > .col-xs-2{
+	padding-right: 0;
+	padding-left: 0;
+}
 .start-cont-box > p{
 	font-size: 2rem;
 	color: #4779fe;
@@ -38,7 +129,14 @@
 	font-size: 1.5rem;
 }
 .arrows-cont-box{
-	margin-top: 1rem;
+	margin-top: .2rem;
+}
+
+.arrows-cont-box > .more{
+	font-size: 1rem;
+	color: #4779fe;
+	text-align: center;
+	margin-top: 5px;
 }
 .arrows-one{
 	width: 100%;

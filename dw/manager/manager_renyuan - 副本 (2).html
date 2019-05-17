@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>详情</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../lib/jQueryZdialog/css/zdialog.css">
+    <script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
+    <script src="../../lib/jQueryZdialog/js/zdialog.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background: #f6fafd;
+            padding-bottom: 30px;
+        }
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{
+            padding-left: 0;
+        }
+        .edit_toubu{
+            width: 100%;
+            height: 200px;
+            padding: 0.1px;
+            background: linear-gradient(to right, #4779fe , #57a3f9);
+        }
+        .edit_title{
+            width: 100%;
+            color: #f6f9ff;
+            text-align: center;
+        }
+        .edit_left p{
+            width: 25px;
+            height: 44px;
+            background: url("../../images/salesman_edit_top1.png") no-repeat center;
+            background-size: 50% 50%;
+            margin: 0 auto;
+        }
+        .edit_left{
+            width: 15%;
+            float: left;
+            height: 40px;
+            line-height: 40px;
+        }
+        .edit_cneter{
+            width: 70%;
+            float: left;
+            height: 40px;
+            line-height: 40px;
+        }
+        .edit_right{
+            width: 15%;
+            float: left;
+            height: 40px;
+            line-height: 40px;
+        }
+        .edit_top{
+            background: #ffffff;
+            width: 95%;
+            border-radius: 15px;
+            box-shadow: 0px 6px 10px 1px rgba(59,159,218,0.24);
+            clear: both;
+            margin-top: 160px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .edit_top .row{
+            margin: 16px 0 0 0;
+        }
+        .edit_top_top1{
+            line-height: 32px;
+        }
+        .edit_top_top1 p{
+            float: left;
+        }
+        .edit_top_top1 img{
+            width: 24px;
+            height: 24px;
+        }
+        .edit_top_left{
+            padding-top: 2px;
+            margin-left: 10px;
+            color: #161616;
+        }
+        .edit_top_top2 input{
+            border: 0 !important;
+            box-shadow: none !important;
+            text-align: right;
+        }
+        textarea{
+            border: 0 !important;
+            box-shadow: none !important;
+        }
+        .form-group{
+            margin: 0;
+        }
+        .edit_top_top3{
+            margin-top: 130px;
+        }
+        .edit_top_bottom{
+            width: 95%;
+            display: none;
+            background: white;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 10px 1px rgba(59,159,218,0.24);
+        }
+        .btns{
+            margin-top: 20px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #4779FE, #5AACF8);
+            color: #FFFFFF;
+        }
+        .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+            background: white;
+        }
+        .salesman_details_lines{
+            width: 100%;
+        }
+        .salesman_details_lines>div{
+            float: left;
+            color: #FFFFFF;
+            width: 33%;
+            text-align: center;
+        }
+        .sdh_btns1{
+            margin-top: 20px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #FFA810, #FFBF45);
+            color: #FFFFFF;
+            width: 80%;
+        }
+        .sdh_btns2{
+            margin-top: 20px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #4779FE, #5AACF8);
+            color: #FFFFFF;
+            width: 80%;            
+        }
+        .sdh_bottom{
+            width: 90%;
+            clear: both;
+            margin-top: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="edit_toubu">
+        <div class="edit_title">
+            <div class="edit_left">
+                <p></p>
+            </div>
+            <div class="edit_cneter">
+                <p>XX-XX运输</p>
+            </div>
+            <div class="edit_right">
+                <p></p>
+            </div>
+        </div>
+        <div class="salesman_details_lines">
+            <div class="salesman_detailsl_l">
+                <p>山东</p>
+                <p>临沂</p>
+            </div>
+            <div class="salesman_detailsl_c">
+                <p style="font-size:40px; "> ⇀</p>
+            </div>
+            <div class="salesman_detailsl_r">
+                <p>山东</p>
+                <p>临沂</p>
+            </div>
+        </div>
+        <div class="container-fluid edit_top">
+            <div class="row">
+            <div class="col-xs-5 edit_top_top1">
+                <p>
+                    <img src="../../images/renyuan.jpg">
+                </p>
+                <p class="edit_top_left">录入人员</p>
+            </div>
+            <div class="col-xs-7 edit_top_top2">
+                <form>
+                    <div class="form-group">
+                        <input type="text" readonly="readonly" class= "form-control" placeholder="点击更改" value = "" readonly>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+
+    <!-- <div style="width: 100%;height: 50px;margin-top:200px;">
+            <div style = "float:left; width: 100px; height: 50px; margin:0 10% 0 0;">
+                    <button class="login_btn btns  col-md-6 col-md-6 col-sm-6  col-md-offset-3 col-sm-offset-3"  style = "float:left; width: 140px; height: 50px; margin:0 0 0 20px; background: linear-gradient(to right, #f9b501fc, #f8e33a);">
+                        删除
+                    </button>
+                </div>
+            
+            <div style = "float:left; width: 100px; height: 50px; margin:0 10% 0 0;">
+                    <button class="login_btn btns  col-md-6 col-md-6 col-sm-6  col-md-offset-3 col-sm-offset-3"  style = "float:left; width: 140px; height: 50px; margin:0 0 0 80px;">
+                            返回
+                    </button>
+                 </div>
+    </div> -->
+    <div class="container-fluid sdh_bottom">
+        <div class="row text-center login_btns text-center">
+            <div class="col-xs-5 text-center">
+                <button class="sdh_btns1">
+                    删除
+                </button>
+            </div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-5 text-center">
+                <button class="sdh_btns2">
+                    完成
+                </button>
+            </div>
+        </div>
+    </div>
+    
+        
+   
+</body>
+</html>

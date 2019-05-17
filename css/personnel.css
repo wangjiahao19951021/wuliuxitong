@@ -1,0 +1,103 @@
+/* 维护人员样式 */
+/* 选择操作按钮 */
+.warp-btn-box{
+	width: 100%;
+	height: 3rem;
+	margin: 0 auto;
+}
+.btn-box{
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+.btn-box button{
+	width: 70px;
+	height: 2.2rem;
+	border-radius: 20px;
+	margin: 0.8rem 0.5rem;
+	background-color: #7399fe;
+	border: none;
+	font-size: 1.2rem;
+	display: inline-block;
+	text-align: center;
+}
+.change-active{
+	border-left: 1.3125rem solid #ff5310;
+}
+
+/* 内容 */
+.wrap-cont-box{
+	width: 100%;
+	height: auto;
+}
+.main-cont-box{
+	width: 100%;
+	height: 11.75rem;
+	margin-top: 1.25rem;
+	border-radius: 15px;
+	background:rgba(255,255,255,1);
+	box-shadow: 0px 6px 10px 1px rgba(59,159,218,0.24);
+	background-color: #FFFFFF;
+}
+.message-cont-box{
+    width: 100%;
+    height: auto;
+    margin-left: 1.8rem;
+    padding-top: 0.5rem;
+}
+.message-cont-box h3{
+    margin-top: 0;
+    font-size: 2rem;
+    color: #4779fe;
+}
+.message-cont-box p{
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 1rem;
+    padding-right: 0.5rem;
+}
+.region-cont-box{
+    width: 100%;
+    height: auto;
+	padding-top: 1.3rem;
+}
+.region-cont-box > .row{
+	width: 100%;
+	margin: 0 auto;
+}
+.region-cont-box > .row > .col-xs-5{
+	padding-right: 0;
+    padding-left: 0;
+    width: 40%;
+}
+.region-cont-box > .row > .col-xs-2{
+	padding-right: 0;
+    padding-left: 0;
+    width: 20%;
+}
+.region-cont-box p{
+    color: #4779fe;
+}
+.arrows-cont-box > .more{
+	font-size: 1rem;
+	color: #ffa810;
+	text-align: center;
+	margin-top: 5px;
+}
+.arrows-one{
+	width: 98%;
+	height: 0.125rem;
+	border-bottom: 2px solid #000000;
+	display: inline-block;
+}
+.arrows-two{
+	width: 0;
+    height: 0;
+    border-bottom: 8px solid #000000;
+    border-right: 15px solid transparent;
+	display: inline-block;
+	position: absolute;
+	top: 7px;
+    right: 0;
+}
