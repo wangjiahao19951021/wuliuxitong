@@ -12,6 +12,8 @@
     <script src="../../js/common.js"></script>
     <link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../lib/jeDate/skin/jedate.css">
+    <script src="../../lib/jeDate/dist/jedate.min.js"></script>
     <style>
         body{
             background: #f6fafd;
@@ -271,7 +273,7 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="点击输入日期" readonly>
+                        <input type="text" class="form-control" placeholder="点击输入日期" readonly id="lurushijian">
                     </div>
                 </form>
             </div>
@@ -286,7 +288,7 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="点击输入日期" readonly>
+                        <input type="text" class="form-control" placeholder="点击输入日期" readonly id="weihushijian">
                     </div>
                 </form>
             </div>
@@ -343,5 +345,23 @@
             </div>
         </div>
     </div>
+    <script>
+        // 点击编辑解除禁用
+        $(".edit_right p").click(function () {
+            for (var i = 0; i < $("input").length; i++) {
+                $("input").eq(i).removeAttr("readonly")
+            }
+            $("#lurushijian").attr("readonly", "readonly")
+            $("#weihushijian").attr("readonly", "readonly")
+             // 日期插件
+            jeDate("#lurushijian", {
+                format: "YYYY-MM-DD hh:mm:ss"
+            });
+            jeDate("#weihushijian", {
+                format: "YYYY-MM-DD hh:mm:ss"
+            });
+        })
+        
+    </script>
 </body>
 </html>
