@@ -12,6 +12,8 @@
     <script src="../../js/common.js"></script>
     <link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../../lib/jq-select/jq_selsect.js"></script>
+
     <style>
         body{
             background: #f6fafd;
@@ -121,24 +123,24 @@
                 <p></p>
             </div>
             <div class="edit_cneter">
-                <p>XX-XX运输</p>
+                <p>新增业务员</p>
             </div>
             <div class="edit_right">
-                <p>编辑</p>
+                <p></p>
             </div>
         </div>
         <div class="container-fluid edit_top">
             <div class="row">
                 <div class="col-xs-5 edit_top_top1">
                     <p>
-                        <img src="../../images/salesman_edit_top2.png">
+                        <img src="../../images/salesman_edit_top11.png">
                     </p>
-                    <p class="edit_top_left">出发省份</p>
+                    <p class="edit_top_left">姓名:</p>
                 </div>
                 <div class="col-xs-7 edit_top_top2">
                     <form>
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="点击选择省份">
+                          <input type="text" class="form-control" placeholder="请输入业务员真实姓名">
                         </div>
                     </form>
                 </div>
@@ -146,14 +148,14 @@
             <div class="row">
                 <div class="col-xs-5 edit_top_top1">
                     <p>
-                        <img src="../../images/salesman_edit_top3.png">
+                        <img src="../../images/xingming.png">
                     </p>
-                    <p class="edit_top_left">到达省份</p>
+                    <p class="edit_top_left">账号:</p>
                 </div>
                 <div class="col-xs-7 edit_top_top2">
                     <form>
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="点击选择省份">
+                          <input type="text" class="form-control" placeholder="请输入登录账号">
                         </div>
                     </form>
                 </div>
@@ -161,14 +163,14 @@
             <div class="row">
                 <div class="col-xs-5 edit_top_top1">
                     <p>
-                        <img src="../../images/salesman_edit_top4.png">
+                        <img src="../../images/mima.png">
                     </p>
-                    <p class="edit_top_left">出发城市</p>
+                    <p class="edit_top_left">密码:</p>
                 </div>
                 <div class="col-xs-7 edit_top_top2">
                     <form>
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="点击选择城市">
+                          <input type="text" class="form-control" placeholder="请输入密码">
                         </div>
                     </form>
                 </div>
@@ -176,14 +178,35 @@
             <div class="row">
                 <div class="col-xs-5 edit_top_top1">
                     <p>
-                        <img src="../../images/salesman_edit_top5.png">
+                        <img src="../../images/mima.png">
                     </p>
-                    <p class="edit_top_left">到达城市</p>
+                    <p class="edit_top_left">确认密码:</p>
                 </div>
                 <div class="col-xs-7 edit_top_top2">
                     <form>
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="点击选择城市">
+                          <input type="text" class="form-control" placeholder="请确认输入密码">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-5 edit_top_top1">
+                    <p>
+                        <img src="../../images/juese.png">
+                    </p>
+                    <p class="edit_top_left">角色 :</p>
+                </div>
+                <div class="col-xs-7 edit_top_top2">
+                    <form>
+                        <div class="form-group">
+                          <!-- <input type="text" class="form-control" placeholder="请选择角色"> -->
+                          <select class="select" isval="false" msg="点击选择城市">
+                                <option value="">请选择角色</option>
+                                <option value="1">业务员</option>
+                                <option value="2">经理</option>
+                            </select>
                         </div>
                     </form>
                 </div>
@@ -198,5 +221,9 @@
             </button>
         </div>
     </div>
+    <script>
+        //插件初始化配置
+        $('.select').anselcfg({});
+    </script>
 </body>
 </html>

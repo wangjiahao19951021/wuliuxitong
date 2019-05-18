@@ -145,3 +145,11 @@
 .paixu p small{
 	color: #FFA810;
 }
+/* 三角 */
+.select-ico{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: url(../images/shaixuan.png) no-repeat center;
+	background-size: 100%;
+}

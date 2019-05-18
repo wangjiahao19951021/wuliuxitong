@@ -44,7 +44,7 @@
 			display: block;
 			width: 2rem;
 			height: 2rem;
-			background: url(../../images/nav-lr-q.png) no-repeat center;
+			background: url(../../images/nav-wd-renyuan.png) no-repeat center;
 			background-size: 100%;
 			margin: 0 auto;
 		}
@@ -135,7 +135,7 @@
 			</div>
 			<div class="list-nav-box">
 				<i class="personnel-nav"></i>
-				<span>录入信息</span>
+				<span>人员</span>
 			</div>
 			<div class="list-nav-box">
 				<i class="my-nav"></i>
@@ -144,20 +144,20 @@
 		</div>
 		<script>
 			// 点击线路
-			$(".wrap-nav-box").on("click", ".list-nav-box", function () {
-				var sale_index = $(this).index();
-				switch (sale_index) {
-					case 0 : location.href = "salesman_index.html"
-					break;
-					case 1 : location.href = "salesman_lines.html"
-					break;
-					case 2 : location.href = "salesman_edit.html"
-					break;
-					case 3 : location.href = "salesman_entering.html"
-					break;
-					case 4 : location.href = "salesman_user.html"
-					break;
-				}
+            $(".wrap-nav-box").on("click", ".list-nav-box", function () {
+                var sale_index = $(this).index();
+                switch (sale_index) {
+                    case 0 : location.href = "manager_index.html"
+                    break;
+                    case 1 : location.href = "manager_route.html"
+                    break;
+                    case 2 : location.href = "manager_edit.html"
+                    break;
+                    case 3 : location.href = "manager_personnel.html"
+                    break;
+                    case 4 : location.href = "managet_user.html"
+                    break;
+                }
 			})
 			// 点击退出登录
 			$(".btn-cont-box button:eq(1)").click(function () {

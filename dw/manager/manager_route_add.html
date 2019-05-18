@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>详情</title>
+    <title>添加信息</title>
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../lib/jQueryZdialog/css/zdialog.css">
     <script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
@@ -13,6 +12,8 @@
     <script src="../../js/common.js"></script>
     <link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="../../lib/jq-select/jq_selsect.js"></script>
+
     <style>
         body{
             background: #f6fafd;
@@ -102,50 +103,17 @@
         }
         .edit_top_bottom{
             width: 95%;
-            display: none;
             background: white;
             margin-top: 20px;
             border-radius: 15px;
             box-shadow: 0px 6px 10px 1px rgba(59,159,218,0.24);
         }
         .btns{
-            margin-top: 20px;
-            border-radius: 20px;
-            background: linear-gradient(to right, #4779FE, #5AACF8);
-            color: #FFFFFF;
-        }
-        .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
-            background: white;
-        }
-        .salesman_details_lines{
-            width: 100%;
-        }
-        .salesman_details_lines>div{
-            float: left;
-            color: #FFFFFF;
-            width: 33%;
-            text-align: center;
-        }
-        .sdh_btns1{
-            margin-top: 20px;
-            border-radius: 20px;
-            background: linear-gradient(to right, #FFA810, #FFBF45);
-            color: #FFFFFF;
-            width: 80%;
-        }
-        .sdh_btns2{
-            margin-top: 20px;
-            border-radius: 20px;
-            background: linear-gradient(to right, #4779FE, #5AACF8);
-            color: #FFFFFF;
-            width: 80%;            
-        }
-        .sdh_bottom{
-            width: 90%;
-            clear: both;
             margin-top: 200px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #4779FE, #5AACF8);
+            color: #FFFFFF;
         }
-
     </style>
 </head>
 <body>
@@ -161,83 +129,104 @@
                 <p></p>
             </div>
         </div>
-        <div class="salesman_details_lines">
-            <div class="salesman_detailsl_l">
-                <p>山东</p>
-                <p>临沂</p>
-            </div>
-            <div class="salesman_detailsl_c">
-                <p style="font-size:40px; "> ⇀</p>
-            </div>
-            <div class="salesman_detailsl_r">
-                <p>山东</p>
-                <p>临沂</p>
-            </div>
-        </div>
-        <div class="clear"></div>
-        <div class="salesman_details_lines">
-                <div class="salesman_detailsl_l">
-                    <p>山东</p>
-                    <p>临沂</p>
-                </div>
-                <div class="salesman_detailsl_c">
-                    <p style="font-size:40px; "> ⇀</p>
-                </div>
-                <div class="salesman_detailsl_r">
-                    <p>山东</p>
-                    <p>临沂</p>
-                </div>
-            </div>
         <div class="container-fluid edit_top">
             <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/renyuan.jpg">
-                </p>
-                <p class="edit_top_left">录入人员</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" readonly="readonly" class= "form-control" placeholder="" value = "张三" readonly>
-                    </div>
-                </form>
-            </div>
-        </div>
-        
-        </div>
-    </div>
-
-    <!-- <div style="width: 100%;height: 50px;margin-top:200px;">
-            <div style = "float:left; width: 100px; height: 50px; margin:0 10% 0 0;">
-                    <button class="login_btn btns  col-md-6 col-md-6 col-sm-6  col-md-offset-3 col-sm-offset-3"  style = "float:left; width: 140px; height: 50px; margin:0 0 0 20px; background: linear-gradient(to right, #f9b501fc, #f8e33a);">
-                        删除
-                    </button>
+                <div class="col-xs-5 edit_top_top1">
+                    <p>
+                        <img src="../../images/salesman_edit_top2.png">
+                    </p>
+                    <p class="edit_top_left">出发省份</p>
                 </div>
-            
-            <div style = "float:left; width: 100px; height: 50px; margin:0 10% 0 0;">
-                    <button class="login_btn btns  col-md-6 col-md-6 col-sm-6  col-md-offset-3 col-sm-offset-3"  style = "float:left; width: 140px; height: 50px; margin:0 0 0 80px;">
-                            返回
-                    </button>
-                 </div>
-    </div> -->
-    <div class="container-fluid sdh_bottom">
-        <div class="row text-center login_btns text-center">
-            <div class="col-xs-5 text-center">
-                <button class="sdh_btns1">
-                    删除
-                </button>
+                <div class="col-xs-7 edit_top_top2">
+                    <form>
+                        <div class="form-group">
+                          <!-- <input type="text" class="form-control" placeholder="点击选择省份"> -->
+                          <select class="select" isval="false" msg="点击选择省份">
+                                <option value="">点击选择省份</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">asf</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="col-xs-2"></div>
-            <div class="col-xs-5 text-center">
-                <button class="sdh_btns2">
-                    完成
-                </button>
+            <div class="row">
+                <div class="col-xs-5 edit_top_top1">
+                    <p>
+                        <img src="../../images/salesman_edit_top3.png">
+                    </p>
+                    <p class="edit_top_left">到达省份</p>
+                </div>
+                <div class="col-xs-7 edit_top_top2">
+                    <form>
+                        <div class="form-group">
+                          <!-- <input type="text" class="form-control" placeholder="点击选择省份"> -->
+                          <select class="select" isval="false" msg="点击选择省份">
+                                <option value="">点击选择省份</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">asf</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 edit_top_top1">
+                    <p>
+                        <img src="../../images/salesman_edit_top4.png">
+                    </p>
+                    <p class="edit_top_left">出发城市</p>
+                </div>
+                <div class="col-xs-7 edit_top_top2">
+                    <form>
+                        <div class="form-group">
+                          <!-- <input type="text" class="form-control" placeholder="点击选择城市"> -->
+                          <select class="select" isval="false" msg="点击选择城市">
+                                <option value="">点击选择城市</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">asf</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 edit_top_top1">
+                    <p>
+                        <img src="../../images/salesman_edit_top5.png">
+                    </p>
+                    <p class="edit_top_left">到达城市</p>
+                </div>
+                <div class="col-xs-7 edit_top_top2">
+                    <form>
+                        <div class="form-group">
+                          <!-- <input type="text" class="form-control" placeholder="点击选择城市"> -->
+                          <select class="select" isval="false" msg="点击选择城市">
+                                <option value="">点击选择城市</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">asf</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    
-        
-   
+  
+    <div class="container-fluid">
+        <div class="row text-center login_btns text-center">
+            <button class="login_btn btns col-xs-8 col-md-6 col-md-6 col-sm-6 col-xs-offset-2 col-md-offset-3 col-sm-offset-3">
+                保存
+            </button>
+        </div>
+    </div>
+    <script>
+        //插件初始化配置
+        $('.select').anselcfg({});
+    </script>
 </body>
 </html>

@@ -11,12 +11,75 @@
 	<link rel="stylesheet" href="../../css/share.css">
 	<link rel="stylesheet" href="../../css/personnel.css">
 	<link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../lib/jQueryZdialog/css/zdialog.css">
 
 	<script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
+	<script src="../../lib/jQueryZdialog/js/zdialog.js"></script>
 	<script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 
 	<title>维护人员</title>
+	<style>
+		body{
+			padding-bottom: 80px;
+		}
+		.main-cont-box{
+			height: auto;
+		}
+		.warp-btn-box{
+			display: none;
+		}
+		.btn-box button{
+			height: auto;
+			outline: none !important;
+		}
+		.wrap-select-box{
+			box-shadow: -3px 3px 4px 0px rgba(59,159,218,0.24);
+		}
+		.more{
+			color: #ffa810 !important;
+		}
+		.home-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-wd-q_3.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.path-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-xl-q.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.add-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-fb.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.personnel-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-wd-renyuan1.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+		.my-nav{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: url(../../images/nav-wd-q.png) no-repeat center;
+			background-size: 100%;
+			margin: 0 auto;
+		}
+	</style>
 </head>
 
 <body>
@@ -32,7 +95,7 @@
 						<h2>维护人员</h2>
 					</div>
 					<div class="col-md-2 col-xs-3" id="find">
-						<p>查询</p>
+						<p>添加</p>
 					</div>
 				</div>
 			</div>
@@ -42,11 +105,19 @@
 	<!--筛选-->
 	<div class="wrap-select-box">
 		<div class="container-fluid">
-			<div class="tc">
+			<div class="tc sl_tc">
 				<span>排序</span>
-				<i class="glyphicon glyphicon-triangle-bottom"></i>
+				<i class="select-ico"></i>
 			</div>
 		</div>
+		<!-- 排序 -->
+		<div class="paixu">
+				<p>添加时间升序</p>
+				<p>添加时间降序</p>
+				<p><small>收起</small></p>
+			</div>
+			<!-- 排序遮罩 -->
+		<div class="paixu_zhezhao"></div>
 	</div>
 	<!-- 选择操作按钮 -->
 	<div class="warp-btn-box">
@@ -60,7 +131,7 @@
 	<!--内容-->
 	<div class="wrap-cont-box">
 		<div class="container">
-			<div class="main-cont-box change-active">
+			<div class="main-cont-box">
 				<div class="message-cont-box">
 					<h3>赵铁柱</h3>
 					<div>
@@ -80,16 +151,169 @@
 						<div class="col-md-2 col-xs-2 arrows-cont-box">
 							<span class="arrows-one"></span>
 							<span class="arrows-two"></span>
-							<p class="more">查看详情</p>
 						</div>
 						<div class="col-md-5 col-xs-5 getTo-cont-box tc">
 							<p>江苏/南京</p>
 						</div>
+						<div class="row" style="clear: both; text-align: center;font-size: 1rem">
+								<p class="more">查看详情</p>
+						</div>
 					</div>
 				</div>
-
 			</div>
-
+			<div class="main-cont-box">
+					<div class="message-cont-box">
+						<h3>赵铁柱</h3>
+						<div>
+							<p>最后操作时间：<span>五天前</span></p>
+							<p>2019-04-23 11:20:30</p>
+						</div>
+						<div>
+							<p>今日录入信息：<span>10</span>条</p>
+							<p>历史录入信息：<span>10</span>条</p>
+						</div>
+					</div>
+					<div class="region-cont-box">
+						<div class="row">
+							<div class="col-md-5 col-xs-5 start-cont-box tc">
+								<p>山东/临沂</p>
+							</div>
+							<div class="col-md-2 col-xs-2 arrows-cont-box">
+								<span class="arrows-one"></span>
+								<span class="arrows-two"></span>
+							</div>
+							<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+								<p>江苏/南京</p>
+							</div>
+						
+							<div class="row" style="clear: both; text-align: center;font-size: 1rem">
+									<p class="more">查看详情</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="main-cont-box">
+						<div class="message-cont-box">
+							<h3>赵铁柱</h3>
+							<div>
+								<p>最后操作时间：<span>五天前</span></p>
+								<p>2019-04-23 11:20:30</p>
+							</div>
+							<div>
+								<p>今日录入信息：<span>10</span>条</p>
+								<p>历史录入信息：<span>10</span>条</p>
+							</div>
+						</div>
+						<div class="region-cont-box">
+							<div class="row">
+								<div class="col-md-5 col-xs-5 start-cont-box tc">
+									<p>山东/临沂</p>
+								</div>
+								<div class="col-md-2 col-xs-2 arrows-cont-box">
+									<span class="arrows-one"></span>
+									<span class="arrows-two"></span>
+								</div>
+								<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+									<p>江苏/南京</p>
+								</div>
+								<div class="row" style="clear: both; text-align: center;font-size: 1rem">
+										<p class="more">查看详情</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="main-cont-box">
+							<div class="message-cont-box">
+								<h3>赵铁柱</h3>
+								<div>
+									<p>最后操作时间：<span>五天前</span></p>
+									<p>2019-04-23 11:20:30</p>
+								</div>
+								<div>
+									<p>今日录入信息：<span>10</span>条</p>
+									<p>历史录入信息：<span>10</span>条</p>
+								</div>
+							</div>
+							<div class="region-cont-box">
+								<div class="row">
+									<div class="col-md-5 col-xs-5 start-cont-box tc">
+										<p>山东/临沂</p>
+									</div>
+									<div class="col-md-2 col-xs-2 arrows-cont-box">
+										<span class="arrows-one"></span>
+										<span class="arrows-two"></span>
+									</div>
+									<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+										<p>江苏/南京</p>
+									</div>
+									<div class="row" style="clear: both; text-align: center;font-size: 1rem">
+											<p class="more">查看详情</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="main-cont-box">
+								<div class="message-cont-box">
+									<h3>赵铁柱</h3>
+									<div>
+										<p>最后操作时间：<span>五天前</span></p>
+										<p>2019-04-23 11:20:30</p>
+									</div>
+									<div>
+										<p>今日录入信息：<span>10</span>条</p>
+										<p>历史录入信息：<span>10</span>条</p>
+									</div>
+								</div>
+								<div class="region-cont-box">
+									<div class="row">
+										<div class="col-md-5 col-xs-5 start-cont-box tc">
+											<p>山东/临沂</p>
+										</div>
+										<div class="col-md-2 col-xs-2 arrows-cont-box">
+											<span class="arrows-one"></span>
+											<span class="arrows-two"></span>
+										</div>
+										<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+											<p>江苏/南京</p>
+										</div>
+										<div class="row" style="clear: both; text-align: center;font-size: 1rem">
+												<p class="more">查看详情</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="main-cont-box">
+									<div class="message-cont-box">
+										<h3>赵铁柱</h3>
+										<div>
+											<p>最后操作时间：<span>五天前</span></p>
+											<p>2019-04-23 11:20:30</p>
+										</div>
+										<div>
+											<p>今日录入信息：<span>10</span>条</p>
+											<p>历史录入信息：<span>10</span>条</p>
+										</div>
+									</div>
+									<div class="region-cont-box">
+										<div class="row">
+											<div class="col-md-5 col-xs-5 start-cont-box tc">
+												<p>山东/临沂</p>
+											</div>
+											<div class="col-md-2 col-xs-2 arrows-cont-box">
+												<span class="arrows-one"></span>
+												<span class="arrows-two"></span>
+											</div>
+											<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+												<p>江苏/南京</p>
+											</div>
+											<div class="row" style="clear: both; text-align: center;font-size: 1rem">
+													<p class="more">查看详情</p>
+											</div>
+										</div>
+									</div>
+								</div>
+		
+							
 		</div>
 	</div>
 	<!--底部导航-->
@@ -102,7 +326,7 @@
 			<i class="path-nav"></i>
 			<span>线路</span>
 		</div>
-		<div class="add-nav-box">
+		<div class="list-nav-box add-nav-box">
 			<div class="add-cont-box">
 				<i class="add-nav"></i>
 			</div>
@@ -120,18 +344,78 @@
 
 	<!-- js部分 -->
 	<script type="text/javascript">
+		// 点击遮罩收起
+		$(".paixu p:eq(2)").click(function () {					
+			$(".paixu").hide();
+			$(".paixu_zhezhao").hide();
+			$("body").css({"position":"static"});                
+		})
+		// 点击排序弹出
+		$(".sl_tc").click(function () {
+			$(".paixu").show();
+			$(".paixu_zhezhao").show();
+			//这是当前滚动的页面滚动条位置
+			var top=$(window).scrollTop();
+			//此处为当前需要定住的位置 
+			$("body").css({"position":"fixed", "width":"100%","top": top*-1});
+		})
+		// 点击遮罩
+		$(".paixu_zhezhao").click(function () {								
+			$(".paixu").hide();
+			$(".paixu_zhezhao").hide();
+			$("body").css({"position":"static"});
+		})
 
-		// 			var clientWidth = document.documentElement.clientWidth || document.body.offsetWidth;
-		// 
-		// 			document.documentElement.style.fontSize = clientWidth / 750 + "px";
-		// 			window.onresize = function() {
-		// 				var clientWidth = document.documentElement.clientWidth || document.body.offsetWidth;
-		// 				document.documentElement.style.fontSize = clientWidth / 750 + "px";
-		// 			};
-
-		$("#choice").click(function () {
-			$(".warp-btn-box");
-		});
+		
+		var flag = false;
+		// 点击选择操作
+		$("#choice p").click(function () {
+			// 加载loading等操作
+			$(".paixu_zhezhao").show();
+			$(".paixu_zhezhao").css("top", 0)
+			$.DialogByZ.Loading('../../lib/jQueryZdialog/image/loading.png');
+			setTimeout(function () {
+				if (document.querySelectorAll(".paixu")[0].style.display == "block") {
+					$.DialogByZ.Close();
+					$(".paixu_zhezhao").css("top", "auto");
+					$(".more").text("查看详情");
+				} else {
+					$.DialogByZ.Close();
+					$(".paixu_zhezhao").hide();
+					$(".paixu_zhezhao").css("top", "auto");
+					$(".more").text("查看详情");					
+				}
+			}, 500)
+			flag = true;
+			$(".warp-btn-box").show();                
+		})
+		$(".wrap-cont-box .main-cont-box").click(function () {
+			if (flag == false) {
+				location.href = "manager_personnel_more.html"
+			} else {
+				$(this).toggleClass("change-active");
+			}
+		})
+		// 点击添加人员
+		$("#find").click(function () {
+			location.href = "manager_personnel_add.html"
+		})
+		// 点击线路
+		$(".wrap-nav-box").on("click", ".list-nav-box", function () {
+			var sale_index = $(this).index();
+			switch (sale_index) {
+				case 0 : location.href = "manager_index.html"
+				break;
+				case 1 : location.href = "manager_route.html"
+				break;
+				case 2 : location.href = "manager_edit.html"
+				break;
+				case 3 : location.href = "manager_personnel.html"
+				break;
+				case 4 : location.href = "managet_user.html"
+				break;
+			}
+		})
 	</script>
 
 </body>
