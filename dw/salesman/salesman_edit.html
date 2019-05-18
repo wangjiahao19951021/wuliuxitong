@@ -10,6 +10,7 @@
     <script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
     <script src="../../lib/jQueryZdialog/js/zdialog.js"></script>
     <script src="../../js/common.js"></script>
+    <script src="../../js/com_city.js"></script>
     <link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="../../lib/jq-select/jq_selsect.js"></script>
@@ -145,30 +146,8 @@
                     <form>
                         <div class="form-group">
                           <!-- <input type="text" class="form-control" placeholder="点击选择省份"> -->
-                            <select class="select" isval="false" msg="点击选择省份">
-                                <option value="">点击选择省份</option>
-                                <option value="1">山东</option>
-                                <option value="2">山西</option>
-                                <option value="3">河北</option>
-                                <option value="4">北京</option>
-                                <option value="5">2</option>
-                                <option value="6">asf</option>
-                                <option value="7">1</option>
-                                <option value="8">2</option>
-                                <option value="9">asf</option>
-                                <option value="10">1</option>
-                                <option value="11">2</option>
-                                <option value="12">asf</option>
-                                <option value="8">2</option>
-                                <option value="9">asf</option>
-                                <option value="10">1</option>
-                                <option value="11">2</option>
-                                <option value="12">asf</option>
-                                <option value="8">2</option>
-                                <option value="9">asf</option>
-                                <option value="10">1</option>
-                                <option value="11">2</option>
-                                <option value="12">asf</option>
+                            <select class="select select_1" isval="false" msg="点击选择省份">
+                            
                             </select>
                         </div>
                     </form>
@@ -185,11 +164,8 @@
                     <form>
                         <div class="form-group">
                           <!-- <input type="text" class="form-control" placeholder="点击选择省份"> -->
-                            <select class="select" isval="false" msg="点击选择省份">
-                                <option value="">点击选择省份</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">asf</option>
+                            <select class="select select_2" isval="false" msg="点击选择省份">
+                             
                             </select>
                         </div>
                     </form>
@@ -360,8 +336,7 @@
         </div>
     </div>
     <script>
-        //插件初始化配置
-        $('.select').anselcfg({});
+        
         // 日期插件
         jeDate("#lurushijian", {
             format: "YYYY-MM-DD hh:mm:ss"
@@ -369,8 +344,28 @@
         jeDate("#weihushijian", {
             format: "YYYY-MM-DD hh:mm:ss"
         });
-        $("#lurushijian").attr("readonly", "readonly")
-        $("#weihushijian").attr("readonly", "readonly")
+        $("#lurushijian").attr("readonly", "readonly");
+        $("#weihushijian").attr("readonly", "readonly");
+
+        
+
+        ;(function () {
+            $(".select_1").empty();
+            $(".select_2").empty();
+            $(".select_1").append('<option value="">点击选择省份</option>')
+            $(".select_2").append('<option value="">点击选择省份</option>')
+            var options
+            for (var i = 0 ; i < com_city.length; i++) {
+                options = '<option value=' + (i + 1) + '>' + com_city[i].name +'</option>'
+                $(".select_1").append(options);
+                $(".select_2").append(options);
+            }
+            //插件初始化配置
+            $('.select').anselcfg({});
+            $(".form-group .ansel_ok").click(function () {
+                alert(1);
+            })
+        })();
     </script>
 </body>
 </html>
