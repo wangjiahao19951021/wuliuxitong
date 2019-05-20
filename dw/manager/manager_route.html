@@ -622,15 +622,32 @@
 				break;
 			}
 		})
-		all_lines();
+
+		var sort = "";
+		$(".paixu p:eq(0)").click(function () {
+			sort = "";
+			all_lines(sort);
+			$(".paixu").hide();
+			$(".paixu_zhezhao").hide();
+			$("body").css({"position":"static"});
+		})
+		$(".paixu p:eq(1)").click(function () {
+			sort = "desc";
+			all_lines(sort);
+			$(".paixu").hide();
+			$(".paixu_zhezhao").hide();
+			$("body").css({"position":"static"});
+		})
+		all_lines(sort);
 		// 查询所有路线接口
-		function all_lines () {
+		function all_lines (sort) {
 			$.ajax({
 				url: global_url + "/wayLine/getAllWL",
 				type: "post",
 				data: {
 					pageSize: 20,
-					pageNum: 1
+					pageNum: 1,
+					sort: sort
 				},
 				success: function (data) {
 					if (data) {
