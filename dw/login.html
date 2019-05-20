@@ -170,29 +170,35 @@
     </div>
     <img src="../images/login1.jpg" style="width: 100%;" class="login_img_bottom">
     <script>
-        // // 获取焦点
-        // $(".login_inputs").on("focus", ".form-control", function () {
-        //     $(".glyphicon-eye-open").hide();
-        //     if ($("#password").val() == null || $("#password").val() == "") {
-        //         $(".glyphicon-eye-open").show(); 
-        //     } else {
-        //         $(".glyphicon-eye-open").hide();
-        //     }
-        // });
-        // // 失去焦点
-        // $(".login_inputs").on("blur", ".form-control", function () {
-        //     if ($("#password").val() == null || $("#password").val() == "") {
-        //         $(".glyphicon-eye-open").show();                
-        //     } 
-        // });
+        // 获取焦点
+        $(".login_inputs").on("focus", ".form-control", function () {
+            if ($(this).attr("placeholder") == "请输入密码") {
+                $(".glyphicon-eye-open").hide();
+            }
+        });
+        // 失去焦点
+        $(".login_inputs").on("blur", ".form-control", function () {
+            if ($("#password").val() == null || $("#password").val() == "") {
+                $(".glyphicon-eye-open").show();                
+            } else {
+                $(".glyphicon-eye-open").hide();                                
+            }
+        });
         // 点击账号注册
         $(".login_tiaozhuan .text-right").click(function () {
             location.href = "register.html"
         })
         // 点击登录
         $(".login_btns button").click(function () {
-            $("#user").html();
+            $("#user").val();
             $("#password").val();
+            if ($("#user").val() == "" ) {
+                $.DialogByZ.Alert({Title: "", Content: "请输入用户名",BtnL:"确定",FunL:alerts});
+                return false;
+            } else if ($("#password").val() == "") {
+                $.DialogByZ.Alert({Title: "", Content: "请输入密码",BtnL:"确定",FunL:alerts});
+                return false;                
+            }
             if ($("#user").val() == 1) {
                 location.href = "./salesman/salesman_index.html"
             } else if ($("#user").val() == 2) {
