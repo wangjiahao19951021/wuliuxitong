@@ -170,21 +170,21 @@
     </div>
     <img src="../images/login1.jpg" style="width: 100%;" class="login_img_bottom">
     <script>
-        // 获取焦点
-        $(".login_inputs").on("focus", ".form-control", function () {
-            $(".glyphicon-eye-open").hide();
-            if ($("#password").val() == null || $("#password").val() == "") {
-                $(".glyphicon-eye-open").show(); 
-            } else {
-                $(".glyphicon-eye-open").hide();
-            }
-        });
-        // 失去焦点
-        $(".login_inputs").on("blur", ".form-control", function () {
-            if ($("#password").val() == null || $("#password").val() == "") {
-                $(".glyphicon-eye-open").show();                
-            } 
-        });
+        // // 获取焦点
+        // $(".login_inputs").on("focus", ".form-control", function () {
+        //     $(".glyphicon-eye-open").hide();
+        //     if ($("#password").val() == null || $("#password").val() == "") {
+        //         $(".glyphicon-eye-open").show(); 
+        //     } else {
+        //         $(".glyphicon-eye-open").hide();
+        //     }
+        // });
+        // // 失去焦点
+        // $(".login_inputs").on("blur", ".form-control", function () {
+        //     if ($("#password").val() == null || $("#password").val() == "") {
+        //         $(".glyphicon-eye-open").show();                
+        //     } 
+        // });
         // 点击账号注册
         $(".login_tiaozhuan .text-right").click(function () {
             location.href = "register.html"

@@ -189,39 +189,39 @@
         </div>
     </div>
     <script>
-        // 获取焦点
-        $(".login_inputs").on("focus", ".form-control", function () {
-            if ($(this).attr("placeholder") == "请输入密码") {
-                $(".form-group2 .glyphicon-eye-open").hide();
-            } else {
-                $(".form-group2 .glyphicon-eye-open").show();                
-            }
-            if ($(this).attr("placeholder") == "请确认密码") {
-                $(".form-group3 .glyphicon-eye-open").hide();
-            } else {
-                $(".form-group3 .glyphicon-eye-open").show();                
-            }
-            if ($(this).attr("placeholder") == "请输入真实姓名") {
-                $(".form-group4 .glyphicon-eye-open").hide();
-            } else {
-                $(".form-group4 .glyphicon-eye-open").show();                
-            }
-            if ($(this).attr("placeholder") == "请输入邀请码") {
-                $(".form-group5 .glyphicon-eye-open").hide();
-            } else {
-                $(".form-group5 .glyphicon-eye-open").show();                
-            }
-        });
-        // 失去焦点
-        $(".login_inputs").on("blur", ".form-control", function () {
-            if ($("#password_one").val() == null || $("#password").val() == "") {
-                $(".form-group2 .glyphicon-eye-open").show();                
-            }                
-        });
+        // // 获取焦点
+        // $(".login_inputs").on("focus", ".form-control", function () {
+        //     if ($(this).attr("placeholder") == "请输入密码") {
+        //         $(".form-group2 .glyphicon-eye-open").hide();
+        //     } else {
+        //         $(".form-group2 .glyphicon-eye-open").show();                
+        //     }
+        //     if ($(this).attr("placeholder") == "请确认密码") {
+        //         $(".form-group3 .glyphicon-eye-open").hide();
+        //     } else {
+        //         $(".form-group3 .glyphicon-eye-open").show();                
+        //     }
+        //     if ($(this).attr("placeholder") == "请输入真实姓名") {
+        //         $(".form-group4 .glyphicon-eye-open").hide();
+        //     } else {
+        //         $(".form-group4 .glyphicon-eye-open").show();                
+        //     }
+        //     if ($(this).attr("placeholder") == "请输入邀请码") {
+        //         $(".form-group5 .glyphicon-eye-open").hide();
+        //     } else {
+        //         $(".form-group5 .glyphicon-eye-open").show();                
+        //     }
+        // });
+        // // 失去焦点
+        // $(".login_inputs").on("blur", ".form-control", function () {
+        //     if ($("#password_one").val() == null || $("#password").val() == "") {
+        //         $(".form-group2 .glyphicon-eye-open").show();                
+        //     }                
+        // });
         // 点击立即登录
         $(".text-center p").click(function () {
             location.href = "login.html"
-        })
+        });
     </script>
 
 
