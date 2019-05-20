@@ -16,7 +16,7 @@
 <body>
     <style>
         body{
-            background: #FFFFFF;
+            background: #FFFFFF !important;
             padding-bottom: 50px;
         }
         .header_banner{
@@ -127,8 +127,8 @@
             <div class="col-xs-4 col-md-2"><p>账号</p></div>
             <div class="col-xs-8 col-md-10">
                 <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入账号">
+                    <div class="form-group form-group1">
+                        <input type="text" class="form-control" placeholder="请输入账号" id="user">
                     </div>
                 </form>
             </div>
@@ -137,8 +137,19 @@
             <div class="col-xs-4 col-md-2"><p>密码</p></div>
             <div class="col-xs-8 col-md-10">
                 <form>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="请输入密码">
+                    <div class="form-group form-group2">
+                        <input type="password" class="form-control" placeholder="请输入密码" id="password_one">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row login_input1">
+            <div class="col-xs-4 col-md-2"><p>确认密码</p></div>
+            <div class="col-xs-8 col-md-10">
+                <form>
+                    <div class="form-group form-group3">
+                        <input type="password" class="form-control" placeholder="请确认密码" id="password_two">
                         <i class="glyphicon glyphicon-eye-open"></i>
                     </div>
                 </form>
@@ -148,8 +159,8 @@
             <div class="col-xs-4 col-md-2"><p>真实姓名</p></div>
             <div class="col-xs-8 col-md-10">
                 <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入真实姓名">
+                    <div class="form-group form-group4">
+                        <input type="text" class="form-control" placeholder="请输入真实姓名" id="name">
                         <i class="glyphicon glyphicon-eye-open"></i>
                     </div>
                 </form>
@@ -159,8 +170,8 @@
             <div class="col-xs-4 col-md-2"><p>邀请码</p></div>
             <div class="col-xs-8 col-md-10">
                 <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入邀请码">
+                    <div class="form-group form-group5">
+                        <input type="text" class="form-control" placeholder="请输入邀请码" id="yaoqing">
                         <i class="glyphicon glyphicon-eye-open"></i>
                     </div>
                 </form>
@@ -181,14 +192,31 @@
         // 获取焦点
         $(".login_inputs").on("focus", ".form-control", function () {
             if ($(this).attr("placeholder") == "请输入密码") {
-                $(".glyphicon-eye-open").hide();
+                $(".form-group2 .glyphicon-eye-open").hide();
             } else {
-                $(".glyphicon-eye-open").show();                
-            };
+                $(".form-group2 .glyphicon-eye-open").show();                
+            }
+            if ($(this).attr("placeholder") == "请确认密码") {
+                $(".form-group3 .glyphicon-eye-open").hide();
+            } else {
+                $(".form-group3 .glyphicon-eye-open").show();                
+            }
+            if ($(this).attr("placeholder") == "请输入真实姓名") {
+                $(".form-group4 .glyphicon-eye-open").hide();
+            } else {
+                $(".form-group4 .glyphicon-eye-open").show();                
+            }
+            if ($(this).attr("placeholder") == "请输入邀请码") {
+                $(".form-group5 .glyphicon-eye-open").hide();
+            } else {
+                $(".form-group5 .glyphicon-eye-open").show();                
+            }
         });
         // 失去焦点
         $(".login_inputs").on("blur", ".form-control", function () {
-            $(".glyphicon-eye-open").show();                
+            if ($("#password_one").val() == null || $("#password").val() == "") {
+                $(".form-group2 .glyphicon-eye-open").show();                
+            }                
         });
         // 点击立即登录
         $(".text-center p").click(function () {

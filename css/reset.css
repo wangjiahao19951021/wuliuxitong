@@ -32,3 +32,7 @@ button{outline: none;}
  .ansel_input .ansel_inputval {height:40px;line-height: 40px;width:100%;}
  .ansel_search .ansel_search_input{text-align: left;}
  .ansel_btns .ansel_btnss .ansel_ok, .ansel_btns .ansel_btnss .ansel_no{border-radius: 15px;}
+
+ body{
+	 background: #f6f6f6 !important;
+ }

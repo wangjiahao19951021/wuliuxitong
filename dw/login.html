@@ -16,7 +16,7 @@
 <body>
     <style>
         body{
-            background: #FFFFFF;
+            background: #FFFFFF !important;
         }
         .header_banner{
             background: #427CFE;
@@ -75,7 +75,7 @@
         #checkboxFourInput+label{
             background-color: white;
             border-radius: 50px;
-            border: 2px solid #4779FE;
+            border: 2px solid #aeaeae;
             width: 20px;
             height: 20px;
             display: inline-block;
@@ -143,7 +143,7 @@
             <div class="col-xs-4 col-md-2"><p>密码</p></div>
             <div class="col-xs-8 col-md-10">
                 <form>
-                    <div class="form-group">
+                    <div class="form-group form-group2">
                         <input type="password" class="form-control" placeholder="请输入密码" id="password">
                         <i class="glyphicon glyphicon-eye-open"></i>
                     </div>
@@ -165,22 +165,25 @@
         <div class="row login_tiaozhuan">
             <div class="col-sm-5 col-xs-5 text-right">账号注册</div>
             <div class="col-sm-2 col-xs-2"><span></span></div>
-            <div class="col-sm-5 col-xs-5 text-left">忘记密码</div>
+            <div class="col-sm-5 col-xs-5 text-left">重置密码</div>
         </div>
     </div>
     <img src="../images/login1.jpg" style="width: 100%;" class="login_img_bottom">
     <script>
         // 获取焦点
         $(".login_inputs").on("focus", ".form-control", function () {
-            if ($(this).attr("placeholder") == "请输入密码") {
-                $(".glyphicon-eye-open").hide();
+            $(".glyphicon-eye-open").hide();
+            if ($("#password").val() == null || $("#password").val() == "") {
+                $(".glyphicon-eye-open").show(); 
             } else {
-                $(".glyphicon-eye-open").show();                
-            };
+                $(".glyphicon-eye-open").hide();
+            }
         });
         // 失去焦点
         $(".login_inputs").on("blur", ".form-control", function () {
-            $(".glyphicon-eye-open").show();                
+            if ($("#password").val() == null || $("#password").val() == "") {
+                $(".glyphicon-eye-open").show();                
+            } 
         });
         // 点击账号注册
         $(".login_tiaozhuan .text-right").click(function () {
