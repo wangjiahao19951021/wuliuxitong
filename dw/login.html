@@ -222,8 +222,8 @@
                         }
                     } else {
                         setTimeout (function () {
-                            if (data.msg) {
-                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                            if (data.errorInfo) {
+                                $.DialogByZ.Alert({Title: "", Content: data.errorInfo, BtnL:"确定",FunL:alerts});
                             }
                         }, 10)
                     }
