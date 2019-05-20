@@ -577,14 +577,16 @@
                     $(".saslesman_content").append(str);
                 }
                 // 截取时间
-                jeiqu_riqi ($(".date-cont-box div:eq(0) span"), $(".date-cont-box div:eq(0) span").text());
-                jeiqu_riqi ($(".date-cont-box div:eq(1) span"), $(".date-cont-box div:eq(1) span").text());
+                for (var i = 0; i <  $(".saslesman_content .wrap-cont-box").length; i++) {
+                     jeiqu_riqi ($(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(0) span"), $(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(0) span").text());
+                     jeiqu_riqi ($(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(1) span"), $(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(1) span").text());
+                }
             }
             
-        //    截取
+        //截取
         function jeiqu_riqi (sli, values) {
             var str = values.substr(0, 10);
-            sli.text(str) 
+            sli.text(str); 
         }
         </script>
 

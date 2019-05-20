@@ -389,7 +389,6 @@
                         for (var j = 0; j < com_city[i].child.length; j++) {
                             options2 = '<option value="">' + com_city[i].child[j].name +'</option>'
                             $(".select_4").append(options2);
-                            
                         }
                     }
                 }
@@ -419,7 +418,7 @@
                     arrive_pro: arrive_pro,
                     start_down: start_down,
                     arrive_down: arrive_down,
-                    palatenum: palatenum,
+                    platenum: palatenum,
                     marque: marque,
                     cargo: cargo,
                     create_time: create_time,
@@ -430,7 +429,11 @@
                 },
                 success: function (data) {
                     if(data.success) {
-                        
+                        setTimeout (function () {
+                            if (data.msg) {
+                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                            }
+                        }, 10)
                     } else {
                         setTimeout (function () {
                             if (data.msg) {
@@ -445,6 +448,9 @@
         $(".edit_left").click(function () {
             history.go(-1);
         })
+        function alerts () {
+            history.go(-1);
+        }
     </script>
 </body>
 </html>
