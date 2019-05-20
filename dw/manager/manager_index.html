@@ -533,7 +533,7 @@
             function sa_index_xuanran(data) {
                 $(".saslesman_content").empty();
                 for (var i = 0; i < data.wayList.length; i++) {
-                    var str = '<div class="wrap-cont-box"> ' + 
+                    var str = '<div class="wrap-cont-box" w_id = ' + data.wayList[i].w_id + '> ' + 
 			    '<div class="container">' + 
 				    '<div class="main-cont-box">' + 
 					    '<div class="region-cont-box">' + 
@@ -588,6 +588,69 @@
             var str = values.substr(0, 10);
             sli.text(str); 
         }
+        // 点击删除
+        $(".btn-box button:eq(0)").click(function () {
+            var arr1 = [];
+            for (var i = 0 ; i < $(".saslesman_content .wrap-cont-box").length; i++) {
+                if ($(".saslesman_content .wrap-cont-box").eq(i).find(".main-cont-box").attr("class") == "main-cont-box change-active") {
+                    arr1.push(i);
+                }
+            }
+            if (arr1.length > 0 ) {
+                var arr2 = [];
+                for (var i = 0; i < arr1.length; i++) {
+                    arr2.push($(".saslesman_content .wrap-cont-box").eq(arr1[i]).attr("w_id"));
+                }
+                delete_man_index (arr2);
+            } else {
+                $.DialogByZ.Alert({Title: "", Content: "请至少选择一个", BtnL:"确定",FunL:alerts});
+            }
+        })
+        // 删除ajax
+        function delete_man_index (arr2) {
+            var ids = arr2;
+            $.ajax({
+                type: "post",
+                url: global_url + "/way/deleteWayBatch",
+                data: {
+                    ids: ids
+                },
+                success: function (data) {
+                    if (data.success) {
+                        setTimeout(function () {
+                            if (data.msg) {
+                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts1});
+                            }
+                        }, 10)
+                    } else {
+                        setTimeout(function () {
+                            if (data.msg) {
+                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                            }
+                        }, 10)
+                    }
+                }
+            })
+        }
+        function alerts1() {
+            salesman_index(sort);
+        }
+        // 点击更改
+        $(".btn-box button:eq(1)").click(function () {
+            var arr1 = [];
+            for (var i = 0 ; i < $(".saslesman_content .wrap-cont-box").length; i++) {
+                if ($(".saslesman_content .wrap-cont-box").eq(i).find(".main-cont-box").attr("class") == "main-cont-box change-active") {
+                    arr1.push(i);
+                }
+            }
+            if (arr1.length == 1 ) {
+                sessionStorage.setItem("man_index_genggai", $(".saslesman_content .wrap-cont-box").eq(arr1[0]).attr("w_id"));
+                location.href = "manager_details_genggai.html";
+            } else {
+                $.DialogByZ.Alert({Title: "", Content: "请选择一个", BtnL:"确定",FunL:alerts});
+            }
+        })
+
         </script>
 
 	</body>

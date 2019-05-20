@@ -582,7 +582,7 @@
 			}, 500)
 			flag = true;
 		})
-		$(".wrap-cont-box .main-cont-box").click(function () {
+		$(".wrap-cont-box").on("click", ".main-cont-box", function () {
 			if (flag == false) {
 				location.href = "manager_luxianxiangqing.html"
 			} else {
@@ -666,7 +666,7 @@
 		function mang_all_lines (data) {
 			$(".man_lines").empty();
 			for (var i = 0; i < data.rows.length; i++) {
-				var str = '<div class="main-cont-box">' + 
+				var str = '<div class="main-cont-box" wl_id = ' + data.rows[i].wl_id +'>' + 
 				'<div class="region-cont-box">' +
 					'<div class="row">' +
 						'<div class="col-md-5 col-xs-5 start-cont-box tc">' +
@@ -688,6 +688,53 @@
 			$(".man_lines").append(str);
 			}
 		}
+
+		// 批量删除路线
+		// 点击更改
+        $(".btn-box button:eq(0)").click(function () {
+            var arr1 = [];
+            for (var i = 0 ; i < $(".wrap-cont-box .main-cont-box").length; i++) {
+                if ($(".wrap-cont-box .main-cont-box").eq(i).attr("class") == "main-cont-box change-active") {
+                    arr1.push(i);
+                }
+            }
+            if (arr1.length > 0  ) {
+				var arr2 = [];
+				for (var i = 0; i < arr1.length; i ++) {
+					arr2.push($(".wrap-cont-box .main-cont-box").eq(arr1[i]).attr("wl_id"));
+				}
+                delete_man_lines(arr2);
+            } else {
+                $.DialogByZ.Alert({Title: "", Content: "请至少选择一个", BtnL:"确定",FunL:alerts});
+            }
+		})
+		// 批量删除路线
+		function delete_man_lines (arr2) {
+			var ids = arr2;
+            $.ajax({
+				url: global_url + "/wayLine/deleteWayLineByIds",
+                type: "post",
+                data: {
+                    ids: ids
+                },
+                success: function (data) {
+                    if (data.success) {
+                        setTimeout(function () {
+							$.DialogByZ.Alert({Title: "", Content: "删除成功", BtnL:"确定",FunL:alerts1});
+                        }, 10)
+                    } else {
+                        setTimeout(function () {
+                            if (data.msg) {
+                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                            }
+                        }, 10)
+                    }
+                }
+            })
+		}
+		function alerts1() {
+            all_lines(sort);
+        }
 		
 	</script>
 </body>
