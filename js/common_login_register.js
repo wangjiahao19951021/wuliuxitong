@@ -11,7 +11,7 @@ $.ajaxSetup({
     timeout : 10000,
     beforeSend : function() {
 	// 加载loading等操作
-	$.DialogByZ.Loading('../../lib/jQueryZdialog/image/loading.png'); 
+	$.DialogByZ.Loading('../lib/jQueryZdialog/image/loading.png'); 
     },
     complete : function() {
 	// 加载完毕后执行操作 删除loading等操作

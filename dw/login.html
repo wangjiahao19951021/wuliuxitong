@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../lib/jQueryZdialog/css/zdialog.css">
     <script src="../lib/jquery-1.11.3/jquery.min.js"></script>
     <script src="../lib/jQueryZdialog/js/zdialog.js"></script>
-    <script src="../js/common.js"></script>
+    <script src="../js/common_login_register.js"></script>
     <link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
@@ -190,8 +190,6 @@
         })
         // 点击登录
         $(".login_btns button").click(function () {
-            $("#user").val();
-            $("#password").val();
             if ($("#user").val() == "" ) {
                 $.DialogByZ.Alert({Title: "", Content: "请输入用户名",BtnL:"确定",FunL:alerts});
                 return false;
@@ -199,11 +197,30 @@
                 $.DialogByZ.Alert({Title: "", Content: "请输入密码",BtnL:"确定",FunL:alerts});
                 return false;                
             }
-            if ($("#user").val() == 1) {
-                location.href = "./salesman/salesman_index.html"
-            } else if ($("#user").val() == 2) {
-                location.href = "./manager/manager_index.html"
-            }
+            // if ($("#user").val() == 1) {
+            //     location.href = "./salesman/salesman_index.html"
+            // } else if ($("#user").val() == 2) {
+            //     location.href = "./manager/manager_index.html"
+            // }
+            
+            // 业务员
+            // 17777777777
+            // 123123
+
+            // ajax
+            var tel = $("#user").val();
+            var password = $("#password").val();
+            $.ajax({
+                url: global_url + "/user/login",
+                type: "post",
+                data: {
+                    tel: tel,
+                    password: password
+                },
+                success: function (data) {
+
+                }
+            })
         })
 
     </script>
