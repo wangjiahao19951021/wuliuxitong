@@ -204,7 +204,8 @@
                 <p></p>
             </div>
             <div class="edit_cneter">
-                <p>XX-XX运输</p>
+                <!-- <p>XX-XX运输</p> -->
+                <p></p>
             </div>
             <div class="edit_right">
                 <p></p>
@@ -212,8 +213,8 @@
         </div>
         <div class="salesman_details_lines">
             <div class="salesman_detailsl_l">
-                <p>山东</p>
-                <p>临沂</p>
+                <p></p>
+                <p></p>
             </div>
             <div class="salesman_detailsl_c">
                 <div class="arrows-cont-box">
@@ -222,8 +223,8 @@
                 </div>
             </div>
             <div class="salesman_detailsl_r">
-                <p>江苏</p>
-                <p>南京</p>
+                <p></p>
+                <p></p>
             </div>
         </div>
         <div class="container-fluid edit_top">
@@ -374,6 +375,10 @@
                     $("#name").val(data.data.name);
                     $("#tel").val(data.data.tel);
                     $("#common").val(data.data.common);
+                    $(".salesman_detailsl_l p").eq(0).text(data.data.start_pro);
+                    $(".salesman_detailsl_l p").eq(1).text(data.data.start_down);
+                    $(".salesman_detailsl_r p").eq(0).text(data.data.arrive_pro);
+                    $(".salesman_detailsl_r p").eq(1).text(data.data.arrive_down);
                 }
             })
         }
@@ -384,6 +389,12 @@
         jeDate("#weihushijian", {
             format: "YYYY-MM-DD hh:mm:ss"
         });
+        // 返回操作
+        $(".edit_left").click(function () {
+            history.go(-1);
+        })
+        // 点击删除
+        
     </script>
 </body>
 </html>

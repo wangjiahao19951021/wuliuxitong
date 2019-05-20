@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../lib/mui/css/mui.min.css">
+    <script src="../lib/jquery-1.11.3/jquery.min.js"></script>
+    <script src="../lib/mui/js/mui.min.js"></script>
+    <title>Document</title>
+    <style>
+        body{
+            height: 500px;
+        }
+        #refreshContainer{
+        }
+    </style>
+</head>
+<body>
+ <!--下拉刷新容器-->
+ <div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <!--数据列表-->
+            <ul class="mui-table-view mui-table-view-chevron">
+                asfasdfasdfsdaf
+                asfasdfasdfsdaf
+                asfasdfasdfsdaf
+                asfasdfasdfsdaf
+                asfasdfasdfsdaf
+            </ul>
+        </div>
+    </div>
+    <script>
+        var page_index = 1;
+        mui.init({
+            pullRefresh: {
+                container: '#pullrefresh',
+                down: {
+                    callback: pulldownRefresh
+                },
+                up: {
+                    contentrefresh: '正在加载...',
+                    callback: pullupRefresh
+                }
+            }
+        });
+        var page_index = 0;
+          function pullupRefresh() {
+            page_index++
+              alert(page_index);
+              //业务逻辑代码，比如通过ajax从服务器获取新数据；
+                //注意，加载完新数据后，必须执行如下代码，注意：若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
+                //没有更多内容了，endPulldown 传入true， 不再执行下拉刷新
+                setTimeout(function () {
+                    $(".mui-table-view").append('<div>sadfasdfadsfas</div>')
+                    // 代表两页数据
+                    if (page_index <1) {
+                        mui('#pullrefresh').pullRefresh().endPullupToRefresh();
+
+                    } else {
+                        mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+                        
+                    }
+              }, 2000)
+              
+          }
+          function pulldownRefresh() {
+        mui('#pullrefresh').pullRefresh().disablePullupToRefresh();
+              
+            // page_index++
+            //   alert(2);
+            //   setTimeout(function () {
+            //     mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+            //   }, 2000)
+              
+              
+          }
+          //pullup-container为在mui.init方法中配置的pullRefresh节点中的container参数；
+          
+    </script>
+</body>
+</html>
