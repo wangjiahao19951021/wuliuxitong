@@ -197,17 +197,13 @@
                 $.DialogByZ.Alert({Title: "", Content: "请输入密码",BtnL:"确定",FunL:alerts});
                 return false;                
             }
-            // if ($("#user").val() == 1) {
-            //     location.href = "./salesman/salesman_index.html"
-            // } else if ($("#user").val() == 2) {
-            //     location.href = "./manager/manager_index.html"
-            // }
-            
-            // 业务员
-            // 17777777777
+            // 经理
+            // 15155555555
             // 123123
-
-            // ajax
+            // 业务员
+            // 14444444444
+            // 123123
+            // 登录的ajax
             var tel = $("#user").val();
             var password = $("#password").val();
             $.ajax({
@@ -218,7 +214,19 @@
                     password: password
                 },
                 success: function (data) {
-
+                    if(data.success) {
+                        if (data.code == 2) {
+                            location.href = "./salesman/salesman_index.html"
+                        } else if (data.code == 1) {
+                            location.href = "./manager/manager_index.html"
+                        }
+                    } else {
+                        setTimeout (function () {
+                            if (data.msg) {
+                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                            }
+                        }, 10)
+                    }
                 }
             })
         })

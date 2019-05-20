@@ -233,6 +233,8 @@
         });
         // 点击注册
         $(".login_btns button").click(function () {
+            var tel = $("#user").val();
+            var zhanghu = isNumber(tel);
             if ($("#user").val() == "" ) {
                 $.DialogByZ.Alert({Title: "", Content: "请输入账号",BtnL:"确定",FunL:alerts});
             } else if ($("#password_one").val() == "") {
@@ -240,15 +242,66 @@
             } else if ($("#password_two").val() == "") {
                 $.DialogByZ.Alert({Title: "", Content: "请输入密码",BtnL:"确定",FunL:alerts});
             } else if ($("#name").val() == "") {
-                $.DialogByZ.Alert({Title: "", Content: "请输入用户名",BtnL:"确定",FunL:alerts});    
+                $.DialogByZ.Alert({Title: "", Content: "请输入用户名",BtnL:"确定",FunL:alerts});
             } else if ($("#yaoqing").val() == "") {
                 $.DialogByZ.Alert({Title: "", Content: "请输入邀请码",BtnL:"确定",FunL:alerts});
             } else if ($("#password_one").val() != $("#password_two").val()) {
-                $.DialogByZ.Alert({Title: "", Content: "两次输入密码不一致",BtnL:"确定",FunL:alerts});                
+                $.DialogByZ.Alert({Title: "", Content: "两次输入密码不一致",BtnL:"确定",FunL:alerts}); 
+            } else if (zhanghu == false) {
+                $.DialogByZ.Alert({Title: "", Content: "用户名为数字",BtnL:"确定",FunL:alerts});  
             } else {
-                
+                // 八个0和八个1
+                // 经理 和 业务员
+                var tel = $("#user").val();
+                var password = $("#password_one").val();
+                var name = $("#name").val();
+                var code = $("#yaoqing").val();
+                register_ajax(tel, password, name, code);
             }
         })
+        function register_ajax (tel, password, name, code) {
+            $.ajax({
+                url: global_url + "/user/register",
+                type: "post",
+                data: {
+                    tel: tel, 
+                    password: password, 
+                    name: name, 
+                    code: code
+                },
+                success: function (data) {
+                    if (data.success) {
+                        setTimeout (function () {
+                            $.DialogByZ.Confirm({Title: "", Content: "注册成功,是否跳转到登录页面",FunL:confirmL,FunR:Immediate})
+                        }, 10);
+                    } else {
+                        setTimeout (function () {
+                            if (data.error) {
+                                $.DialogByZ.Alert({Title: "", Content: data.error, BtnL:"确定",FunL:alerts});
+                            };
+                        }, 10)
+                    }
+                }
+            })
+        }
+        function confirmL () {
+            location.href = "login.html";
+        }
+        function Immediate () {
+            $.DialogByZ.Close();
+        }
+        // 验证是否为数字
+        function isNumber(tel){
+            var regPos = /^\d+(\.\d+)?$/; //非负浮点数
+            var regNeg = /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //负浮点数
+            if(regPos.test(tel) || regNeg.test(tel)){
+                // 数字
+                return true;
+            }else{
+                // 非数字             
+                return false;
+            }
+        }
     </script>
 
 

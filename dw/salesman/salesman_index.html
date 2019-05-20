@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="../../lib/jQueryZdialog/css/zdialog.css">
         <script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
         <script src="../../lib/jQueryZdialog/js/zdialog.js"></script>
-		<script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <script src="../../js/common.js"></script>
         <title>维护路线</title>
         <style>
             body{
@@ -71,9 +72,10 @@
 				</div>
 			</div>
 		</div>
-		<!--内容-->
+        <!--内容-->
+        
 		<div class="saslesman_content">
-            <div class="wrap-cont-box">
+         <!--    <div class="wrap-cont-box">
 			    <div class="container">
 				    <div class="main-cont-box">
 					    <div class="region-cont-box">
@@ -113,9 +115,9 @@
 					    </div>
 				    </div>
 			    </div>
-            </div>
+            </div> -->
             
-            <div class="wrap-cont-box">
+            <!-- <div class="wrap-cont-box">
 			    <div class="container">
 				    <div class="main-cont-box">
 					    <div class="region-cont-box">
@@ -362,7 +364,7 @@
                                         </div>
                                     </div>
                                 </div>
-            
+             -->
         </div>
 		<!--底部导航-->
 		<div class="wrap-nav-box tc">
@@ -438,7 +440,8 @@
                 flag = true;
                 $(".warp-btn-box").show();                
             })
-            $(".saslesman_content .main-cont-box").click(function () {
+            // 点击查看详情
+            $(".saslesman_content").on("click", ".main-cont-box", function () {
                 if (flag == false) {
                     location.href = "salesman_details.html"
                 } else {
@@ -465,6 +468,108 @@
                     break;
                 }
             })
+            var sort = "";
+            $(".paixu p:eq(0)").click(function () {
+                sort = "";
+                salesman_index(sort);
+                $(".paixu").hide();
+                $(".paixu_zhezhao").hide();
+                $("body").css({"position":"static"});
+            })
+            $(".paixu p:eq(1)").click(function () {
+                sort = "desc";
+                salesman_index(sort);
+                $(".paixu").hide();
+                $(".paixu_zhezhao").hide();
+                $("body").css({"position":"static"});
+            })
+            salesman_index(sort)
+            // 默认查询
+            function salesman_index (sort) {
+                $.ajax({
+                    url: global_url + "/way/wayListByUidSearch",
+                    type: "post",
+                    data: {
+                        pageSize: 6,
+                        pageNum: 1,
+                        sort: sort
+                    },
+                    success: function (data) {
+                        $(".saslesman_content").empty();                        
+                        if (data.success) {
+                         sa_index_xuanran(data)
+                        } else {
+                            setTimeout (function () {
+                                if (data.msg) {
+                                    $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                                }
+                            }, 10)
+                         }
+                    }
+                })
+            }
+            // 关闭提示
+            function alerts(){
+                $.DialogByZ.Close();
+            }
+            // 渲染
+            function sa_index_xuanran(data) {
+                $(".saslesman_content").empty();
+                for (var i = 0; i < data.rows.length; i++) {
+                    var str = '<div class="wrap-cont-box"> ' + 
+			    '<div class="container">' + 
+				    '<div class="main-cont-box">' + 
+					    '<div class="region-cont-box">' + 
+					    	'<div class="row">' + 
+							    '<div class="col-md-5 col-xs-5 start-cont-box tc">' + 
+								'<p>' + data.rows[i].start_pro + '</p>' + 
+								'<span>' + data.rows[i].start_down + '</span>' + 
+							'</div>' + 
+							'<div class="col-md-2 col-xs-2 arrows-cont-box">' + 
+								'<span class="arrows-one"></span>' + 
+								'<span class="arrows-two"></span>' + 
+							'</div>' + 
+							'<div class="col-md-5 col-xs-5 getTo-cont-box tc">' + 
+								'<p>' + data.rows[i].arrive_pro + '</p>' + 
+								'<span>' + data.rows[i].arrive_down + '</span>' + 
+							'</div>' + 
+						'</div>' + 
+					'</div>' + 
+					    '<div class="details-cont-box">' + 
+						    '<div>' + 
+							    '<p>车牌号码:<span>' + data.rows[i].platenum + '</span></p>' + 
+						    '</div>' + 
+						    '<div>' + 
+							    '<p><span>' + data.rows[i].name + '</span><span>' + data.rows[i].tel + '</span></p>' +
+						   '</div>' + 
+					    '</div>' +
+					    '<div class="date-cont-box">' +
+						    '<div>' +
+							    '<p>录入日期：<span>' + data.rows[i].create_time + '</span></p>' +
+						    '</div>' +
+						    '<div>' +
+							    '<p style="margin-left: 8px;">维护日期：<span>' + data.rows[i].update_time + '</span></p>' +
+						    '</div>' +
+						    '<div class="btn-cont-box">' +
+							    '<p class="more-cont-btn">查看详情</p>' +
+						    '</div>' +
+					    '</div>' +
+				    '</div>' +
+			    '</div>' +
+            '</div>'
+                    $(".saslesman_content").append(str);
+                }
+                // 截取时间
+                jeiqu_riqi ($(".date-cont-box div:eq(0) span"), $(".date-cont-box div:eq(0) span").text());
+                jeiqu_riqi ($(".date-cont-box div:eq(1) span"), $(".date-cont-box div:eq(1) span").text());
+            }
+            
+        //    截取
+        function jeiqu_riqi (sli, values) {
+            var str = values.substr(0, 10);
+            sli.text(str) 
+        }
+            
         </script>
 
 	</body>

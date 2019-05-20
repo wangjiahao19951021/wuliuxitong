@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="../../lib/jq-select/jq_selsect.js"></script>
-
+    <script src="../../js/com_city.js"></script>
     <style>
         body{
             background: #f6fafd;
@@ -139,13 +139,10 @@
                 </div>
                 <div class="col-xs-7 edit_top_top2">
                     <form>
-                        <div class="form-group">
+                        <div class="form-group form-group1">
                           <!-- <input type="text" class="form-control" placeholder="点击选择省份"> -->
-                          <select class="select" isval="false" msg="点击选择省份">
+                          <select class="select select_1" isval="false" msg="点击选择省份">
                                 <option value="">点击选择省份</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">asf</option>
                             </select>
                         </div>
                     </form>
@@ -160,13 +157,10 @@
                 </div>
                 <div class="col-xs-7 edit_top_top2">
                     <form>
-                        <div class="form-group">
+                        <div class="form-group form-group2">
                           <!-- <input type="text" class="form-control" placeholder="点击选择省份"> -->
-                          <select class="select" isval="false" msg="点击选择省份">
+                          <select class="select select_2" isval="false" msg="点击选择省份">
                                 <option value="">点击选择省份</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">asf</option>
                             </select>
                         </div>
                     </form>
@@ -181,13 +175,10 @@
                 </div>
                 <div class="col-xs-7 edit_top_top2">
                     <form>
-                        <div class="form-group">
+                        <div class="form-group form-group3">
                           <!-- <input type="text" class="form-control" placeholder="点击选择城市"> -->
-                          <select class="select" isval="false" msg="点击选择城市">
+                          <select class="select select_3" isval="false" msg="点击选择城市">
                                 <option value="">点击选择城市</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">asf</option>
                             </select>
                         </div>
                     </form>
@@ -202,13 +193,10 @@
                 </div>
                 <div class="col-xs-7 edit_top_top2">
                     <form>
-                        <div class="form-group">
+                        <div class="form-group form-group4">
                           <!-- <input type="text" class="form-control" placeholder="点击选择城市"> -->
-                          <select class="select" isval="false" msg="点击选择城市">
+                          <select class="select select_4" isval="false" msg="点击选择城市">
                                 <option value="">点击选择城市</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">asf</option>
                             </select>
                         </div>
                     </form>
@@ -225,8 +213,97 @@
         </div>
     </div>
     <script>
-        //插件初始化配置
-        $('.select').anselcfg({});
+        ;(function () {
+            $(".select_1").empty();
+            $(".select_2").empty();
+            $(".select_3").empty();
+            $(".select_4").empty();
+            $(".select_1").append('<option value="">点击选择省份</option>')
+            $(".select_2").append('<option value="">点击选择省份</option>')
+            $(".select_3").append('<option value="">请选择对应省份</option>')
+            $(".select_4").append('<option value="">请选择对应省份</option>')
+            var options
+            for (var i = 0 ; i < com_city.length; i++) {
+                options = '<option value=' + (i + 1) + '>' + com_city[i].name +'</option>'
+                $(".select_1").append(options);
+                $(".select_2").append(options);
+            }
+            //插件初始化配置
+            $('.select').anselcfg({});
+            $(".form-group1 .ansel_ok").click(function () {
+                $(".form-group3 .ansel_inputval").remove();
+                $(".form-group3 .select_3").empty();
+                $(".select_3").append('<option value="">点击选择城市</option>')
+                var options1
+                for (var i = 0 ; i < com_city.length; i++) {
+                    if ($(".ansel_inputval").val() == com_city[i].name) {
+                        for (var j = 0; j < com_city[i].child.length; j++) {
+                            options1 = '<option value="">' + com_city[i].child[j].name +'</option>'
+                            $(".select_3").append(options1);
+                            
+                        }
+                    }
+                }
+                $('.select_3').anselcfg({});                
+            });
+            $(".form-group2 .ansel_ok").click(function () {
+                $(".form-group4 .ansel_inputval").remove();
+                $(".form-group4 .select_4").empty();
+                $(".select_4").append('<option value="">点击选择城市</option>')
+                var options2
+                for (var i = 0 ; i < com_city.length; i++) {
+                    if ($(".form-group2 .ansel_inputval").val() == com_city[i].name) {
+                        for (var j = 0; j < com_city[i].child.length; j++) {
+                            options2 = '<option value="">' + com_city[i].child[j].name +'</option>'
+                            $(".select_4").append(options2);
+                            
+                        }
+                    }
+                }
+                $('.select_4').anselcfg({});                
+            });
+        })();
+        // 点击添加
+        $(".login_btn").click(function () {
+            add_lines ();
+        })
+        // 添加路线接口
+        function add_lines () {
+            var province_a = $(".form-group1 .ansel_inputval").val();
+            var province_b = $(".form-group2 .ansel_inputval").val();
+            var urban_a = $(".form-group3 .ansel_inputval").val();
+            var urban_b = $(".form-group4 .ansel_inputval").val();
+            $.ajax({
+                url: global_url + "/wayLine/addNewWayLine",
+                type: "post",
+                data: {
+                    province_a: province_a,
+                    province_b: province_b,
+                    urban_a: urban_a,
+                    urban_b: urban_b,
+                },
+                success: function (data) {
+                    if(data.success) {
+                        setTimeout (function () {
+                            if (data.msg) {
+                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                            } else {
+                                alert("成功")
+                            }
+                        }, 10)
+                    } else {
+                        setTimeout (function () {
+                            if (data.msg) {
+                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                            }
+                        }, 10)
+                    }
+                }
+            })
+        }
+        function alerts () {
+            location.href = "manager_route.html"
+        }
     </script>
 </body>
 </html>
