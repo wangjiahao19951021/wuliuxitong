@@ -134,7 +134,8 @@
                 <p></p>
             </div>
             <div class="edit_cneter">
-                <p>XX-XX运输</p>
+                <!-- <p>XX-XX运输</p> -->
+                <p>路线详情</p>
             </div>
             <div class="edit_right">
                 <p></p>
@@ -202,7 +203,35 @@
                     </button>
                  </div>
     </div>
-    
+    <script>
+        // 返回操作
+        $(".edit_left").click(function () {
+            history.go(-1);
+        })
+        man_lu_xiangqing();
+        function man_lu_xiangqing () {
+            var ids = [];
+            ids.push(sessionStorage.getItem("man_luxian_xiangqing"));
+            $.ajax({
+                url: global_url + "/wayLine/deleteWayLineByIds",
+                type: "post",
+                data: {
+                    ids: ids
+                },
+                success: function (data) {
+                    if (data.success) {
+                        setTimeout(function () {
+                            $.DialogByZ.Alert({Title: "", Content: "查询成功", BtnL:"确定",FunL:alerts});
+                        }, 10)
+                    } else {
+                        setTimeout(function () {
+                            $.DialogByZ.Alert({Title: "", Content: "查询失败", BtnL:"确定",FunL:alerts});
+                        }, 10)
+                    }
+                }
+            })
+        }
+    </script>
         
    
 </body>

@@ -277,6 +277,12 @@
                 $.DialogByZ.Alert({Title: "", Content: "请输入出发省份或者到达省份", BtnL:"确定",FunL:alertsaa});
                 return false;
             }
+            if (urban_a == "点击选择城市") {
+                urban_a = "";
+            }
+            if (urban_b == "点击选择城市") {
+                urban_b = "";
+            }
             $.ajax({
                 url: global_url + "/wayLine/addNewWayLine",
                 type: "post",

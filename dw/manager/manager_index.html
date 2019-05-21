@@ -27,7 +27,7 @@
 				width: 2rem;
 				height: 2rem;
 				background: url(../../images/nav-wd-renyuan.png) no-repeat center;
-				background-size: 100%;
+				background-size: 100% 100%;
 				margin: 0 auto;
 			}
         </style>
@@ -75,7 +75,13 @@
 				<div class="btn-box">
 					<button type="button" style="color: #fff;">删除</button>
 					<button type="button" style="color: #fff;">更改</button>
-					<button type="button" style="color: #fff;">导入</button>
+                    <button type="button" style="color: #fff;">导入</button>
+                    <form id="fam" enctype='multipart/form-data' style="display:none;">               
+                        <div class="form-group">
+                          <!--<label for="upteainput">上传文件</label>-->
+                          <input id="uploadfile" name="upfile" type="file" class="form-control-file">    
+                        </div>             
+                    </form>
 					<button type="button" style="color: #fff;">导出</button>
 					<div class="clear"></div>
 				</div>
@@ -500,7 +506,7 @@
                     url: global_url + "/way/wayListByManSearch",
                     type: "post",
                     data: {
-                        pageSize: 6,
+                        pageSize: 100,
                         pageNum: 1,
                         sort: sort
                     },
@@ -650,7 +656,51 @@
                 $.DialogByZ.Alert({Title: "", Content: "请选择一个", BtnL:"确定",FunL:alerts});
             }
         })
+        // 点击导入
+        $(".btn-box button:eq(2)").click(function () {
+            $("#uploadfile").click();
+        })
+        $("#uploadfile").change(uploadonline);
+        /*上传*/
+        function uploadonline() {
 
+        var uploadFile = $("#uploadfile")[0].files[0];
+        console.log(uploadFile);
+        var formData = new FormData();
+        formData.append("uploadFile", uploadFile);
+
+        $("#fileForm").submit();
+
+        console.log("formData:" + formData);
+        // if ("undefined" != typeof(uploadFile) && uploadFile != null && uploadFile != "") {
+        $.ajax({
+            url: global_url +  '/excel/importExcel?instance=' + "way",
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false, //不设置内容类型
+            processData: false, //不处理数据
+            success: function (data) {
+                // alert(data);
+                if (data.success) {
+                    setTimeout(function () {
+                        $.DialogByZ.Alert({Title: "提示", Content: "导入数据成功"+data.msg,BtnL:"确定",FunL:alerts111})
+                    }, 10)
+                } else {
+                    setTimeout(function () {
+                        $.DialogByZ.Alert({Title: "提示", Content: data.msg,BtnL:"确定",FunL:alerts11})
+                    }, 10)
+                }
+            }
+            })
+        }
+        function alerts11 () {
+            $.DialogByZ.Close();
+        }
+        function alerts111 () {
+            history.go(0);
+        }
         </script>
 
 	</body>

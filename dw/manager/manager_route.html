@@ -25,7 +25,7 @@
 			width: 2rem;
 			height: 2rem;
 			background: url(../../images/nav-wd-q_3.png) no-repeat center;
-			background-size: 100%;
+			background-size: 100% 100%;
 			margin: 0 auto;
 		}
 		.path-nav{
@@ -33,7 +33,7 @@
 			width: 2rem;
 			height: 2rem;
 			background: url(../../images/nav-wd-q_4.png) no-repeat center;
-			background-size: 100%;
+			background-size: 100% 100%;
 			margin: 0 auto;
 		}
 		.add-nav{
@@ -41,7 +41,7 @@
 			width: 2rem;
 			height: 2rem;
 			background: url(../../images/nav-fb.png) no-repeat center;
-			background-size: 100%;
+			background-size: 100% 100%;
 			margin: 0 auto;
 		}
 		.personnel-nav{
@@ -49,7 +49,7 @@
 			width: 2rem;
 			height: 2rem;
 			background: url(../../images/nav-wd-renyuan.png) no-repeat center;
-			background-size: 100%;
+			background-size: 100% 100%;
 			margin: 0 auto;
 		}
 		.my-nav{
@@ -57,7 +57,7 @@
 			width: 2rem;
 			height: 2rem;
 			background: url(../../images/nav-wd-q.png) no-repeat center;
-			background-size: 100%;
+			background-size: 100% 100%;
 			margin: 0 auto;
 		}
 		.wrap-designate-box{
@@ -585,7 +585,9 @@
 		})
 		$(".wrap-cont-box").on("click", ".main-cont-box", function () {
 			if (flag == false) {
+				var wl_id = $(this).attr("wl_id");
 				location.href = "manager_luxianxiangqing.html"
+				sessionStorage.setItem("man_luxian_xiangqing", wl_id)
 			} else {
 				$(this).toggleClass("change-active");
 			}
