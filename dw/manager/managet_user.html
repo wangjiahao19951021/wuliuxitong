@@ -9,11 +9,15 @@
 		<link rel="stylesheet" href="../../css/reset.css">
 		<link rel="stylesheet" href="../../css/share.css">
 		<link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../lib/jQueryZdialog/css/zdialog.css">
 
 		<link rel="stylesheet" type="text/css" href="../../css/user.css" />
 
 		<script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
 		<script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="../../lib/jQueryZdialog/js/zdialog.js"></script>
+		<script src="../../js/common.js"></script>
+
 		<title>个人中心</title>
 		<style>
 			.home-nav{
@@ -83,15 +87,15 @@
 						</div>
 						<div class="clear"></div>
 						<div class="cont-one-box">
-							<h3>赵铁柱</h3>
+							<h3></h3>
 							<div class="xinxi-box tc">
 								<p style="margin-bottom: 0.8rem;"><img src="../../images/user_sf.png" title="" alt="" width="100%" height="100%"></p>
 								<p>当前身份</p>
-								<p>业务员</p>
+								<p>经理</p>
 							</div>
 						</div>
 					</div>
-					<div class="message-cont-two">
+					<div class="message-cont-two" style="display: none;">
 						<div class="row">
 							<div class="col-md-6 col-xs-6 wh-cont tc">
 								<h3>6</h3>
@@ -163,6 +167,36 @@
 			$(".btn-cont-box button:eq(1)").click(function () {
 				location.href = "../login.html"
 			})
+			// 点击退出登录
+			$(".btn-cont-box button:eq(0)").click(function () {
+				location.href = "../login.html"
+			})
+			$(".mima-cont-box p:eq(1)").click(function () {
+				$.DialogByZ.Alert({Title: "", Content: "功能正在开发中",BtnL:"确定",FunL:alerts});
+			})
+			function alerts () {
+				$.DialogByZ.Close();
+			}
+			man_suers_data ()
+			function man_suers_data () {
+				$.ajax({
+					url: global_url + "/user/getUser",
+					type: "post",
+					success: function (data) {
+						if (data.success) {
+							$(".cont-one-box h3").text(data.user.name);
+						} else {
+							setTimeout(function () {
+								$.DialogByZ.Alert({Title: "", Content: "查询失败",BtnL:"确定",FunL:alerts});
+
+							}, 10)
+						}
+					}
+				})
+			}
+			function alerts () {
+				$.DialogByZ.Close();
+			}
 		</script>
 	</body>
 </html>

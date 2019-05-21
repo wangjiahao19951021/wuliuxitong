@@ -417,6 +417,19 @@
             var name = $("#name").val();
             var tel = $("#tel").val();
             var common = $("#common").val();
+
+            if (start_down == "点击选择城市" || start_down == "请选择对应省份") {
+                start_down = ""
+            }
+            if (arrive_down == "点击选择城市" || arrive_down == "请选择对应省份") {
+                arrive_down = ""
+            }
+            if (start_pro == "点击选择省份") {
+                start_pro = ""
+            }
+            if (arrive_pro == "点击选择省份") {
+                arrive_pro = ""
+            }
             $.ajax({
                 url: global_url + "/way/addNewWaySelective",
                 type: "post",

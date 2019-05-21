@@ -403,6 +403,21 @@
                 var update_time = $("#weihushijian").val();
                 var name = $("#name").val();
                 var tel = $("#tel").val();
+
+                var obj = {};
+                obj.start_pro = start_pro;
+                obj.arrive_pro = arrive_pro;
+                obj.start_down = start_down;
+                obj.arrive_down = arrive_down;
+                obj.palatenum = palatenum;
+                obj.marque = marque;
+                obj.cargo = cargo;
+                obj.create_time = create_time;
+                obj.update_time = update_time;
+                obj.name = name;
+                obj.tel = tel;
+                sessionStorage.setItem("man_obj", JSON.stringify(obj));
+
                 if (start_down == "点击选择城市") {
                     start_down = "";
                 }
@@ -461,8 +476,11 @@
                 $.DialogByZ.Close();
             }
             function alerts123 () {
+                sessionStorage.setItem("haha", 1);
+                sessionStorage.setItem("man_index", 1);
                 history.go(-1);
             }
+            
     </script>
 </body>
 </html>

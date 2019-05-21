@@ -16,6 +16,7 @@
 	<script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
 	<script src="../../lib/jQueryZdialog/js/zdialog.js"></script>
 	<script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script src="../../js/common.js"></script>
 
 
 	<title>维护人员</title>
@@ -131,7 +132,7 @@
 	<!--内容-->
 	<div class="wrap-cont-box">
 		<div class="container">
-			<div class="main-cont-box">
+			<!-- <div class="main-cont-box">
 				<div class="message-cont-box">
 					<h3>赵铁柱</h3>
 					<div>
@@ -160,8 +161,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="main-cont-box">
+			</div> -->
+			<!-- <div class="main-cont-box">
 					<div class="message-cont-box">
 						<h3>赵铁柱</h3>
 						<div>
@@ -311,7 +312,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 		
 							
 		</div>
@@ -366,6 +367,24 @@
 			$("body").css({"position":"static"});
 		})
 
+		var sort = "";
+		// 默认查询
+		man_zhezhao (sort);
+		$(".paixu p:eq(0)").click(function () {
+                sort = "";
+				man_zhezhao (sort);
+                $(".paixu").hide();
+                $(".paixu_zhezhao").hide();
+                $("body").css({"position":"static"});
+            })
+            $(".paixu p:eq(1)").click(function () {
+                sort = "desc";
+                man_zhezhao (sort);
+                $(".paixu").hide();
+                $(".paixu_zhezhao").hide();
+                $("body").css({"position":"static"});
+            })
+
 		
 		var flag = false;
 		// 点击选择操作
@@ -389,8 +408,10 @@
 			flag = true;
 			$(".warp-btn-box").show();                
 		})
-		$(".wrap-cont-box .main-cont-box").click(function () {
+		$(".wrap-cont-box").on("click", ".main-cont-box", function () {
 			if (flag == false) {
+				var u_id = $(this).attr("wl_id");
+				sessionStorage.setItem("man_peo_se", u_id);
 				location.href = "manager_personnel_more.html"
 			} else {
 				$(this).toggleClass("change-active");
@@ -416,6 +437,143 @@
 				break;
 			}
 		})
+		
+		function man_zhezhao (sort) {
+			// $(".wrap-cont-box .container").empty();
+			$.ajax({
+                type: "post",
+                url: global_url + "/sman/getSNameAndWLList",
+                data: {
+					pageSize: 10000,
+					pageNum: 1,
+					sort: sort
+                },
+                success: function (data) {
+                    if (data) {
+                        per_xuanran (data);
+                    } else {
+                        setTimeout (function () {
+                            if (data.error) {
+                                $.DialogByZ.Alert({Title: "", Content: "失败", BtnL:"确定",FunL:alerts});
+                            };
+                        }, 10)
+                    }
+                }
+            })
+		}
+
+		// 渲染
+		function per_xuanran (data) {
+			$(".wrap-cont-box>.container").empty()
+			var str = "";
+			var st1 = "";
+			var st2 = "";
+			var st3 = "";
+			var st4 = "";
+			for (var i = 0; i < data.rows.length; i++) {
+				if (data.data[i].arr[0]) {
+					if (data.data[i].arr[0].province_a) {
+					str1 = data.data[i].arr[0].province_a
+					} else {
+						str1 = ""
+					}
+					if (data.data[i].arr[0].urban_a) {
+						str2 = data.data[i].arr[0].urban_a
+					} else {
+						str2 = ""
+					}
+					if (data.data[i].arr[0].province_b) {
+						str3 = data.data[i].arr[0].province_b
+					} else {
+						str3 = ""
+					}
+					if (data.data[i].arr[0].urban_b) {
+						str4 = data.data[i].arr[0].urban_b
+					} else {
+						str4 = ""
+					}
+				} else {
+					str1 = ""
+					str2 = ""
+					str3 = ""
+					str4 = ""
+				}
+				str = '<div class="main-cont-box" wl_id='+ data.rows[i].u_id+'>' +
+									'<div class="message-cont-box">' +
+										'<h3>' +data.rows[i].name  +'</h3>' +
+										'<div>' +
+											'<p>最后操作时间：<span></span></p>' +
+											'<p>'+ data.rows[i].lastLogin_time+'</p>' +
+										'</div>' +
+										'<div>' +
+											'<p>今日录入信息：<span>'+ data.data[i].today +'</span>条</p>' +
+											'<p>历史录入信息：<span>'+ data.data[i].history +'</span>条</p>' +
+										'</div>' +
+									'</div>' +
+									'<div class="region-cont-box">' +
+										'<div class="row">' +
+											'<div class="col-md-5 col-xs-5 start-cont-box tc">' +
+												'<p>' + str1 + '/' + str2 +'</p>' +
+											'</div>' +
+											'<div class="col-md-2 col-xs-2 arrows-cont-box">' +
+												'<span class="arrows-one"></span>' +
+												'<span class="arrows-two"></span>' +
+											'</div>' +
+											'<div class="col-md-5 col-xs-5 getTo-cont-box tc">' +
+												'<p>' + str3 + '/' + str4 +'</p>' +
+											'</div>' +
+											'<div class="row" style="clear: both; text-align: center;font-size: 1rem">' +
+													'<p class="more">查看详情</p>' +
+											'</div>' +
+										'</div>' +
+									'</div>' 
+
+				$(".wrap-cont-box>.container").append(str);
+			}
+		}
+
+		// 点击删除
+		$(".btn-box button").click(function () {
+			var arr1 = [];
+            for (var i = 0 ; i < $(".wrap-cont-box .container .main-cont-box").length; i++) {
+                if ($(".wrap-cont-box .container").find(".main-cont-box").eq(i).attr("class") == "main-cont-box change-active") {
+                    arr1.push(i);
+                }
+			}
+            if (arr1.length > 0 ) {
+				var arr2 = [];
+                for (var i = 0; i < arr1.length; i++) {
+                    arr2.push($(".wrap-cont-box .main-cont-box").eq(arr1[i]).attr("wl_id"));
+				}
+				man_delete (arr2);
+            } else {
+                $.DialogByZ.Alert({Title: "", Content: "请至少选择一个", BtnL:"确定",FunL:alerts});
+            }
+		})
+
+		function man_delete (arr2) {
+			$.ajax({
+                type: "post",
+                url: global_url + "/user/deleteSalasManById",
+                data: {
+					ids: arr2
+                },
+                success: function (data) {
+                    if (data.success) {
+						setTimeout(function () {
+							$.DialogByZ.Alert({Title: "", Content: "成功", BtnL:"确定",FunL:alerts1234});							
+						}, 10)
+					} else {
+						setTimeout(function () {
+							$.DialogByZ.Alert({Title: "", Content: "失败", BtnL:"确定",FunL:alerts});							
+						}, 10)
+					}
+                }
+            })
+		}
+		function alerts1234() {
+			history.go(0)
+		}
 	</script>
 
 </body>

@@ -140,7 +140,7 @@
                 <div class="col-xs-7 edit_top_top2">
                     <form>
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="请输入业务员真实姓名">
+                          <input type="text" class="form-control" placeholder="请输入业务员真实姓名" id="name">
                         </div>
                     </form>
                 </div>
@@ -155,7 +155,7 @@
                 <div class="col-xs-7 edit_top_top2">
                     <form>
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="请输入登录账号">
+                          <input type="text" class="form-control" placeholder="请输入登录账号" id="zhanghao">
                         </div>
                     </form>
                 </div>
@@ -170,7 +170,7 @@
                 <div class="col-xs-7 edit_top_top2">
                     <form>
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="请输入密码">
+                          <input type="password" class="form-control" placeholder="请输入密码" id="mima">
                         </div>
                     </form>
                 </div>
@@ -185,7 +185,7 @@
                 <div class="col-xs-7 edit_top_top2">
                     <form>
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="请确认输入密码">
+                          <input type="password" class="form-control" placeholder="请确认输入密码" id="querenmima">
                         </div>
                     </form>
                 </div>
@@ -200,12 +200,12 @@
                 </div>
                 <div class="col-xs-7 edit_top_top2">
                     <form>
-                        <div class="form-group">
+                        <div class="form-group form-group1">
                           <!-- <input type="text" class="form-control" placeholder="请选择角色"> -->
-                          <select class="select" isval="false" msg="点击选择城市">
+                          <select class="select" isval="false" msg="点击选择城市" id="selsects">
                                 <option value="">请选择角色</option>
-                                <option value="1">业务员</option>
-                                <option value="2">经理</option>
+                                <option value="00000000">业务员</option>
+                                <option value="11111111">经理</option>
                             </select>
                         </div>
                     </form>
@@ -224,6 +224,66 @@
     <script>
         //插件初始化配置
         $('.select').anselcfg({});
+        // 返回操作
+        $(".edit_left").click(function () {
+            history.go(-1);
+        })
+        // 点击添加人员
+        $(".login_btn").click(function () {
+            var name = $("#name").val();
+            var zhanghao = $("#zhanghao").val();
+            var mima = $("#mima").val();
+            var querenmima = $("#querenmima").val();
+            var juese = $(".form-group1 .ansel_inputval").val();
+
+            if (name == "" ) {
+                $.DialogByZ.Alert({Title: "", Content: "请输入用户名",BtnL:"确定",FunL:alerts});
+            } else if (zhanghao == "") {
+                $.DialogByZ.Alert({Title: "", Content: "请输入账号",BtnL:"确定",FunL:alerts});
+            } else if (mima == "") {
+                $.DialogByZ.Alert({Title: "", Content: "请输入密码",BtnL:"确定",FunL:alerts});
+            } else if (querenmima == "") {
+                $.DialogByZ.Alert({Title: "", Content: "请确认密码",BtnL:"确定",FunL:alerts});
+            } else if (juese == "" || juese == undefined || juese== "请选择角色") {
+                $.DialogByZ.Alert({Title: "", Content: "请选择角色",BtnL:"确定",FunL:alerts});
+            } else if (mima != querenmima) {
+                $.DialogByZ.Alert({Title: "", Content: "两次输入密码不一致",BtnL:"确定",FunL:alerts}); 
+            } else {
+
+                if (juese == "经理") {
+                    juese = "00000000"
+                } else if (juese == "业务员") {
+                    juese = "11111111"
+                }
+                add_per (name, zhanghao, mima, juese);
+            }
+        })
+
+        function add_per (name, tel, password, juese) {
+            $.ajax({
+                type: "post",
+                url: global_url + "/user/register",
+                data: {
+                    name: name,  
+                    tel: tel, 
+                    password: password, 
+                    code: juese
+                },
+                success: function (data) {
+                    if (data.success) {
+                        setTimeout (function () {
+                            $.DialogByZ.Alert({Title: "", Content: "注册成功", BtnL:"确定",FunL:alerts});
+                        }, 10);
+                    } else {
+                        setTimeout (function () {
+                            if (data.error) {
+                                $.DialogByZ.Alert({Title: "", Content: data.error, BtnL:"确定",FunL:alerts});
+                            };
+                        }, 10)
+                    }
+                }
+            })
+        }
     </script>
 </body>
 </html>

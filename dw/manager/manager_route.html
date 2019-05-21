@@ -70,7 +70,7 @@
 			display: none;
 		}
 		.more{
-			display: none;
+			/* display: none; */
 		}
 		.wrap-select-boxs{
 			box-shadow: -3px 3px 4px 0px rgba(59,159,218,0.24);
@@ -475,7 +475,7 @@
 					<h3>请选择指派的业务员</h3>
 					<div class="mr_neiqian">
 						<ul class="ul-desingnate tc">
-							<li class="list-active">赵铁柱</li>
+							<!-- <li class="list-active">赵铁柱</li>
 							<li>赵铁柱</li>
 							<li>赵铁柱</li>
 							<li>赵铁柱</li>
@@ -499,7 +499,7 @@
 							<li>赵铁柱</li>
 							<li>赵铁柱</li>
 							<li>赵铁柱</li>
-							<li>赵铁柱</li>
+							<li>赵铁柱</li> -->
 							<div class="clear"></div>
 						</ul>
 					</div>
@@ -572,13 +572,13 @@
 					$.DialogByZ.Close();
 					$(".paixu_zhezhao").css("top", "auto");
 					$(".warp-btn-box").show();           
-					$(".more").show();
+					// $(".more").show();
 				} else {
 					$.DialogByZ.Close();
 					$(".paixu_zhezhao").hide();
 					$(".paixu_zhezhao").css("top", "auto");
 					$(".warp-btn-box").show();           
-					$(".more").show();
+					// $(".more").show();
 				}
 			}, 500)
 			flag = true;
@@ -594,20 +594,10 @@
 		})
 		// 点击指派
 		$(".btn-box button:eq(1)").click(function () {
-			$(".wrap-designate-box").show();
 			//这是当前滚动的页面滚动条位置
 			var top=$(window).scrollTop();
 			//此处为当前需要定住的位置 
 			$("body").css({"position":"fixed", "width":"100%","top": top*-1});
-		})
-		// 点击指派的业务员
-		$(".ul-desingnate li").click(function () {
-			$(this).addClass("list-active").siblings().removeClass("list-active");
-		})
-		// 点击确定
-		$(".main-designate-box button").click(function () {
-			$(".wrap-designate-box").hide();
-			$("body").css({"position":"static"});                
 		})
 		// 点击线路
 		$(".wrap-nav-box").on("click", ".list-nav-box", function () {
@@ -679,7 +669,7 @@
 						'<div class="col-md-2 col-xs-2 arrows-cont-box">' +
 							'<span class="arrows-one"></span>' +
 							'<span class="arrows-two"></span>' +
-							'<p class="more">查看详情</p>' +
+							'<p class="more"></p>' +
 						'</div>' +
 						'<div class="col-md-5 col-xs-5 getTo-cont-box tc">' +
 							'<p>' + data.rows[i].province_b + '</p>' +
@@ -688,7 +678,11 @@
 					'</div>' +
 				'</div>' +
 			'</div>'
+			
 			$(".man_lines").append(str);
+			if (data.rows[i].user_id != 0) {
+				// $(".more").text("已绑定");
+			}
 			}
 		}
 
@@ -737,8 +731,126 @@
 		}
 		function alerts1() {
             all_lines(sort);
-        }
-		
+		}
+		// 指派
+		$(".btn-box button:eq(1)").click(function () {
+			var arr1 = [];
+            for (var i = 0 ; i < $(".wrap-cont-box .main-cont-box").length; i++) {
+                if ($(".wrap-cont-box .main-cont-box").eq(i).attr("class") == "main-cont-box change-active") {
+                    arr1.push(i);
+                }
+            }
+            if (arr1.length > 0  ) {
+				var arr2 = [];
+				for (var i = 0; i < arr1.length; i ++) {
+					arr2.push($(".wrap-cont-box .main-cont-box").eq(arr1[i]).attr("wl_id"));
+				}
+				// arr2为路线的id
+				man_yewuyuan ();
+				$(".wrap-designate-box").show();
+
+            } else {
+                $.DialogByZ.Alert({Title: "", Content: "请至少选择一个", BtnL:"确定",FunL:alerts});
+            }
+		})
+
+		// 获取所有业务员
+		function man_yewuyuan () {
+			$.ajax({
+				url: global_url + "/sman/getSManWithLineList",
+				type: "post",
+				success: function (data) {
+					
+					if (data) {
+						xuanran_yewu (data);
+					} else {
+						setTimeout(function () {
+							$.DialogByZ.Alert({Title: "", Content: "查询失败，请稍后再试",BtnL:"确定",FunL:alerts});
+						}, 1)
+					}
+				}
+			})
+		}
+		// 渲染业务员
+		function xuanran_yewu (data) {
+			$(".ul-desingnate").empty();
+			var str = '';
+			for (var i = 0; i < data.rows.length; i++) {
+				if (i == 0) {
+					str = "<li class='list-active' u_id=" + data.rows[i].u_id + ">" + data.rows[i].name + "</li>"
+				} else {
+					str = "<li u_id=" + data.rows[i].u_id + ">" + data.rows[i].name + "</li>"
+				}
+				$(".ul-desingnate").append(str);
+			}
+		}
+		// 点击指派的业务员
+		$(".ul-desingnate").on("click", "li", function () {
+			$(this).addClass("list-active").siblings().removeClass("list-active");
+		})
+		// 点击确定开始绑定
+		$(".main-designate-box button").click(function () {
+			// 获取路线id
+			var arr1 = [];
+            for (var i = 0 ; i < $(".wrap-cont-box .main-cont-box").length; i++) {
+                if ($(".wrap-cont-box .main-cont-box").eq(i).attr("class") == "main-cont-box change-active") {
+                    arr1.push(i);
+                }
+			}
+			var userId;
+			var arr2 = [];
+			for (var i = 0; i < arr1.length; i ++) {
+				arr2.push($(".wrap-cont-box .main-cont-box").eq(arr1[i]).attr("wl_id"));
+			}
+			for (var i = 0; i < $(".ul-desingnate li").length; i ++) {
+				if ($(".ul-desingnate li").eq(i).attr("class") == "list-active") {
+					userId = $(".ul-desingnate li").eq(i).attr("u_id");
+				}
+			}
+			man_yewu_bangding (arr2, userId);
+			$(".wrap-designate-box").hide();
+			$("body").css({"position":"static"});
+		})
+		function man_yewu_bangding (arr2, userId) {
+			$.ajax({
+				url: global_url + "/wayLine/beforeModifyWL",
+				type: "post",
+				data: {
+					ids: arr2,
+					userId: userId
+				},
+				success: function (results) {
+					if (results.hasList.length >= 1) {
+						setTimeout(function () {
+							$.DialogByZ.Confirm({Title: "", Content: "当前已有绑定人，确定要绑定吗",FunL:confirmL,FunR:Immediate});
+						}, 10)
+						function confirmL() {
+								$.ajax({
+									type: "POST",
+									url: global_url + "/wayLine/bindWayLine",
+									data: {
+										ids: arr2,
+										userId: userId
+									},
+									success: function(results) {
+										setTimeout(function () {
+											$.DialogByZ.Alert({Title: "提示", Content: "绑定成功",BtnL:"确定",FunL:alerts1111});
+										}, 10)
+										function alerts1111(){
+											history.go(0);
+										}
+									}
+								});
+							$.DialogByZ.Close();
+						}
+						function Immediate() {
+							$.DialogByZ.Close();
+						}
+						}
+
+					} 
+			})
+		}
 	</script>
 </body>
 

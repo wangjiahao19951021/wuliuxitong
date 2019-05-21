@@ -155,13 +155,15 @@
                 <p></p>
             </div>
             <div class="edit_cneter">
-                <p>XX-XX运输</p>
+                <!-- <p>XX-XX运输</p> -->
+                <p></p>
             </div>
             <div class="edit_right">
                 <p></p>
             </div>
         </div>
-        <div class="salesman_details_lines" style="clear: both;">
+        <div class="hahah"></div>
+        <!-- <div class="salesman_details_lines" style="clear: both;">
             <div class="salesman_detailsl_l">
                 <p>山东</p>
                 <p>临沂</p>
@@ -186,8 +188,8 @@
                 <p>山东</p>
                 <p>临沂</p>
             </div>
-        </div>
-        <div class="salesman_details_lines" style="clear: both;">
+        </div> -->
+        <!-- <div class="salesman_details_lines" style="clear: both;">
             <div class="salesman_detailsl_l">
                 <p>山东</p>
                 <p>临沂</p>
@@ -199,7 +201,7 @@
                 <p>山东</p>
                 <p>临沂</p>
             </div>
-        </div>
+        </div> -->
         <div class="container-fluid edit_top">
             <div class="row">
             <div class="col-xs-5 edit_top_top1">
@@ -211,13 +213,13 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" readonly="readonly" class= "form-control" placeholder="" value = "张三" readonly>
+                        <input type="text" readonly="readonly" class= "form-control" placeholder="" value = "张三" readonly id="luru">
                     </div>
                 </form>
             </div>
-            <textarea class="form-control" rows="2" readonly>
-最后操作时间：五天前 2019-04-23 11:20:30
-今日录入信息：10条 历史录入信息：10条
+            <textarea class="form-control" id="xiangxi" rows="2" readonly>
+<!-- 最后操作时间：五天前 2019-04-23 11:20:30 -->
+<!-- 今日录入信息：10条 历史录入信息：10条 -->
             </textarea>
         </div>
         
@@ -247,13 +249,104 @@
             <div class="col-xs-2"></div>
             <div class="col-xs-5 text-center">
                 <button class="sdh_btns2">
-                    完成
+                    返回
                 </button>
             </div>
         </div>
     </div>
     <script>
-        // 点击编辑
+        // 点击返回
+        $(".edit_left").click(function () {
+            history.go(-1)
+        })
+        
+        $(".sdh_btns2").click(function () {
+            history.go(-1)
+        })
+        // 默认查询
+		man_zhezhao ();
+		function man_zhezhao () {
+			// $(".wrap-cont-box .container").empty();
+			$.ajax({
+                type: "post",
+                url: global_url + "/sman/getSManDetails",
+                data: {
+					uId: sessionStorage.getItem("man_peo_se")
+                },
+                success: function (data) {
+                    if (data) {
+                        tihuan (data)
+                    } else {
+                        setTimeout (function () {
+                            $.DialogByZ.Alert({Title: "", Content: "失败", BtnL:"确定",FunL:alerts});
+                        }, 10)
+                    }
+                }
+            })
+        }
+        function tihuan (data) {
+            $("#luru").val(data.data.SName);
+            if (data.data.wlList[0]) {
+                var str = "最后操作时间：" + data.data.wlList[0].update_time + " 今日录入信息：" + data.data.todayCount + "条 历史录入信息：" + data.data.allCount + "条"
+                $("#xiangxi").val(str);
+            } else {
+                var str = "最后操作时间：" +  + " 今日录入信息：" + data.data.todayCount + "条 历史录入信息：" + data.data.allCount + "条"
+                $("#xiangxi").val(str);
+            }
+            if (data.data.wlList[0]) {
+                var str11
+                for (var i = 0; i < data.data.wlList.length; i++) {
+
+                }
+                str11 = '<div class="salesman_details_lines" style="clear: both;">' + 
+                    '<div class="salesman_detailsl_l">' + 
+                        '<p>' +data.data.wlList[0].province_a + '</p>' + 
+                        '<p>' +data.data.wlList[0].urban_a + '</p>' + 
+                    '</div>' + 
+                    '<div class="salesman_detailsl_c">' + 
+                        '<p style="font-size:40px; "> ⇀</p>' + 
+                    '</div>' + 
+                    '<div class="salesman_detailsl_r">' + 
+                        '<p>' +data.data.wlList[0].province_b + '</p>' + 
+                        '<p>' +data.data.wlList[0].urban_b + '</p>' + 
+                    '</div>' + 
+                '</div>' 
+                $(".hahah").append(str11)
+            }
+
+        }
+        // 点击删除
+        $(".sdh_btns1").click(function () {
+            var arr2 = [];
+            arr2.push(sessionStorage.getItem("man_peo_se"));
+            man_delete (arr2);
+        })
+
+        function man_delete (arr2) {
+			$.ajax({
+                type: "post",
+                url: global_url + "/user/deleteSalasManById",
+                data: {
+					ids: arr2
+                },
+                success: function (data) {
+                    if (data.success) {
+						setTimeout(function () {
+							$.DialogByZ.Alert({Title: "", Content: "成功", BtnL:"确定",FunL:alerts1234});							
+						}, 10)
+					} else {
+						setTimeout(function () {
+							$.DialogByZ.Alert({Title: "", Content: "失败", BtnL:"确定",FunL:alerts});							
+						}, 10)
+					}
+                }
+            })
+        }
+        function alerts1234 () {
+            history.go(-1)
+        }
+        
+        
     </script>
         
    

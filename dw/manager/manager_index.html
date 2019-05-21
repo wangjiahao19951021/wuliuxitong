@@ -412,6 +412,7 @@
             }
         </style>
 		<script>
+            var a = GetQueryString ("a");            
             // 点击遮罩收起
             $(".paixu p:eq(2)").click(function () {					
                 $(".paixu").hide();
@@ -485,21 +486,32 @@
             var sort = "";
             $(".paixu p:eq(0)").click(function () {
                 sort = "";
-                salesman_index(sort);
+                if (a == null) {
+                    salesman_index(sort);
+                } else if (a == 1) {
+                    salesman_index1 (sort);
+                }
                 $(".paixu").hide();
                 $(".paixu_zhezhao").hide();
                 $("body").css({"position":"static"});
             })
             $(".paixu p:eq(1)").click(function () {
                 sort = "desc";
-                salesman_index(sort);
+                if (a == null) {
+                    salesman_index(sort);
+                } else if (a == 1) {
+                    salesman_index1 (sort);
+                }
                 $(".paixu").hide();
                 $(".paixu_zhezhao").hide();
                 $("body").css({"position":"static"});
             })
 
-
-            salesman_index(sort)
+            if (a == null) {
+                salesman_index(sort);
+            } else if (a == 1) {
+                salesman_index1 (sort);
+            }
             // 默认查询
             function salesman_index (sort) {
                 $.ajax({
@@ -701,6 +713,111 @@
         function alerts111 () {
             history.go(0);
         }
+
+        // 点击导出
+        $(".btn-box button:eq(3)").click(function () {
+            var arr1 = [];
+            for (var i = 0 ; i < $(".saslesman_content .wrap-cont-box").length; i++) {
+                if ($(".saslesman_content .wrap-cont-box").eq(i).find(".main-cont-box").attr("class") == "main-cont-box change-active") {
+                    arr1.push(i);
+                }
+            }
+            if (arr1.length > 0 ) {
+                var checkIds = [];
+                for (var i = 0; i < arr1.length; i++) {
+                    checkIds.push($(".saslesman_content .wrap-cont-box").eq(arr1[i]).attr("w_id"));
+                }
+                window.location.href = global_url + "/excel/export?instance=way&fileName=送货单&datas=12&checkIds=" + checkIds.toString();
+            } else {
+                $.DialogByZ.Alert({Title: "", Content: "请至少选择一个", BtnL:"确定",FunL:alerts});
+            }
+        })
+
+
+        if  (sessionStorage.getItem("man_index") == 1  &&  sessionStorage.getItem("haha") == 1){
+            sessionStorage.setItem("haha", 2);            
+            location.href = location.href + "?a=1"
+        }
+
+        function GetQueryString (name) {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null) return  unescape(r[2]); return null;
+        }
+        
+
+
+        // 查询
+         // 默认查询
+         function salesman_index1 (sort) {
+                var obj = JSON.parse(sessionStorage.getItem("man_obj"));
+                console.log(obj);
+                var start_pro =  obj.start_pro
+                var arrive_pro = obj.arrive_pro
+                var start_down = obj.start_down
+                var arrive_down = obj.arrive_down
+                var palatenum = obj.palatenum
+                var marque = obj.marque
+                var cargo = obj.cargo
+                var create_time = obj.create_time
+                var update_time = obj.update_time
+                var name = obj.name
+                var tel = obj.tel
+                if (start_down == "点击选择城市") {
+                    start_down = "";
+                }
+                if (arrive_down == "点击选择城市") {
+                    arrive_down = "";
+                }
+                $.ajax({
+                    url: global_url + "/way/wayListByManSearch",
+                    type: "post",
+                    data: {
+                        pageSize: 100,
+                        pageNum: 1,
+                        sort: sort,
+                        start_pro: start_pro,
+                        arrive_pro: arrive_pro,
+                        start_down: start_down,
+                        arrive_down: arrive_down,
+                        platenum: palatenum,
+                        marque: marque,
+                        cargo: cargo,
+                        create_time: create_time,
+                        update_time: update_time,
+                        name: name,
+                        tel1: tel,
+                    },
+                    success: function (data) {
+                        if (data) {
+                            if (data.success) {
+                                    if (data.total == 0) {
+                                        setTimeout(function () {
+                                            $.DialogByZ.Alert({Title: "", Content: "查询数据为空", BtnL:"确定",FunL:alerts});
+                                        }, 10)
+                                    } else {
+                                        setTimeout(function () {
+                                            $.DialogByZ.Alert({Title: "", Content: "查询成功", BtnL:"确定",FunL:alerts123});
+                                        }, 10)
+                                        sa_index_xuanran(data);
+                                    }
+
+                                } else {
+                                setTimeout (function () {
+                                    if (data.msg) {
+                                        $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                                    }
+                                }, 10)
+                            }
+                        } else {
+                            setTimeout (function () {
+                                $.DialogByZ.Alert({Title: "", Content: "未查询到数据", BtnL:"确定",FunL:alertsalerts});
+                            }, 10)
+                        }
+                       
+                    }
+                })
+            }
         </script>
 
 	</body>
