@@ -7,15 +7,9 @@
 
 		<link rel="stylesheet" href="../../css/reset.css">
 		<link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../../lib/jQueryZdialog/css/zdialog.css">
-
 		<link rel="stylesheet" href="../../css/share.css">		
 		<script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
-		<script src="../../lib/jQueryZdialog/js/zdialog.js"></script>
-
 		<script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-		<script src="../../js/common.js"></script>
-
 		<title>录入的信息</title>
 		<style>
 			/* 各个页面共用模块样式 */
@@ -179,7 +173,7 @@
 						<h2>今日录入的电话单条数</h2>
 					</div>
 					<div class="R-cont-box tc">
-						<h2 class="L-cont-box_1_1">10</h2>
+						<h2>10</h2>
 					</div>
 				</div>
 				<div class="main-cont-box">
@@ -187,7 +181,7 @@
 						<h2>今月录入的电话单条数</h2>
 					</div>
 					<div class="R-cont-box tc">
-						<h2 class="L-cont-box_1_2">100</h2>
+						<h2>100</h2>
 					</div>
 				</div>
 				<div class="main-cont-box">
@@ -195,7 +189,7 @@
 						<h2>录入的电话单总条数</h2>
 					</div>
 					<div class="R-cont-box tc">
-						<h2 class="L-cont-box_1_3">10000</h2>
+						<h2>10000</h2>
 					</div>
 				</div>
 			</div>
@@ -268,29 +262,6 @@
 					break;
 				}
 			})
-			luru_yewu ()
-			// 默认
-			function luru_yewu () {
-				$.ajax({
-					url: global_url + "/way/getSManWayListWhichDay",
-					type: "post",
-					success: function (data) {
-						if (data) {
-							// luru_xuanran (data);
-						} else {
-							setTimeout (function () {
-								$.DialogByZ.Alert({Title: "", Content: "未查到", BtnL:"确定",FunL:alerts});
-							}, 10)
-						}
-					}
-				})
-			}
-			// 渲染
-			function luru_xuanran (data) {
-				$(".L-cont-box_1_1").text();
-				$(".L-cont-box_1_2").text();
-				$(".L-cont-box_1_3").text();
-			}
 		</script>
 	</body>
 </html>

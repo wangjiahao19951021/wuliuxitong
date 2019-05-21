@@ -128,11 +128,19 @@
                 <p></p>
             </div>
             <div class="edit_cneter">
-                <p>XX-XX运输</p>
+                <!-- <p>XX-XX运输</p> -->
+                <p></p>
             </div>
             <div class="edit_right">
                 <p>导入</p>
             </div>
+            <form id="fam" enctype='multipart/form-data' style="display:none;">               
+                <div class="form-group">
+                  <!--<label for="upteainput">上传文件</label>-->
+                  <input id="uploadfile" name="upfile" type="file" class="form-control-file">    
+                </div>             
+            </form>
+
         </div>
         <div class="container-fluid edit_top">
             <div class="row">
@@ -223,7 +231,7 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入车牌号">
+                        <input type="text" class="form-control" placeholder="请输入车牌号" id="palatenum">
                     </div>
                 </form>
             </div>
@@ -238,7 +246,7 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入车型">
+                        <input type="text" class="form-control" placeholder="请输入车型" id="marque">
                     </div>
                 </form>
             </div>
@@ -253,7 +261,7 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入货物重量、名称">
+                        <input type="text" class="form-control" placeholder="请输入货物重量、名称" id="cargo">
                     </div>
                 </form>
             </div>
@@ -298,7 +306,7 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入姓名">
+                        <input type="text" class="form-control" placeholder="请输入姓名" id="name">
                     </div>
                 </form>
             </div>
@@ -313,7 +321,7 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入联系电话">
+                        <input type="text" class="form-control" placeholder="请输入联系电话" id="tel">
                     </div>
                 </form>
             </div>
@@ -322,7 +330,7 @@
     <!-- 备注 -->
     <div class="container-fluid edit_top_bottom">
         <p>添加备注信息</p>
-        <textarea class="form-control" rows="2"></textarea>
+        <textarea class="form-control" rows="2" id="common"></textarea>
     </div>
     <div class="container-fluid">
         <div class="row text-center login_btns text-center">
@@ -388,13 +396,129 @@
                         for (var j = 0; j < com_city[i].child.length; j++) {
                             options2 = '<option value="">' + com_city[i].child[j].name +'</option>'
                             $(".select_4").append(options2);
-                            
                         }
                     }
                 }
                 $('.select_4').anselcfg({});                
             });
         })();
-    </script>
+
+        // 点击发布
+        $(".login_btn").click(function () {
+            var start_pro = $(".form-group1 .ansel_inputval").val();
+            var arrive_pro = $(".form-group2 .ansel_inputval").val();
+            var start_down = $(".form-group3 .ansel_inputval").val();
+            var arrive_down = $(".form-group4 .ansel_inputval").val();
+            var palatenum = $("#palatenum").val();
+            var marque = $("#marque").val();
+            var cargo = $("#cargo").val();
+            var create_time = $("#lurushijian").val();
+            var update_time = $("#weihushijian").val();
+            var name = $("#name").val();
+            var tel = $("#tel").val();
+            var common = $("#common").val();
+
+            if (start_down == "点击选择城市" || start_down == "请选择对应省份") {
+                start_down = ""
+            }
+            if (arrive_down == "点击选择城市" || arrive_down == "请选择对应省份") {
+                arrive_down = ""
+            }
+            if (start_pro == "点击选择省份") {
+                start_pro = ""
+            }
+            if (arrive_pro == "点击选择省份") {
+                arrive_pro = ""
+            }
+            $.ajax({
+                url: global_url + "/way/addNewWaySelective",
+                type: "post",
+                data: {
+                    start_pro: start_pro,
+                    arrive_pro: arrive_pro,
+                    start_down: start_down,
+                    arrive_down: arrive_down,
+                    platenum: palatenum,
+                    marque: marque,
+                    cargo: cargo,
+                    create_time: create_time,
+                    update_time: update_time,
+                    name: name,
+                    tel: tel,
+                    common: common,
+                },
+                success: function (data) {
+                    if(data.success) {
+                        setTimeout (function () {
+                            if (data.msg) {
+                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                            }
+                        }, 10)
+                    } else {
+                        setTimeout (function () {
+                            if (data.msg) {
+                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                            }
+                        }, 10)
+                    }
+                }
+            })
+        })
+        // 返回操作
+        $(".edit_left").click(function () {
+            history.go(-1);
+        })
+        function alerts () {
+            history.go(-1);
+        }
+
+        // 点击导入
+        $(".edit_right p").click(function () {
+            $("#uploadfile").click();
+        })
+        $("#uploadfile").change(uploadonline);
+        /*上传*/
+        function uploadonline() {
+
+        var uploadFile = $("#uploadfile")[0].files[0];
+        console.log(uploadFile);
+        var formData = new FormData();
+        formData.append("uploadFile", uploadFile);
+
+        $("#fileForm").submit();
+
+        console.log("formData:" + formData);
+        // if ("undefined" != typeof(uploadFile) && uploadFile != null && uploadFile != "") {
+        $.ajax({
+        url: global_url +  '/excel/importExcel?instance=' + "way",
+        type: 'POST',
+        data: formData,
+        async: false,
+        cache: false,
+        contentType: false, //不设置内容类型
+        processData: false, //不处理数据
+        success: function (data) {
+            // alert(data);
+            if (data.success) {
+                setTimeout(function () {
+                    $.DialogByZ.Alert({Title: "提示", Content: "导入数据成功"+data.msg,BtnL:"确定",FunL:alerts111})
+                }, 10)
+            } else {
+                setTimeout(function () {
+                    $.DialogByZ.Alert({Title: "提示", Content: data.msg,BtnL:"确定",FunL:alerts11})
+                }, 10)
+            }
+        }
+        })
+        }
+        function alerts11 () {
+            $.DialogByZ.Close();
+        }
+        function alerts111 () {
+            history.go(-1);
+        }
+
+        
+    </script> 
 </body>
 </html>

@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>查询</title>
+    <title>编辑</title>
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../lib/jQueryZdialog/css/zdialog.css">
     <script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
     <script src="../../lib/jQueryZdialog/js/zdialog.js"></script>
     <script src="../../js/common.js"></script>
+    <script src="../../js/com_city.js"></script>
     <link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="../../lib/jq-select/jq_selsect.js"></script>
     <link rel="stylesheet" href="../../lib/jeDate/skin/jedate.css">
     <script src="../../lib/jeDate/dist/jedate.min.js"></script>
-    <script src="../../js/com_city.js"></script>
     <style>
         body{
             background: #f6fafd;
@@ -23,6 +23,9 @@
         }
         .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{
             padding-left: 0;
+        }
+        .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+            background: white;
         }
         .edit_toubu{
             width: 100%;
@@ -125,10 +128,10 @@
                 <p></p>
             </div>
             <div class="edit_cneter">
-                <p>查询</p>
+                <p>XX-XX运输</p>
             </div>
             <div class="edit_right">
-                <p></p>
+                <p>导入</p>
             </div>
         </div>
         <div class="container-fluid edit_top">
@@ -144,7 +147,7 @@
                         <div class="form-group form-group1">
                           <!-- <input type="text" class="form-control" placeholder="点击选择省份"> -->
                             <select class="select select_1" isval="false" msg="点击选择省份">
-                                <option value="">点击选择省份</option>
+                            
                             </select>
                         </div>
                     </form>
@@ -162,7 +165,7 @@
                         <div class="form-group form-group2">
                           <!-- <input type="text" class="form-control" placeholder="点击选择省份"> -->
                             <select class="select select_2" isval="false" msg="点击选择省份">
-                                <option value="">点击选择省份</option>
+                             
                             </select>
                         </div>
                     </form>
@@ -179,8 +182,9 @@
                     <form>
                         <div class="form-group form-group3">
                           <!-- <input type="text" class="form-control" placeholder="点击选择城市"> -->
-                            <select class="select select_3" isval="false" msg="点击选择城市">
+                            <select class="select select_3" isval="false" msg="点击选择城市" >
                                 <option value="">点击选择城市</option>
+                                
                             </select>
                         </div>
                     </form>
@@ -199,6 +203,7 @@
                           <!-- <input type="text" class="form-control" placeholder="点击选择城市"> -->
                             <select class="select select_4" isval="false" msg="点击选择城市">
                                 <option value="">点击选择城市</option>
+                                
                             </select>
                         </div>
                     </form>
@@ -218,7 +223,7 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入车牌号" id="palatenum">
+                        <input type="text" class="form-control" placeholder="请输入车牌号">
                     </div>
                 </form>
             </div>
@@ -233,7 +238,7 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入车型" id="marque">
+                        <input type="text" class="form-control" placeholder="请输入车型">
                     </div>
                 </form>
             </div>
@@ -248,7 +253,7 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入货物重量、名称" id="cargo">
+                        <input type="text" class="form-control" placeholder="请输入货物重量、名称">
                     </div>
                 </form>
             </div>
@@ -293,7 +298,7 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入姓名" id="name">
+                        <input type="text" class="form-control" placeholder="请输入姓名">
                     </div>
                 </form>
             </div>
@@ -308,20 +313,26 @@
             <div class="col-xs-7 edit_top_top2">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入联系电话" id="tel">
+                        <input type="text" class="form-control" placeholder="请输入联系电话">
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <!-- 备注 -->
+    <div class="container-fluid edit_top_bottom">
+        <p>添加备注信息</p>
+        <textarea class="form-control" rows="2"></textarea>
+    </div>
     <div class="container-fluid">
         <div class="row text-center login_btns text-center">
             <button class="login_btn btns col-xs-8 col-md-6 col-md-6 col-sm-6 col-xs-offset-2 col-md-offset-3 col-sm-offset-3">
-                查询
+                保存
             </button>
         </div>
     </div>
     <script>
+        
         // 日期插件
         jeDate("#lurushijian", {
             format: "YYYY-MM-DD hh:mm:ss"
@@ -329,10 +340,11 @@
         jeDate("#weihushijian", {
             format: "YYYY-MM-DD hh:mm:ss"
         });
-        // 返回操作
-        $(".edit_left").click(function () {
-            history.go(-1);
-        })
+        $("#lurushijian").attr("readonly", "readonly");
+        $("#weihushijian").attr("readonly", "readonly");
+
+        
+
         ;(function () {
             $(".select_1").empty();
             $(".select_2").empty();
@@ -376,111 +388,13 @@
                         for (var j = 0; j < com_city[i].child.length; j++) {
                             options2 = '<option value="">' + com_city[i].child[j].name +'</option>'
                             $(".select_4").append(options2);
+                            
                         }
                     }
                 }
                 $('.select_4').anselcfg({});                
             });
         })();
-
-        var sort = "";
-        // 点击查询
-        $(".login_btn").click(function () {
-            salesman_index(sort);
-        })
-
-
-            // 默认查询
-            function salesman_index (sort) {
-                var start_pro = $(".form-group1 .ansel_inputval").val();
-                var arrive_pro = $(".form-group2 .ansel_inputval").val();
-                var start_down = $(".form-group3 .ansel_inputval").val();
-                var arrive_down = $(".form-group4 .ansel_inputval").val();
-                var palatenum = $("#palatenum").val();
-                var marque = $("#marque").val();
-                var cargo = $("#cargo").val();
-                var create_time = $("#lurushijian").val();
-                var update_time = $("#weihushijian").val();
-                var name = $("#name").val();
-                var tel = $("#tel").val();
-
-                var obj = {};
-                obj.start_pro = start_pro;
-                obj.arrive_pro = arrive_pro;
-                obj.start_down = start_down;
-                obj.arrive_down = arrive_down;
-                obj.palatenum = palatenum;
-                obj.marque = marque;
-                obj.cargo = cargo;
-                obj.create_time = create_time;
-                obj.update_time = update_time;
-                obj.name = name;
-                obj.tel = tel;
-                sessionStorage.setItem("man_obj", JSON.stringify(obj));
-
-                if (start_down == "点击选择城市") {
-                    start_down = "";
-                }
-                if (arrive_down == "点击选择城市") {
-                    arrive_down = "";
-                }
-                $.ajax({
-                    url: global_url + "/way/wayListByManSearch",
-                    type: "post",
-                    data: {
-                        pageSize: 100,
-                        pageNum: 1,
-                        sort: sort,
-                        start_pro: start_pro,
-                        arrive_pro: arrive_pro,
-                        start_down: start_down,
-                        arrive_down: arrive_down,
-                        platenum: palatenum,
-                        marque: marque,
-                        cargo: cargo,
-                        create_time: create_time,
-                        update_time: update_time,
-                        name: name,
-                        tel1: tel,
-                    },
-                    success: function (data) {
-                        if (data) {
-                            if (data.success) {
-                                    if (data.total == 0) {
-                                        setTimeout(function () {
-                                            $.DialogByZ.Alert({Title: "", Content: "查询数据为空", BtnL:"确定",FunL:alerts});
-                                        }, 10)
-                                    } else {
-                                        setTimeout(function () {
-                                            $.DialogByZ.Alert({Title: "", Content: "查询成功", BtnL:"确定",FunL:alerts123});
-                                        }, 10)
-                                    }
-
-                                } else {
-                                setTimeout (function () {
-                                    if (data.msg) {
-                                        $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
-                                    }
-                                }, 10)
-                            }
-                        } else {
-                            setTimeout (function () {
-                                $.DialogByZ.Alert({Title: "", Content: "未查询到数据", BtnL:"确定",FunL:alertsalerts});
-                            }, 10)
-                        }
-                       
-                    }
-                })
-            }
-            function alerts () {
-                $.DialogByZ.Close();
-            }
-            function alerts123 () {
-                sessionStorage.setItem("haha", 1);
-                sessionStorage.setItem("man_index", 1);
-                history.go(-1);
-            }
-            
     </script>
 </body>
 </html>

@@ -8,16 +8,9 @@
 	<link rel="stylesheet" href="../../css/reset.css">
 	<link rel="stylesheet" href="../../css/share.css">
 	<link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../../lib/jQueryZdialog/css/zdialog.css">
-	
-
 	<link rel="stylesheet" href="../../css/share.css">		
 	<script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
-	<script src="../../lib/jQueryZdialog/js/zdialog.js"></script>
-
 	<script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-	<script src="../../js/common.js"></script>
-	
 	
 	<title>路线</title>
 	<style>
@@ -143,8 +136,7 @@
         					<h2>维护路线：<span>山东-江苏</span></h2>
         				</div>
         				<div class="col-md-3 col-xs-3 sal_lines_chaxun">
-        					<!-- <p>查询</p> -->
-        					<p></p>
+        					<p>查询</p>
         				</div>
         			</div>
         		</div>
@@ -173,24 +165,6 @@
     <!-- 内容 -->
     <div class="wrap-cont-box">
 		<div class="container">
-			<!-- <div class="main-cont-box">
-				<div class="region-cont-box">
-					<div class="row">
-						<div class="col-md-5 col-xs-5 start-cont-box tc">
-							<p>山东</p>
-							<span>临沂</span>
-						</div>
-						<div class="col-md-2 col-xs-2 arrows-cont-box">
-							<span class="arrows-one"></span>
-							<span class="arrows-two"></span>
-						</div>
-						<div class="col-md-5 col-xs-5 getTo-cont-box tc">
-							<p>江苏</p>
-							<span>南京</span>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class="main-cont-box">
 				<div class="region-cont-box">
 					<div class="row">
@@ -406,7 +380,25 @@
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
+			<div class="main-cont-box">
+				<div class="region-cont-box">
+					<div class="row">
+						<div class="col-md-5 col-xs-5 start-cont-box tc">
+							<p>山东</p>
+							<span>临沂</span>
+						</div>
+						<div class="col-md-2 col-xs-2 arrows-cont-box">
+							<span class="arrows-one"></span>
+							<span class="arrows-two"></span>
+						</div>
+						<div class="col-md-5 col-xs-5 getTo-cont-box tc">
+							<p>江苏</p>
+							<span>南京</span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -477,79 +469,6 @@
 				break;
 			}
 		})
-
-
-		var sort = "";
-		$(".paixu p:eq(0)").click(function () {
-			sort = "";
-			all_lines(sort);
-			$(".paixu").hide();
-			$(".paixu_zhezhao").hide();
-			$("body").css({"position":"static"});
-		})
-		$(".paixu p:eq(1)").click(function () {
-			sort = "desc";
-			all_lines(sort);
-			$(".paixu").hide();
-			$(".paixu_zhezhao").hide();
-			$("body").css({"position":"static"});
-		})
-		all_lines(sort);
-		// 查询所有路线接口
-		function all_lines (sort) {
-			$.ajax({
-				url: global_url + "/wayLine/getWayLineDetail",
-				type: "post",
-				data: {
-					pageSize: 1000,
-					pageNum: 1,
-					sort: sort
-				},
-				success: function (data) {
-					if (data) {
-						xuantan_luxian (data)
-					} else {
-						setTimeout (function () {
-							$.DialogByZ.Alert({Title: "", Content: "未查到", BtnL:"确定",FunL:alerts});
-						}, 10)
-					}
-				}
-			})
-		}
-
-
-		// 渲染
-		function xuantan_luxian (data) {
-			$(".wrap-cont-box .container").empty();
-			var str = ''
-			for (var i = 0; i < data.way_lineList.length; i++) {
-				str = '<div class="main-cont-box">' + 
-				'<div class="region-cont-box">' + 
-					'<div class="row">' + 
-						'<div class="col-md-5 col-xs-5 start-cont-box tc">' + 
-							'<p>' + data.way_lineList[i].province_a +'</p>' + 
-							'<span>' + data.way_lineList[i].urban_a +'</span>' + 
-						'</div>' + 
-						'<div class="col-md-2 col-xs-2 arrows-cont-box">' + 
-							'<span class="arrows-one"></span>' + 
-							'<span class="arrows-two"></span>' + 
-						'</div>' + 
-						'<div class="col-md-5 col-xs-5 getTo-cont-box tc">' + 
-							'<p>' + data.way_lineList[i].province_b +'</p>' + 
-							'<span>' + data.way_lineList[i].urban_b +'</span>' + 
-						'</div>' + 
-					'</div>' + 
-				'</div>' + 
-			'</div> ' 
-			$(".wrap-cont-box .container").append(str);
-			}
-		}
-
-
-
-
-		
-            
 	</script>
 </body>
 </html>

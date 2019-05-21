@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>详情</title>
-    <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../lib/jQueryZdialog/css/zdialog.css">
-    <script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
-    <script src="../../lib/jQueryZdialog/js/zdialog.js"></script>
-    <script src="../../js/common.js"></script>
-    <link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../../lib/jeDate/skin/jedate.css">
-    <script src="../../lib/jeDate/dist/jedate.min.js"></script>
-    <style>
-        body{
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>详情</title>
+		<link rel="stylesheet" href="../../css/reset.css">
+		<link rel="stylesheet" href="../../lib/jQueryZdialog/css/zdialog.css">
+		<script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
+		<script src="../../lib/jQueryZdialog/js/zdialog.js"></script>
+		<script src="../../js/common.js"></script>
+		<link rel="stylesheet" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+		<script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="../../lib/jeDate/skin/jedate.css">
+		<script src="../../lib/jeDate/dist/jedate.min.js"></script>
+		<style>
+			body{
             background: #f6fafd;
             padding-bottom: 30px;
         }
@@ -195,193 +195,340 @@
             display: none;	
         }
     </style>
-</head>
-<body>
-    <div class="edit_toubu">
-        <div class="edit_title">
-            <div class="edit_left">
-                <p></p>
-            </div>
-            <div class="edit_cneter">
-                <p>XX-XX运输</p>
-            </div>
-            <div class="edit_right">
-                <p>编辑</p>
-            </div>
-        </div>
-        <div class="salesman_details_lines">
-            <div class="salesman_detailsl_l">
-                <p>山东</p>
-                <p>临沂</p>
-            </div>
-            <div class="salesman_detailsl_c">
-                <div class="arrows-cont-box">
-                    <div class="arrows-one"></div>
-                    <div class="arrows-two"></div>
-                </div>
-            </div>
-            <div class="salesman_detailsl_r">
-                <p>江苏</p>
-                <p>南京</p>
-            </div>
-        </div>
-        <div class="container-fluid edit_top">
-            <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top6.png">
-                </p>
-                <p class="edit_top_left">车辆牌照</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入车牌号" readonly>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top7.png">
-                </p>
-                <p class="edit_top_left">车型</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入车型" readonly> 
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top8.png">
-                </p>
-                <p class="edit_top_left">货品信息</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入货物重量、名称" readonly>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top9.png">
-                </p>
-                <p class="edit_top_left">录入日期</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="点击输入日期" readonly id="lurushijian">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top10.png">
-                </p>
-                <p class="edit_top_left">维护日期</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="点击输入日期" readonly id="weihushijian">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top11.png">
-                </p>
-                <p class="edit_top_left">司机姓名</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入姓名" readonly> 
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-5 edit_top_top1">
-                <p>
-                    <img src="../../images/salesman_edit_top12.png">
-                </p>
-                <p class="edit_top_left">联系电话</p>
-            </div>
-            <div class="col-xs-7 edit_top_top2">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="请输入联系电话" readonly>
-                    </div>
-                </form>
-            </div>
-        </div>
-        </div>
-    </div>
-    <!-- 备注 -->
-    <div class="container-fluid edit_top_bottom salesman_details_bottom">
-        <p>备注信息</p>
-        <textarea class="form-control" rows="2" readonly>啦啦啦</textarea>
-    </div>
-    <div class="container-fluid sdh_bottom">
-        <div class="row text-center login_btns text-center">
-            <div class="col-xs-5 text-center">
-                <button class="sdh_btns1">
-                    删除
-                </button>
-            </div>
-            <div class="col-xs-2"></div>
-            <div class="col-xs-5 text-center">
-                <button class="sdh_btns2">
-                    完成
-                </button>
-            </div>
-        </div>
-    </div>
-     <!-- 排序遮罩 -->
-     <div class="paixu_zhezhao"></div>
-    <script>
-        // 点击编辑解除禁用
-        $(".edit_right p").click(function () {
-             // 加载loading等操作
-             $(".paixu_zhezhao").show();
-                $(".paixu_zhezhao").css("top", 0)
-                $.DialogByZ.Loading('../../lib/jQueryZdialog/image/loading.png');
-                setTimeout(function () {
-                    $.DialogByZ.Close();
-                    $(".paixu_zhezhao").hide();
-                    $(".paixu_zhezhao").css("top", "auto")
-                }, 500)
-            for (var i = 0; i < $("input").length; i++) {
-                $("input").eq(i).removeAttr("readonly");
-            }
-            $("textarea").removeAttr("readonly");
-            $("#lurushijian").attr("readonly", "readonly");
-            $("#weihushijian").attr("readonly", "readonly");
-             // 日期插件
-            jeDate("#lurushijian", {
-                format: "YYYY-MM-DD hh:mm:ss"
+	</head>
+	<body>
+		<div class="edit_toubu">
+			<div class="edit_title">
+				<div class="edit_left">
+					<p></p>
+				</div>
+				<div class="edit_cneter">
+					<p>
+						<span id="start_title">xx</span>
+						-
+						<span id="arrive_title">xx</span>
+						运输
+					</p>
+				</div>
+				<div class="edit_right">
+					<p>编辑</p>
+				</div>
+			</div>
+			<div class="salesman_details_lines">
+				<div class="salesman_detailsl_l">
+					<p id="start_pro">山东</p>
+					<p id="start_down">临沂</p>
+				</div>
+				<div class="salesman_detailsl_c">
+					<div class="arrows-cont-box">
+						<div class="arrows-one"></div>
+						<div class="arrows-two"></div>
+					</div>
+				</div>
+				<div class="salesman_detailsl_r">
+					<p id="arrive_pro">江苏</p>
+					<p id="arrive_down">南京</p>
+				</div>
+			</div>
+			<div class="container-fluid edit_top">
+				<div class="row">
+					<div class="col-xs-5 edit_top_top1">
+						<p>
+							<img src="../../images/salesman_edit_top6.png">
+						</p>
+						<p class="edit_top_left">车辆牌照</p>
+					</div>
+					<div class="col-xs-7 edit_top_top2">
+						<form>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="请输入车牌号" readonly id="platenum">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-5 edit_top_top1">
+						<p>
+							<img src="../../images/salesman_edit_top7.png">
+						</p>
+						<p class="edit_top_left">车型</p>
+					</div>
+					<div class="col-xs-7 edit_top_top2">
+						<form>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="请输入车型" readonly id="marque">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-5 edit_top_top1">
+						<p>
+							<img src="../../images/salesman_edit_top8.png">
+						</p>
+						<p class="edit_top_left">货品信息</p>
+					</div>
+					<div class="col-xs-7 edit_top_top2">
+						<form>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="请输入货物重量、名称" readonly id="cargo">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-5 edit_top_top1">
+						<p>
+							<img src="../../images/salesman_edit_top9.png">
+						</p>
+						<p class="edit_top_left">录入日期</p>
+					</div>
+					<div class="col-xs-7 edit_top_top2">
+						<form>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="点击输入日期" readonly id="lurushijian">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-5 edit_top_top1">
+						<p>
+							<img src="../../images/salesman_edit_top10.png">
+						</p>
+						<p class="edit_top_left">维护日期</p>
+					</div>
+					<div class="col-xs-7 edit_top_top2">
+						<form>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="点击输入日期" readonly id="weihushijian">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-5 edit_top_top1">
+						<p>
+							<img src="../../images/salesman_edit_top11.png">
+						</p>
+						<p class="edit_top_left">司机姓名</p>
+					</div>
+					<div class="col-xs-7 edit_top_top2">
+						<form>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="请输入姓名" readonly id="name">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-5 edit_top_top1">
+						<p>
+							<img src="../../images/salesman_edit_top12.png">
+						</p>
+						<p class="edit_top_left">联系电话</p>
+					</div>
+					<div class="col-xs-7 edit_top_top2">
+						<form>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="请输入联系电话" readonly id="phone">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 备注 -->
+		<div class="container-fluid edit_top_bottom salesman_details_bottom">
+			<p>备注信息</p>
+			<textarea class="form-control" rows="2" readonly id="common">啦啦啦</textarea>
+		</div>
+		<div class="container-fluid sdh_bottom  hide">
+			<div class="row text-center login_btns text-center">
+				<div class="col-xs-5 text-center">
+					<button id="shanchu" class="sdh_btns1">
+						删除
+					</button>
+				</div>
+				<div class="col-xs-2"></div>
+				<div class="col-xs-5 text-center">
+					<button id="wancheng" class="sdh_btns2">
+						完成
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- 排序遮罩 -->
+		<div class="paixu_zhezhao"></div>
+		<script>
+			// 点击编辑解除禁用
+			$(".edit_right p").click(function() {
+				// 加载loading等操作
+				$(".paixu_zhezhao").show();
+				$(".paixu_zhezhao").css("top", 0)
+				$.DialogByZ.Loading('../../lib/jQueryZdialog/image/loading.png');
+				setTimeout(function() {
+					$.DialogByZ.Close();
+					$(".paixu_zhezhao").hide();
+					$(".paixu_zhezhao").css("top", "auto")
+				}, 500)
+
+				$(".sdh_bottom").removeClass("hide");
+				$(".sdh_bottom").addClass("show");
+
+				for (var i = 0; i < $("input").length; i++) {
+					$("input").eq(i).removeAttr("readonly");
+				}
+				$("textarea").removeAttr("readonly");
+				$("#lurushijian").attr("readonly", "readonly");
+				$("#weihushijian").attr("readonly", "readonly");
+				// 日期插件
+				jeDate("#lurushijian", {
+					format: "YYYY-MM-DD hh:mm:ss"
+				});
+				jeDate("#weihushijian", {
+					format: "YYYY-MM-DD hh:mm:ss"
+				});
+			});
+			
+			//点击完成(修改)
+			$("#wancheng").click(function(){
+				var platenum = $("#platenum").val();
+				var marque = $("#marque").val();
+				var cargo = $("#cargo").val();
+				var create_time = $("#lurushijian").val();
+				var update_time = $("#weihushijian").val();
+				var name = $("#name").val();
+				var tel = $("#tel").val();
+				var common = $("#common").val();
+				man_det_genggai(platenum, marque, cargo, create_time, update_time, name, tel, common);
+			})
+			// 点击完成(修改)渲染
+			function man_det_genggai(platenum, marque, cargo, create_time, update_time, name, tel, common) {
+				$.ajax({
+					type: "post",
+					url: global_url + "/way/updateWay",
+					data: {
+						platenum: platenum,
+						marque: marque,
+						cargo: cargo,
+						create_time: create_time,
+						update_time: update_time,
+						name: name,
+						tel: tel,
+						common: common,
+						w_id: sessionStorage.getItem("man_index_genggai")
+					},
+					success: function(data) {
+						if (data.success) {
+							setTimeout(function () {
+                                $.DialogByZ.Alert({
+								Title: "提示",
+								Content: data.msg,
+								BtnL: "确定",
+								FunL: alerts1
+							})
+                            }, 10)
+
+						} else {
+							setTimeout(function () {
+                                $.DialogByZ.Alert({
+								Title: "提示",
+								Content: data.msg,
+								BtnL: "确定",
+								FunL: alerts1
+							})
+                            }, 10)
+                        }
+                        
+                        function alerts1() {
+                            $.DialogByZ.Close();
+
+                        }
+					},
+					error: function(data) {
+						alert("出错了，请稍后重试")
+					}
+				});
+			}
+			function alerts1 () {
+				history.go(-1);
+			}
+			
+			// 点击删除
+			$("#shanchu").click(function () {
+				delete_man_details ()
+			})
+			// 删除ajax
+			function delete_man_details () {
+			    var ids = [];
+				ids.push(sessionStorage.getItem("man_index_genggai"))
+			    $.ajax({
+			        type: "post",
+			        url: global_url + "/way/deleteWayBatch",
+			        data: {
+			            ids:ids,
+			        },
+			        success: function (data) {
+			            if (data.success) {
+			                setTimeout(function () {
+			                    if (data.msg) {
+			                        $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts132});
+			                    }
+			                }, 10)
+			            } else {
+			                setTimeout(function () {
+			                    if (data.msg) {
+			                        $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts1212});
+			                    }
+			                }, 10)
+                        }
+                        
+                        function alerts1212() {
+                            $.DialogByZ.Close();
+                         }
+                         function alerts132() {
+                            history.go(-1)
+                         }
+			        }
+			    })
+			}
+			function alerts1() {
+			    salesman_index(sort);
+			}
+
+			// 渲染数据
+			$.ajax({
+				type: "post",
+				url: global_url + "/way/getWayByWId",
+				data: {
+					w_id: sessionStorage.getItem("man_index_genggai")
+				},
+				success: function(results) {
+					$("#start_title").text(results.data.start_pro)
+					$("#arrive_title").text(results.data.arrive_pro)
+					$("#start_pro").text(results.data.start_pro)
+					$("#start_down").text(results.data.start_down)
+					$("#arrive_pro").text(results.data.arrive_pro)
+					$("#arrive_down").text(results.data.arrive_down)
+					$("#platenum").val(results.data.platenum)
+					$("#marque").val(results.data.marque)
+					$("#cargo").val(results.data.cargo)
+					$("#lurushijian").val(results.data.create_time)
+					$("#weihushijian").val(results.data.update_time)
+					$("#name").val(results.data.name)
+					$("#phone").val(results.data.tel)
+					$("#common").val(results.data.common)
+				},
+				error: function(data) {
+					alert("出错了，请稍后重试")
+				}
             });
-            jeDate("#weihushijian", {
-                format: "YYYY-MM-DD hh:mm:ss"
-            });
-        })
-        
-    </script>
-</body>
+            
+            // 点击发那会
+            $(".edit_left").click(function () {
+                history.go(-1)
+            })
+		</script>
+	</body>
 </html>

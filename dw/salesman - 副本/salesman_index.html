@@ -16,26 +16,12 @@
         <script src="../../js/common.js"></script>
         <title>维护路线</title>
         <style>
-            .personnel-nav{
-                background: url(../../images/nav-lr-q.png.png) no-repeat center;
-                background-size: 100% 100%;
-            }
-        </style>
-        <style>
             body{
                 padding-bottom: 80px;
             }
             .wrap-select-box{
                 box-shadow: -3px 3px 4px 0px rgba(59,159,218,0.24);
-			}
-			.personnel-nav{
-				display: block;
-				width: 2rem;
-				height: 2rem;
-				background: url(../../images/nav-wd-renyuan.png) no-repeat center;
-				background-size: 100% 100%;
-				margin: 0 auto;
-			}
+            }
         </style>
 	</head>
 	<body>
@@ -48,8 +34,7 @@
 							<p>选择操作</p>
 						</div>
 						<div class="col-md-8 col-xs-6">
-                            <h2>维护路线：<span>山东-江苏</span></h2>
-                            <!-- <h2>查看所有</h2> -->
+							<h2>维护路线：<span>山东-江苏</span></h2>
 						</div>
 						<div class="col-md-2 col-xs-3" id="find">
 							<p>查询</p>
@@ -81,21 +66,16 @@
 				<div class="btn-box">
 					<button type="button" style="color: #fff;">删除</button>
 					<button type="button" style="color: #fff;">更改</button>
-                    <button type="button" style="color: #fff;">导入</button>
-                    <form id="fam" enctype='multipart/form-data' style="display:none;">               
-                        <div class="form-group">
-                          <!--<label for="upteainput">上传文件</label>-->
-                          <input id="uploadfile" name="upfile" type="file" class="form-control-file">    
-                        </div>             
-                    </form>
+					<button type="button" style="color: #fff;">导入</button>
 					<button type="button" style="color: #fff;">导出</button>
 					<div class="clear"></div>
 				</div>
 			</div>
 		</div>
-		<!--内容-->
+        <!--内容-->
+        
 		<div class="saslesman_content">
-            <!-- <div class="wrap-cont-box">
+         <!--    <div class="wrap-cont-box">
 			    <div class="container">
 				    <div class="main-cont-box">
 					    <div class="region-cont-box">
@@ -104,9 +84,9 @@
 								<p>山东</p>
 								<span>临沂</span>
 							</div>
-							<div class="col-md-2 col-xs-2 arwayList-cont-box">
-								<span class="arwayList-one"></span>
-								<span class="arwayList-two"></span>
+							<div class="col-md-2 col-xs-2 arrows-cont-box">
+								<span class="arrows-one"></span>
+								<span class="arrows-two"></span>
 							</div>
 							<div class="col-md-5 col-xs-5 getTo-cont-box tc">
 								<p>江苏</p>
@@ -146,9 +126,9 @@
 								<p>山东</p>
 								<span>临沂</span>
 							</div>
-							<div class="col-md-2 col-xs-2 arwayList-cont-box">
-								<span class="arwayList-one"></span>
-								<span class="arwayList-two"></span>
+							<div class="col-md-2 col-xs-2 arrows-cont-box">
+								<span class="arrows-one"></span>
+								<span class="arrows-two"></span>
 							</div>
 							<div class="col-md-5 col-xs-5 getTo-cont-box tc">
 								<p>江苏</p>
@@ -177,9 +157,9 @@
 					    </div>
 				    </div>
 			    </div>
-            </div> -->
+            </div>
             
-            <!-- <div class="wrap-cont-box">
+            <div class="wrap-cont-box">
                     <div class="container">
                         <div class="main-cont-box">
                             <div class="region-cont-box">
@@ -188,9 +168,9 @@
                                     <p>山东</p>
                                     <span>临沂</span>
                                 </div>
-                                <div class="col-md-2 col-xs-2 arwayList-cont-box">
-                                    <span class="arwayList-one"></span>
-                                    <span class="arwayList-two"></span>
+                                <div class="col-md-2 col-xs-2 arrows-cont-box">
+                                    <span class="arrows-one"></span>
+                                    <span class="arrows-two"></span>
                                 </div>
                                 <div class="col-md-5 col-xs-5 getTo-cont-box tc">
                                     <p>江苏</p>
@@ -229,9 +209,9 @@
                                         <p>山东</p>
                                         <span>临沂</span>
                                     </div>
-                                    <div class="col-md-2 col-xs-2 arwayList-cont-box">
-                                        <span class="arwayList-one"></span>
-                                        <span class="arwayList-two"></span>
+                                    <div class="col-md-2 col-xs-2 arrows-cont-box">
+                                        <span class="arrows-one"></span>
+                                        <span class="arrows-two"></span>
                                     </div>
                                     <div class="col-md-5 col-xs-5 getTo-cont-box tc">
                                         <p>江苏</p>
@@ -270,9 +250,9 @@
                                             <p>山东</p>
                                             <span>临沂</span>
                                         </div>
-                                        <div class="col-md-2 col-xs-2 arwayList-cont-box">
-                                            <span class="arwayList-one"></span>
-                                            <span class="arwayList-two"></span>
+                                        <div class="col-md-2 col-xs-2 arrows-cont-box">
+                                            <span class="arrows-one"></span>
+                                            <span class="arrows-two"></span>
                                         </div>
                                         <div class="col-md-5 col-xs-5 getTo-cont-box tc">
                                             <p>江苏</p>
@@ -311,9 +291,9 @@
                                                 <p>山东</p>
                                                 <span>临沂</span>
                                             </div>
-                                            <div class="col-md-2 col-xs-2 arwayList-cont-box">
-                                                <span class="arwayList-one"></span>
-                                                <span class="arwayList-two"></span>
+                                            <div class="col-md-2 col-xs-2 arrows-cont-box">
+                                                <span class="arrows-one"></span>
+                                                <span class="arrows-two"></span>
                                             </div>
                                             <div class="col-md-5 col-xs-5 getTo-cont-box tc">
                                                 <p>江苏</p>
@@ -352,9 +332,9 @@
                                                     <p>山东</p>
                                                     <span>临沂</span>
                                                 </div>
-                                                <div class="col-md-2 col-xs-2 arwayList-cont-box">
-                                                    <span class="arwayList-one"></span>
-                                                    <span class="arwayList-two"></span>
+                                                <div class="col-md-2 col-xs-2 arrows-cont-box">
+                                                    <span class="arrows-one"></span>
+                                                    <span class="arrows-two"></span>
                                                 </div>
                                                 <div class="col-md-5 col-xs-5 getTo-cont-box tc">
                                                     <p>江苏</p>
@@ -383,8 +363,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
-            
+                                </div>
+             -->
         </div>
 		<!--底部导航-->
 		<div class="wrap-nav-box tc">
@@ -418,9 +398,8 @@
             }
         </style>
 		<script>
-            var a = GetQueryString ("a");            
             // 点击遮罩收起
-            $(".paixu p:eq(2)").click(function () {					
+            $(".paixu p:eq(2)").click(function () {								
                 $(".paixu").hide();
                 $(".paixu_zhezhao").hide();
                 $("body").css({"position":"static"});                
@@ -461,7 +440,8 @@
                 flag = true;
                 $(".warp-btn-box").show();                
             })
-            $(".saslesman_content ").on("click", ".main-cont-box", function () {
+            // 点击查看详情
+            $(".saslesman_content").on("click", ".main-cont-box", function () {
                 if (flag == false) {
                     location.href = "salesman_details.html"
                 } else {
@@ -488,64 +468,43 @@
                     break;
                 }
             })
-
             var sort = "";
             $(".paixu p:eq(0)").click(function () {
                 sort = "";
-                if (a == null) {
-                    salesman_index(sort);
-                } else if (a == 1) {
-                    salesman_index1 (sort);
-                }
+                salesman_index(sort);
                 $(".paixu").hide();
                 $(".paixu_zhezhao").hide();
                 $("body").css({"position":"static"});
             })
             $(".paixu p:eq(1)").click(function () {
                 sort = "desc";
-                if (a == null) {
-                    salesman_index(sort);
-                } else if (a == 1) {
-                    salesman_index1 (sort);
-                }
+                salesman_index(sort);
                 $(".paixu").hide();
                 $(".paixu_zhezhao").hide();
                 $("body").css({"position":"static"});
             })
-
-            if (a == null) {
-                salesman_index(sort);
-            } else if (a == 1) {
-                salesman_index1 (sort);
-            }
+            salesman_index(sort)
             // 默认查询
             function salesman_index (sort) {
                 $.ajax({
                     url: global_url + "/way/wayListByUidSearch",
                     type: "post",
                     data: {
-                        pageSize: 1000,
+                        pageSize: 6,
                         pageNum: 1,
                         sort: sort
                     },
                     success: function (data) {
                         $(".saslesman_content").empty();                        
-                        if (data) {
-                            if (data.success) {
-                                sa_index_xuanran(data)
-                                } else {
-                                setTimeout (function () {
-                                    if (data.msg) {
-                                        $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
-                                    }
-                                }, 10)
-                            }
+                        if (data.success) {
+                         sa_index_xuanran(data)
                         } else {
                             setTimeout (function () {
-                                $.DialogByZ.Alert({Title: "", Content: "未查询到数据", BtnL:"确定",FunL:alerts});
+                                if (data.msg) {
+                                    $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                                }
                             }, 10)
-                        }
-                       
+                         }
                     }
                 })
             }
@@ -557,7 +516,7 @@
             function sa_index_xuanran(data) {
                 $(".saslesman_content").empty();
                 for (var i = 0; i < data.rows.length; i++) {
-                    var str = '<div class="wrap-cont-box" w_id = ' + data.rows[i].w_id + '> ' + 
+                    var str = '<div class="wrap-cont-box"> ' + 
 			    '<div class="container">' + 
 				    '<div class="main-cont-box">' + 
 					    '<div class="region-cont-box">' + 
@@ -566,9 +525,9 @@
 								'<p>' + data.rows[i].start_pro + '</p>' + 
 								'<span>' + data.rows[i].start_down + '</span>' + 
 							'</div>' + 
-							'<div class="col-md-2 col-xs-2 arwayList-cont-box">' + 
-								'<span class="arwayList-one"></span>' + 
-								'<span class="arwayList-two"></span>' + 
+							'<div class="col-md-2 col-xs-2 arrows-cont-box">' + 
+								'<span class="arrows-one"></span>' + 
+								'<span class="arrows-two"></span>' + 
 							'</div>' + 
 							'<div class="col-md-5 col-xs-5 getTo-cont-box tc">' + 
 								'<p>' + data.rows[i].arrive_pro + '</p>' + 
@@ -600,286 +559,20 @@
             '</div>'
                     $(".saslesman_content").append(str);
                 }
-                // 截取时间
-                for (var i = 0; i <  $(".saslesman_content .wrap-cont-box").length; i++) {
-                     jeiqu_riqi ($(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(0) span"), $(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(0) span").text());
-                     jeiqu_riqi ($(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(1) span"), $(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(1) span").text());
+               // 截取时间
+               for (var i = 0; i <  $(".saslesman_content .wrap-cont-box").length; i++) {
+                    jeiqu_riqi ($(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(0) span"), $(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(0) span").text());
+                    jeiqu_riqi ($(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(1) span"), $(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(1) span").text());
                 }
             }
             
-        //截取
+        //    截取
         function jeiqu_riqi (sli, values) {
             var str = values.substr(0, 10);
-            sli.text(str); 
-        }
-        // 点击删除
-        $(".btn-box button:eq(0)").click(function () {
-            var arr1 = [];
-            for (var i = 0 ; i < $(".saslesman_content .wrap-cont-box").length; i++) {
-                if ($(".saslesman_content .wrap-cont-box").eq(i).find(".main-cont-box").attr("class") == "main-cont-box change-active") {
-                    arr1.push(i);
-                }
-            }
-            if (arr1.length > 0 ) {
-                var arr2 = [];
-                for (var i = 0; i < arr1.length; i++) {
-                    arr2.push($(".saslesman_content .wrap-cont-box").eq(arr1[i]).attr("w_id"));
-                }
-                delete_man_index (arr2);
-            } else {
-                $.DialogByZ.Alert({Title: "", Content: "请至少选择一个", BtnL:"确定",FunL:alerts});
-            }
-        })
-        // 删除ajax
-        function delete_man_index (arr2) {
-            var ids = arr2;
-            $.ajax({
-                type: "post",
-                url: global_url + "/way/deleteWayBatch",
-                data: {
-                    ids: ids
-                },
-                success: function (data) {
-                    if (data.success) {
-                        setTimeout(function () {
-                            if (data.msg) {
-                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts1});
-                            }
-                        }, 10)
-                    } else {
-                        setTimeout(function () {
-                            if (data.msg) {
-                                $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
-                            }
-                        }, 10)
-                    }
-                }
-            })
-        }
-        function alerts1() {
-            salesman_index(sort);
-        }
-        // 点击更改
-        $(".btn-box button:eq(1)").click(function () {
-            var arr1 = [];
-            for (var i = 0 ; i < $(".saslesman_content .wrap-cont-box").length; i++) {
-                if ($(".saslesman_content .wrap-cont-box").eq(i).find(".main-cont-box").attr("class") == "main-cont-box change-active") {
-                    arr1.push(i);
-                }
-            }
-            if (arr1.length == 1 ) {
-                sessionStorage.setItem("man_index_genggai", $(".saslesman_content .wrap-cont-box").eq(arr1[0]).attr("w_id"));
-                location.href = "salesman_details_genggai.html";
-            } else {
-                $.DialogByZ.Alert({Title: "", Content: "请选择一个", BtnL:"确定",FunL:alerts});
-            }
-        })
-        // 点击导入
-        $(".btn-box button:eq(2)").click(function () {
-            $("#uploadfile").click();
-        })
-        $("#uploadfile").change(uploadonline);
-        /*上传*/
-        function uploadonline() {
-
-        var uploadFile = $("#uploadfile")[0].files[0];
-        console.log(uploadFile);
-        var formData = new FormData();
-        formData.append("uploadFile", uploadFile);
-
-        $("#fileForm").submit();
-
-        console.log("formData:" + formData);
-        // if ("undefined" != typeof(uploadFile) && uploadFile != null && uploadFile != "") {
-        $.ajax({
-            url: global_url +  '/excel/importExcel?instance=' + "way",
-            type: 'POST',
-            data: formData,
-            async: false,
-            cache: false,
-            contentType: false, //不设置内容类型
-            processData: false, //不处理数据
-            success: function (data) {
-                // alert(data);
-                if (data.success) {
-                    setTimeout(function () {
-                        $.DialogByZ.Alert({Title: "提示", Content: "导入数据成功"+data.msg,BtnL:"确定",FunL:alerts111})
-                    }, 10)
-                } else {
-                    setTimeout(function () {
-                        $.DialogByZ.Alert({Title: "提示", Content: data.msg,BtnL:"确定",FunL:alerts11})
-                    }, 10)
-                }
-            }
-            })
-        }
-        function alerts11 () {
-            $.DialogByZ.Close();
-        }
-        function alerts111 () {
-            history.go(0);
+            sli.text(str) 
         }
 
-        // 点击导出
-        $(".btn-box button:eq(3)").click(function () {
-            var arr1 = [];
-            for (var i = 0 ; i < $(".saslesman_content .wrap-cont-box").length; i++) {
-                if ($(".saslesman_content .wrap-cont-box").eq(i).find(".main-cont-box").attr("class") == "main-cont-box change-active") {
-                    arr1.push(i);
-                }
-            }
-            if (arr1.length > 0 ) {
-                var checkIds = [];
-                for (var i = 0; i < arr1.length; i++) {
-                    checkIds.push($(".saslesman_content .wrap-cont-box").eq(arr1[i]).attr("w_id"));
-                }
-                window.location.href = global_url + "/excel/export?instance=way&fileName=送货单&datas=12&checkIds=" + checkIds.toString();
-            } else {
-                $.DialogByZ.Alert({Title: "", Content: "请至少选择一个", BtnL:"确定",FunL:alerts});
-            }
-        })
-
-
-        if  (sessionStorage.getItem("man_index") == 1  &&  sessionStorage.getItem("haha") == 1){
-            sessionStorage.setItem("haha", 2);            
-            location.href = location.href + "?a=1"
-        }
-
-        function GetQueryString (name) {
-            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-            var r = window.location.search.substr(1).match(reg);
-            if(r!=null) return  unescape(r[2]); return null;
-        }
-        
-
-
-        // 查询
-         // 默认查询
-         function salesman_index1 (sort) {
-                var obj = JSON.parse(sessionStorage.getItem("man_obj"));
-                console.log(obj);
-                var start_pro =  obj.start_pro
-                var arrive_pro = obj.arrive_pro
-                var start_down = obj.start_down
-                var arrive_down = obj.arrive_down
-                var palatenum = obj.palatenum
-                var marque = obj.marque
-                var cargo = obj.cargo
-                var create_time = obj.create_time
-                var update_time = obj.update_time
-                var name = obj.name
-                var tel = obj.tel
-                if (start_down == "点击选择城市") {
-                    start_down = "";
-                }
-                if (arrive_down == "点击选择城市") {
-                    arrive_down = "";
-                }
-                $.ajax({
-                    url: global_url + "/way/wayListByManSearch",
-                    type: "post",
-                    data: {
-                        pageSize: 1000,
-                        pageNum: 1,
-                        sort: sort,
-                        start_pro: start_pro,
-                        arrive_pro: arrive_pro,
-                        start_down: start_down,
-                        arrive_down: arrive_down,
-                        platenum: palatenum,
-                        marque: marque,
-                        cargo: cargo,
-                        create_time: create_time,
-                        update_time: update_time,
-                        name: name,
-                        tel1: tel,
-                    },
-                    success: function (data) {
-                        if (data) {
-                            if (data.success) {
-                                    if (data.total == 0) {
-                                        setTimeout(function () {
-                                            $.DialogByZ.Alert({Title: "", Content: "查询数据为空", BtnL:"确定",FunL:alerts});
-                                        }, 10)
-                                    } else {
-                                        setTimeout(function () {
-                                            $.DialogByZ.Alert({Title: "", Content: "查询成功", BtnL:"确定",FunL:alerts123});
-                                        }, 10)
-                                        sa_index_xuanran1(data);
-                                    }
-
-                                } else {
-                                setTimeout (function () {
-                                    if (data.msg) {
-                                        $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
-                                    }
-                                }, 10)
-                            }
-                        } else {
-                            setTimeout (function () {
-                                $.DialogByZ.Alert({Title: "", Content: "未查询到数据", BtnL:"确定",FunL:alertsalerts});
-                            }, 10)
-                        }
-                       
-                    }
-                })
-            }
-
-
-
-            // 渲染
-		function sa_index_xuanran1(data) {
-                $(".saslesman_content").empty();
-                for (var i = 0; i < data.wayList.length; i++) {
-                    var str = '<div class="wrap-cont-box" w_id = ' + data.wayList[i].w_id + '> ' + 
-			    '<div class="container">' + 
-				    '<div class="main-cont-box">' + 
-					    '<div class="region-cont-box">' + 
-					    	'<div class="row">' + 
-							    '<div class="col-md-5 col-xs-5 start-cont-box tc">' + 
-								'<p>' + data.wayList[i].start_pro + '</p>' + 
-								'<span>' + data.wayList[i].start_down + '</span>' + 
-							'</div>' + 
-							'<div class="col-md-2 col-xs-2 arwayList-cont-box">' + 
-								'<span class="arwayList-one"></span>' + 
-								'<span class="arwayList-two"></span>' + 
-							'</div>' + 
-							'<div class="col-md-5 col-xs-5 getTo-cont-box tc">' + 
-								'<p>' + data.wayList[i].arrive_pro + '</p>' + 
-								'<span>' + data.wayList[i].arrive_down + '</span>' + 
-							'</div>' + 
-						'</div>' + 
-					'</div>' + 
-					    '<div class="details-cont-box">' + 
-						    '<div>' + 
-							    '<p>车牌号码:<span>' + data.wayList[i].platenum + '</span></p>' + 
-						    '</div>' + 
-						    '<div>' + 
-							    '<p><span>' + data.wayList[i].name + '</span><span>' + data.wayList[i].tel + '</span></p>' +
-						   '</div>' + 
-					    '</div>' +
-					    '<div class="date-cont-box">' +
-						    '<div>' +
-							    '<p>录入日期：<span>' + data.wayList[i].create_time + '</span></p>' +
-						    '</div>' +
-						    '<div>' +
-							    '<p style="margin-left: 8px;">维护日期：<span>' + data.wayList[i].update_time + '</span></p>' +
-						    '</div>' +
-						    '<div class="btn-cont-box">' +
-							    '<p class="more-cont-btn">查看详情</p>' +
-						    '</div>' +
-					    '</div>' +
-				    '</div>' +
-			    '</div>' +
-            '</div>'
-                    $(".saslesman_content").append(str);
-                }
-                // 截取时间
-                for (var i = 0; i <  $(".saslesman_content .wrap-cont-box").length; i++) {
-                     jeiqu_riqi ($(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(0) span"), $(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(0) span").text());
-                     jeiqu_riqi ($(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(1) span"), $(".saslesman_content .wrap-cont-box").eq(i).find(".date-cont-box div:eq(1) span").text());
-                }
-            }
+       
         </script>
 
 	</body>
