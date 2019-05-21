@@ -276,7 +276,7 @@
 					type: "post",
 					success: function (data) {
 						if (data) {
-							// luru_xuanran (data);
+							luru_xuanran (data);
 						} else {
 							setTimeout (function () {
 								$.DialogByZ.Alert({Title: "", Content: "未查到", BtnL:"确定",FunL:alerts});
@@ -287,9 +287,10 @@
 			}
 			// 渲染
 			function luru_xuanran (data) {
-				$(".L-cont-box_1_1").text();
-				$(".L-cont-box_1_2").text();
-				$(".L-cont-box_1_3").text();
+				console.log(data)
+				$(".L-cont-box_1_1").text(data.today);
+				$(".L-cont-box_1_2").text(data.month);
+				$(".L-cont-box_1_3").text(data.history);
 			}
 		</script>
 	</body>

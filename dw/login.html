@@ -25,7 +25,8 @@
         }
         .header_banner img{
            position: absolute;
-           height: 180px;           
+           /* height: 180px;            */
+           height: 249px;
            width: 100%;
         }
         .login_inputs{
@@ -231,6 +232,9 @@
             })
         })
         $(".text-left").click(function () {
+            $.DialogByZ.Alert({Title: "", Content: "正在开发中", BtnL:"确定",FunL:alerts});
+        })
+        $(".login_circle").click(function () {
             $.DialogByZ.Alert({Title: "", Content: "正在开发中", BtnL:"确定",FunL:alerts});
         })
 

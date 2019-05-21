@@ -220,10 +220,10 @@
                 },
                 success: function (data) {
                     if (data) {
-                        $(".salesman_detailsl_l p:eq(0)").text(data.way_line.province_a);
-                        $(".salesman_detailsl_l p:eq(1)").text(data.way_line.urban_a);
-                        $(".salesman_detailsl_r p:eq(0)").text(data.way_line.province_b);
-                        $(".salesman_detailsl_r p:eq(1)").text(data.way_line.urban_b);
+                        $(".salesman_detailsl_l p:eq(0)").text(data.way_lineList[0].province_a);
+                        $(".salesman_detailsl_l p:eq(1)").text(data.way_lineList[0].urban_a);
+                        $(".salesman_detailsl_r p:eq(0)").text(data.way_lineList[0].province_b);
+                        $(".salesman_detailsl_r p:eq(1)").text(data.way_lineList[0].urban_b);
                         $(".control1").val(data.name);
                     } else {
                         setTimeout(function () {

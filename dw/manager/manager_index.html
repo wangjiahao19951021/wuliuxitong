@@ -457,6 +457,8 @@
             })
             $(".saslesman_content ").on("click", ".main-cont-box", function () {
                 if (flag == false) {
+                    var man_index_genggai = $(this).parents(".wrap-cont-box").attr("w_id");
+                    sessionStorage.setItem("man_index_genggai", man_index_genggai )
                     location.href = "manager_details.html"
                 } else {
                     $(this).toggleClass("change-active");
@@ -483,9 +485,9 @@
                 }
             })
 
-            var sort = "";
+            var sort = "asc";
             $(".paixu p:eq(0)").click(function () {
-                sort = "";
+                sort = "asc";
                 if (a == null) {
                     salesman_index(sort);
                 } else if (a == 1) {
