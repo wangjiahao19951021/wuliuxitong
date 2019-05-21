@@ -273,6 +273,11 @@
             var province_b = $(".form-group2 .ansel_inputval").val();
             var urban_a = $(".form-group3 .ansel_inputval").val();
             var urban_b = $(".form-group4 .ansel_inputval").val();
+            if (province_a == "点击选择省份" && province_b == "province_b") {
+                alert(1)
+                $.DialogByZ.Alert({Title: "", Content: "请输入出发省份或者到达省份", BtnL:"确定",FunL:alerts});
+                return false;
+            }
             $.ajax({
                 url: global_url + "/wayLine/addNewWayLine",
                 type: "post",
