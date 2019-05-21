@@ -1,7 +1,7 @@
 // 设置ie兼容ajax 此处jq-1.11.3
 jQuery.support.cors=true;
 // ajax公用设置
-var global_url = "https://742b26e9.ngrok.io"
+var global_url = "https://f81aa0ee.ngrok.io"
 $.ajaxSetup({
     url : global_url,
     global : false,

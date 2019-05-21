@@ -371,7 +371,7 @@
                     $("#chexing").val(data.data.marque);
                     $("#huopin").val(data.data.cargo);
                     $("#lurushijian").val(data.data.create_time);
-                    $("#weihushijian").val(data.data.create_time);
+                    $("#weihushijian").val(data.data.update_time);
                     $("#name").val(data.data.name);
                     $("#tel").val(data.data.tel);
                     $("#common").val(data.data.common);
@@ -394,7 +394,52 @@
             history.go(-1);
         })
         // 点击删除
-        
+        // 点击更改
+        $(".sdh_btns2").click(function () {
+            var platenum = $("#chepai").val();
+            var marque = $("#chexing").val();
+            var cargo = $("#huopin").val();
+            var create_time = $("#lurushijian").val();
+            var update_time = $("#weihushijian").val();
+            var name = $("#name").val();
+            var tel = $("#tel").val();
+            var common = $("#common").val(); 
+            man_de_genggai(platenum, marque, cargo, create_time, update_time, name, tel, common);
+        });
+        function man_de_genggai (platenum, marque, cargo, create_time, update_time, name, tel, common) {
+            $.ajax({
+                url: global_url + "/way/updateWay",
+                data: {
+                    platenum, 
+                    marque, 
+                    cargo, 
+                    create_time, 
+                    update_time, 
+                    name, 
+                    tel, 
+                    common
+                },
+                type: "post",
+                success: function (data) {
+                    if (data) {
+                        if (data.success) {
+                            setTimeout (function () {
+                                if (data.msg) {
+                                    $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                                }
+                            }, 10)
+                        } else {
+                            setTimeout (function () {
+                                if (data.msg) {
+                                    $.DialogByZ.Alert({Title: "", Content: data.msg, BtnL:"确定",FunL:alerts});
+                                }
+                            }, 10)
+                        }
+                    }
+                }
+            })
+        }
+
     </script>
 </body>
 </html>
